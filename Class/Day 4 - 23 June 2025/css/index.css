@@ -1,0 +1,47 @@
+/* General page style */
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Nav styling */
+nav {
+    background-color: #444;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffa500; /* Highlight color on hover */
+}
+
+section {
+    padding: 10px 10px;
+}
+
+.news {
+    padding: 10px 10px;
+    margin: 10px 10px;
+    background: grey;
+    border: royalblue;
+    border-radius: 10px;
+}

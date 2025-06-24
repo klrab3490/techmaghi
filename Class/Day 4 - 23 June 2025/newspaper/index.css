@@ -1,0 +1,38 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    color: aqua;
+}
+
+#newspaper {
+    display: grid;
+    gap: 10px 10px;
+}
+
+.news {
+  padding: 20px 20px;
+}
+
+.news h2 {
+  color: blueviolet;
+}
+
+.news #author {
+  margin-left: 10px;
+  font-style: italic;
+  color: gray;
+}
+
+.news p {
+  margin: 10px 0;
+}
+
+.news p span {
+  margin-left: 10px;
+}

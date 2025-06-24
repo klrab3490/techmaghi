@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: 23/6/25 : Techmaghi Home page</title>
+    <style>
+        /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #link-routing, #css-section {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        #content {
+            display: block;
+            /* margin-bottom: 1rem; */
+            color: #333;
+            }
+
+            ul {
+                padding-left: 20px;
+            }
+
+            li {
+                margin-bottom: 0.5rem;
+            }
+
+            a {
+                display: inline-block;
+                margin-top: 0.5rem;
+                color: #0066cc;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            a:hover {
+                text-decoration: underline;
+                color: #004080;
+            }
+
+            code {
+                background-color: #eef;
+                padding: 2px 6px;
+                border-radius: 4px;
+                font-family: monospace;
+            }
+
+            #css-properties {
+                list-style-type: circle;
+                padding-left: 20px; /* ensures bullets are visible */
+            }
+
+            #css-properties li {
+                display: list-item;
+            }
+
+            #css-properties li p {
+                margin: 0px 0px;
+            }
+
+            #css-properties li span {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>My Website</h1>
+        </header>
+        
+        <section>
+            <div id="link-routing">
+                <span id="content">
+                    We are using both <code>id</code> and page-based routing to navigate to another page or to a section within the same page.
+                </span>
+                <a href="./links/index.html" title="Learn about working with links" rel="noopener noreferrer">
+                    Working With Links →
+                </a>
+            </div>
+
+        <div id="css-section">
+            <span id="content">
+                Adding CSS (Cascading Style Sheets) to style the webpage.<br> Types of CSS:
+                <ul>
+                    <li>Inline CSS (Using style attribute)</li>
+                    <li>Internal CSS (Embedded CSS using style tag)</li>
+                    <li>External CSS (Using css file)</li>
+                </ul>
+
+                Common CSS Properties:
+                <div id="css-properties-ul">
+                    <ul id="css-properties" style="list-style-type:circle">
+                        <li> <p style="display: flex;"><span>Text:</span> color, text-align, text-decoration, text-transform </p> </li>
+                        <li> <p style="display: flex;"><span>Font:</span> font-family, font-size, font-style, font-weight </p> </li>
+                        <li> <p style="display: flex;"><span>Box Model:</span> margin, padding, border, width, height </p> </li>
+                        <li> <p style="display: flex;"><span>Background:</span> background-color, background-image </p> </li>
+                        <li> <p style="display: flex;"><span>Borders:</span> border, border-radius </p> </li>
+                        <li> <p style="display: flex;"><span>Layout:</span> display, position, z-index </p> </li>
+                    </ul>
+                </div>
+            </span>
+            <a href="./css/index.html" title="Learn about CSS and how to use it" rel="noopener noreferrer">
+                CSS →
+            </a>
+        </div>
+    </section>
+</body>
+</html>
