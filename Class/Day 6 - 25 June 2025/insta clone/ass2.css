@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    color: grey;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+}
+
+img {
+    width: auto;
+    height: 500px;
+    border-radius: 10px;
+}
+
+#main {
+    gap: 40px;
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: center;
+    font-family: 'Billabong', cursive;
+}
+
+#main div {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#main h1 {
+    margin: 0;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Billabong', cursive;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form input {
+    margin: 5px;
+    height: 36px;
+    width: 270px;
+    padding: 2px 10px;
+    border-radius: 10px;
+    border-style: 2px solid grey;
+}
+
+form button {
+    margin: 5px;
+    width: 290px;
+    height: 36px;
+    font-weight: bold;
+    padding: 2px 10px;
+    color: darkblue;
+    text-align: center;
+    border-radius: 10px;
+    background: lightblue;
+    font-family: 'Billabong', cursive;
+}
+
+form button:hover {
+    color: lightblue;
+    background: darkblue;
+}
+
+#divider {
+    color: grey;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#login-with {
+    width: 300px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+
+#login-with #facebook {
+    gap: 10px;
+    display: flex;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-weight: bold;
+    border-radius: 6px;
+    color: lightblue;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#login-with #facebook:hover {
+    color: darkblue;
+    background-color: lightblue;
+}
+
+#sign-up {
+    gap: 10px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+}
+
+#sign-up a {
+    color: blue;
+    text-decoration: none;
+}
+
+#footer-top a {
+    color: grey;
+    text-decoration: none;
+}
+
+#footer-top div {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#footer-bottom {
+    gap: 10px;
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-bottom select {
+    color: grey;
+    background-color: black;
+}
