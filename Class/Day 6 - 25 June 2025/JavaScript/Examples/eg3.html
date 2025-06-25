@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header style="text-align: center;">
+        <a href="../../index.html">Homepage</a>
+    </header>
+    <h1>Factorial</h1>
+    <p>Input: <span id="input"></span></p>
+    <p>Output: <span id="output"></span></p>
+    <script>
+        let number = parseInt(prompt("Enter the number for which you want factorial for?"));
+        let i = number;
+        document.getElementById("input").textContent = number;
+        
+        let factorial = 1
+        for (let index = number; index >= 0; index--) {
+            // console.log(factorial);
+            factorial = index==0 ? factorial*1 : factorial*index;
+        }
+        document.getElementById("output").textContent = factorial;
+        
+        let fact = 0;
+        while (0<i) {
+            fact = i==0 ? fact*1 : fact*i;
+            i--;   
+        }
+        console(fact);
+
+    </script>
+</body>
+</html>
