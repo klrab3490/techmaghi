@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let scoreDolphins = 0;
+        let scoreKolas = 0;
+
+        scoreDolphins+= parseInt(prompt("Enter Dolphins Scores 1:"));
+        scoreDolphins+= parseInt(prompt("Enter Dolphins Scores 2:"));
+        scoreDolphins+= parseInt(prompt("Enter Dolphins Scores 3:"));
+
+        scoreDolphins/=3;
+
+        scoreKolas+= parseInt(prompt("Enter Kolas Scores 1:"));
+        scoreKolas+= parseInt(prompt("Enter Kolas Scores 2:"));
+        scoreKolas+= parseInt(prompt("Enter Kolas Scores 3:"));
+
+        scoreKolas/=3;
+
+        if (scoreDolphins>scoreKolas) {
+            console.log("Dolphins win the trophy");
+        } else if (scoreDolphins<scoreKolas) {
+            console.log("Koalas win the trophy");
+        } else if (scoreDolphins==scoreKolas) {
+            console.log("Both win the trophy");
+        } else {
+            console.log("None")
+        }
+    </script>
+</body>
+</html>

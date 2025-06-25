@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let bill = parseInt(prompt("Enter the bill value"))
+        let tip = (50<bill && 300>bill) ? bill*0.15 : bill*0.2;
+        console.log(`Tip: ${tip} and Total Amount: ${bill+tip}`); 
+    </script>
+</body>
+</html>
