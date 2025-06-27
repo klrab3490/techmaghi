@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Day 6: 25/6/25 : Techmaghi Learning Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    section {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .topic-block {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    h2, h3 {
+      color: #003366;
+    }
+
+    code {
+      background-color: #eef;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      display: block;
+      margin: 0.5rem 0;
+      white-space: pre-wrap;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #004080;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Techmaghi Learning Hub</h1>
+  </header>
+
+  <section>
+    <!-- HTML Section -->
+    <div class="topic-block">
+      <h2>HTML & CSS Clone Project</h2>
+      <p>This is a responsive clone of the Nike homepage using only HTML and CSS.</p>
+      <a href="./html-css-clone/nike/index.html" target="_blank">View Nike Clone →</a>
+    </div>
+
+
+    <!-- JavaScript Section -->
+    <div class="topic-block">
+      <h2>JavaScript Topics</h2>
+
+      <h3>Function Parameters</h3>
+      <p>Defined in the function declaration.</p>
+      <code>
+function greet(name) {<br>
+  console.log("Hi " + name);<br>
+}
+      </code>
+
+      <h3>Function Arguments</h3>
+      <p>Actual values passed to the function call.</p>
+      <code>
+greet("Rahul"); // "Rahul" is the argument
+      </code>
+
+      <h3>Types of Scopes</h3>
+      <ul>
+        <li><strong>Global Scope</strong>
+          <code>
+let x = 5;<br>
+function show() {<br>
+  console.log(x);<br>
+}
+          </code>
+        </li>
+        <li><strong>Function Scope</strong>
+          <code>
+function test() {<br>
+  let y = 10;<br>
+  console.log(y);<br>
+}<br>
+console.log(y); // Error
+          </code>
+        </li>
+      </ul>
+
+      <h3>Closure Function</h3>
+      <p>Inner function accessing outer function’s variables after outer function is done.</p>
+      <code>
+function outer() {<br>
+  let count = 0;<br>
+  return function inner() {<br>
+    count++;<br>
+    console.log(count);<br>
+  }<br>
+}<br>
+const inc = outer();<br>
+inc(); // 1<br>
+inc(); // 2
+      </code>
+    </div>
+  </section>
+</body>
+</html>

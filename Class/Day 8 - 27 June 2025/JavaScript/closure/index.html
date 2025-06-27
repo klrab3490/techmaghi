@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Closure Example</h1>
+    <p>This example demonstrates a simple counter using closures in JavaScript.</p>
+    <p>Click the buttons to increment, decrement, or get the current count.</p> 
+    <p>Open the console to see the output.</p>
+    <p>Note: The count variable is private and cannot be accessed directly from outside the closure.</p>
+    <button onclick="counter.increment()">Increment</button>
+    <button onclick="counter.decrement()">Decrement</button>
+    <p>Click the buttons below to interact with the counter:</p>
+    <button onclick="console.log(counter.getCount())">Get Count</button>
+    <script>
+        function createCounter() {
+            let count = 0; // Private variable
+
+            return {
+                increment: function() {
+                    count++;
+                    console.log(`Count: ${count}`);
+                },
+                decrement: function() {
+                    count--;
+                    console.log(`Count: ${count}`);
+                },
+                getCount: function() {
+                    return count;
+                }
+            };
+        }
+
+        const counter = createCounter();
+
+    </script>
+</body>
+</html>
