@@ -168,3 +168,184 @@ img {
     color: white;
     background-color: grey;
 }
+
+#latest {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+#latest h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#latest #latest-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#latest #latest-items div {
+    width: 50%;
+}
+
+#latest #latest-items div img {
+    width: 686px;
+    height: 470px;
+}
+
+#featured {
+    display: flex;
+    flex-direction: column;
+    margin: 72px;
+}
+
+#featured h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#featured #featured-items {
+    display: flex;
+    gap: 24px;
+    grid-template-rows: 1fr auto;
+}
+
+#dont-miss {
+    margin: 48px;
+    display: flex;
+    flex-direction: column;
+}
+
+#dont-miss #dont-miss-text {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#dont-miss h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#shop-by-icons {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+#shop-by-icons #shop-by-icons-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#shop-by-icons #shop-by-icons-header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#shop-by-icons #shop-by-icons-header button {
+    background-color: #e5e5e5;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shop-by-icons #shop-by-icons-items {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+}
+
+#trending-now {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+#trending-now #trending-now-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#trending-now #trending-now-header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#trending-now #trending-now-header button {
+    background-color: #e5e5e5;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#trending-now #trending-now-items {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+}
+
+#shop-by-sport {
+    display: flex;
+    flex-direction: column;
+    margin: 48px;
+}
+
+#shop-by-sport #shop-by-sport-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#shop-by-sport #shop-by-sport-header div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#shop-by-sport #shop-by-sport-header button {
+    background-color: #e5e5e5;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#shop-by-sport #shop-by-sport-items {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+}

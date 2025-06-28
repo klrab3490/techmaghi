@@ -48,17 +48,12 @@
     </nav>
     <div id="hero-text">
         <div id="hero-text1">
-            <p>
-                New Styles On Sale: Up To 40% Off
-                <a href="">Shop All Our New Markdowns</a>
-            </p>
+            <p>New Styles On Sale: Up To 40% Off</p>
+            <a href="">Shop All Our New Markdowns</a>
         </div>
         <div id="hero-text2">
-            <p>
-                Move, Shop, Customise & Celebrate With Us<br>
-                <span>No matter what you feel like doing today, It's better as a Member.</span>
-                <a href="">Join Us</a>
-            </p>
+            <p>Move, Shop, Customise & Celebrate With Us<br><span>No matter what you feel like doing today, It's better as a Member.</span></p>
+            <a href="">Join Us</a>
         </div>
     </div>
     <div id="hero-image">
@@ -70,11 +65,11 @@
     </div>
 
     <!-- The Latest -->
-    <div>
-        <h2></h2>
-        <div>
+    <div id="latest">
+        <h2>The Latest</h2>
+        <div id="latest-items">
             <div>
-                <img src="" alt="">
+                <img src="https://static.nike.com/a/images/w_2880,h_1410,c_fill,f_auto/f0033762-621d-431d-af2a-e7f6babe0a28/image.jpg" alt="">
                 <div>
                     <h3></h3>
                     <p></p>
@@ -82,7 +77,7 @@
                 </div>
             </div>
             <div>
-                <img src="" alt="">
+                <img src="https://static.nike.com/a/images/w_2880,h_1410,c_fill,f_auto/f0033762-621d-431d-af2a-e7f6babe0a28/image.jpg" alt="">
                 <div>
                     <h3></h3>
                     <p></p>
@@ -93,30 +88,36 @@
     </div>
 
     <!-- Featured -->
-    <div>
+    <div id="featured">
         <h2>Featured</h2>
-        <div>
-            <a href="">
-                <img src="" alt="">
-                <h4>Cool For The Summer</h4>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <h4>Gear for Every Rep</h4>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <h4>Kids' Pegasus 41</h4>
-            </a>
+        <div id="featured-items">
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4>Cool For The Summer</h4>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4>Gear for Every Rep</h4>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4>Kids' Pegasus 41</h4>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Don't Miss -->
-    <div>
+    <div id="dont-miss">
         <h2>Don't Miss</h2>
         <div>
             <img src="" alt="">
-            <div>
+            <div id="dont-miss-text">
                 <p>Men's Air Jordan Collection</p>
                 <h4>SHOW 'EM UP</h4>
                 <p>Crafted for your flyest self, the new Air Jordan Collection brings <br>iconic prints and elevated cuts.</p>
@@ -126,109 +127,163 @@
     </div>
     
     <!-- Shop by Icons -->
-    <div>
-        <div>
+    <div id="shop-by-icons">
+        <div id="shop-by-icons-header">
             <h2>Shop by Icons</h2>
             <div>
-                <button><</button>
-                <button>></button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path>
+                    </svg>
+                </button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div>
-            <a href="">
-                <img src="" alt="">
-                <h4></h4>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <h4></h4>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <h4></h4>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <h4></h4>
-            </a>
+        <div id="shop-by-icons-items">
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4></h4>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4></h4>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4></h4>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <h4></h4>
+                </a>
+            </div>
         </div>
     </div>
     
     <!-- Trending Now -->
-    <div>
-        <div>
+    <div id="trending-now">
+        <div id="trending-now-header">
             <h2>Trending Now</h2>
             <div>
-                <button><</button>
-                <button>></button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path>
+                    </svg>
+                </button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div>
-            <a href="">
-                <img src="" alt="">
-                <div>
-                    <h4></h4>
-                    <p></p>
-                    <h5>MRP : </h5>
-                </div>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <div>
-                    <h4></h4>
-                    <p></p>
-                    <h5>MRP : </h5>
-                </div>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <div>
-                    <h4></h4>
-                    <p></p>
-                    <h5>MRP : </h5>
-                </div>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <div>
-                    <h4></h4>
-                    <p></p>
-                    <h5>MRP : </h5>
-                </div>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <div>
-                    <h4></h4>
-                    <p></p>
-                    <h5>MRP : </h5>
-                </div>
-            </a>
+        <div id="trending-now-items">
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <div>
+                        <h4></h4>
+                        <p></p>
+                        <h5>MRP : ₹ </h5>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <div>
+                        <h4></h4>
+                        <p></p>
+                        <h5>MRP : ₹ </h5>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <div>
+                        <h4></h4>
+                        <p></p>
+                        <h5>MRP : ₹ </h5>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <div>
+                        <h4></h4>
+                        <p></p>
+                        <h5>MRP : ₹ </h5>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <div>
+                        <h4></h4>
+                        <p></p>
+                        <h5>MRP : ₹ </h5>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     
     <!-- Shop By Sport -->
-    <div>
-        <div>
+    <div id="shop-by-sport">
+        <div id="shop-by-sport-header">
             <h2>Shop By Sport</h2>
             <div>
-                <button><</button>
-                <button>></button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M15.525 18.966L8.558 12l6.967-6.967"></path>
+                    </svg>
+                </button>
+                <button>
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M8.474 18.966L15.44 12 8.474 5.033"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div>
-            <a href="">
-                <img src="" alt="">
-                <p></p>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <p></p>
-            </a>
-            <a href="">
-                <img src="" alt="">
-                <p></p>
-            </a>
+        <div id="shop-by-sport-items">
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <p></p>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <p></p>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <p></p>
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="" alt="">
+                    <p></p>
+                </a>
+            </div>
         </div>
     </div>
 
