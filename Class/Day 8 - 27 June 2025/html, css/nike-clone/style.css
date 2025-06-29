@@ -116,8 +116,7 @@ img {
 }
 
 #hero-image {
-    height: 500px;
-    min-height: 300px;
+    height: 720px;
     display: flex;
     color: white;
     align-items: start;
@@ -132,7 +131,7 @@ img {
     display: flex;
     text-align: left;
     margin-left: 48px;
-    margin-top: 150px;
+    margin-top: 350px;
     flex-direction: column;
     justify-content: start;
 }
@@ -154,12 +153,12 @@ img {
 
 #hero-image button {
     border: none;
-    width: 200px;
+    width: 120px;
+    height: 36px;
     color: black;
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    padding: 10px 20px;
     border-radius: 10px;
     background-color: white;
 }
@@ -184,15 +183,58 @@ img {
 #latest #latest-items {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    position: relative;
 }
 
 #latest #latest-items div {
     width: 50%;
+    position: relative;
 }
 
 #latest #latest-items div img {
     width: 686px;
     height: 470px;
+    display: block;
+}
+
+#latest #latest-items div div {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 2;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+
+#latest #latest-items div div h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#latest #latest-items div div p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+#latest #latest-items div div button {
+    border: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#latest #latest-items div button:hover {
+    background-color: #e5e5e5;
+    color: black;
 }
 
 #featured {
@@ -208,9 +250,27 @@ img {
 }
 
 #featured #featured-items {
-    display: flex;
     gap: 24px;
-    grid-template-rows: 1fr auto;
+    display: grid;
+    font-weight: 500;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#featured #featured-items div {
+    display: flex;
+    flex-direction: column;
+}
+
+#featured #featured-items img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#featured #featured-items h4 {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 #dont-miss {
@@ -219,18 +279,50 @@ img {
     flex-direction: column;
 }
 
+#dont-miss h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#dont-miss img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 #dont-miss #dont-miss-text {
     display: flex;
+    margin-top: 30px;
     text-align: center;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 }
 
-#dont-miss h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 24px;
+#dont-miss #dont-miss-text h5 {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#dont-miss #dont-miss-text h1 {
+    font-size: 64px;
+    font-weight: bolder;
+}
+
+#dont-miss #dont-miss-text p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#dont-miss #dont-miss-text button {
+    color: white;
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bolder;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: black;
 }
 
 #shop-by-icons {
@@ -268,8 +360,24 @@ img {
 
 #shop-by-icons #shop-by-icons-items {
     display: flex;
-    gap: 24px;
-    overflow-x: auto;
+    height: 420px;
+    overflow-x: scroll;
+    padding: 20px 0;
+}
+
+#shop-by-icons #shop-by-icons-items a {
+    width: 420px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+#shop-by-icons #shop-by-icons-items img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
 }
 
 #trending-now {
@@ -306,9 +414,24 @@ img {
 }
 
 #trending-now #trending-now-items {
+    height: 465px;
     display: flex;
-    gap: 24px;
-    overflow-x: auto;
+    padding: 20px 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+}
+
+#trending-now #trending-now-items a {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+#trending-now #trending-now-items img {
+    width: 410px;
+    height: 380px;
+    object-fit: cover;
 }
 
 #shop-by-sport {
@@ -346,6 +469,127 @@ img {
 
 #shop-by-sport #shop-by-sport-items {
     display: flex;
-    gap: 24px;
-    overflow-x: auto;
+    padding: 20px 0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+#shop-by-sport #shop-by-sport-items a {
+    width: 440px;
+    height: 300px;
+    display: flex;
+    margin-right: 10px;
+    flex-direction: column;
+    position: relative;
+}
+
+#shop-by-sport #shop-by-sport-items img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%);
+}
+
+#shop-by-sport #shop-by-sport-items button {
+    left: 50px;
+    z-index: 2;
+    bottom: 40px;
+    border: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    width: fit-content;
+    padding: 10px 15px; 
+    border-radius: 10px;
+    background-color: white;
+}
+
+#shop-by-sport #shop-by-sport-items button:hover {
+    background-color: #e5e5e5;
+    color: black;
+}
+
+
+footer {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  padding: 40px 20px 20px;
+  background-color: #fff;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin: 6px 0;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #555;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-country {
+  align-self: flex-start;
+  white-space: nowrap;
+  margin-left: auto;
+  font-weight: bold;
+  color: #555;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
