@@ -8,25 +8,25 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.navbar {
+#navbar {
   background-color: #333;
   padding: 10px 0;
 }
 
-.nav-list {
+#nav-list {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 30px;
 }
 
-.nav-list a {
+#nav-list a {
   color: white;
   text-decoration: none;
   font-size: 18px;
   transition: color 0.3s;
 }
 
-.nav-list a:hover {
+#nav-list a:hover {
   color: #ff9800;
 }
