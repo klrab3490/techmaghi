@@ -1,0 +1,202 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    height: 84px;
+    color: #fff;    
+    background-color: #000;
+}
+
+header nav {
+    height: 84px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 107px;
+    align-items: center;
+    justify-content: center;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    margin: 2px 0;
+    padding: 4px 12px;
+}
+
+header nav a:hover {
+    margin: 2px 0;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background-color: grey;
+}
+
+header nav #nav-left {
+    gap: 10px;
+    display: flex;
+}
+
+header nav #nav-center {
+    display: flex;
+    justify-content: center;
+}
+
+header nav #nav-right {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+#video {
+    position: relative;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#video video {
+    width: 650px;
+    height: 100%;
+    display: block;
+}
+
+#video #overlay {
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#video #company-logos {
+    left: 50%;
+    z-index: 3;
+    height: 54px;
+    bottom: 32px;
+    width: 429px;
+    display: grid;
+    position: absolute;
+    justify-items: center;
+    transform: translateX(-50%);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#video #company-logos div {
+    width: 143px;
+    height: 54px;
+    border: #000 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#video #company-logos img {
+    height: 10px;
+}
+
+#recommendations {
+    display: flex;
+    flex-direction: column;
+    margin: 0 107px;
+}
+
+#recommendations h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+#recommendations #recommendation-cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+
+#recommendations #recommendation-cards div {
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#recommendations #recommendation-cards img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+#recommendations #recommendation-cards .card1 {
+    grid-column: span 2;
+}
+
+#recommendations #recommendation-cards #card-content {
+    padding: 20px;
+    margin-top: -5px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent 100%);
+    min-height: auto;
+}
+
+#recommendations #recommendation-cards #card-content h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+#recommendations #recommendation-cards #card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+#recommendations #recommendation-cards #card-content button {
+    padding: 10px 16px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+    width: fit-content;
+}
+
+#recommendations #recommendation-cards #card-content a {
+    padding: 10px 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+    width: fit-content;
+}
+
+#recommendations #recommendation-cards #card-content button:hover,
+#recommendations #recommendation-cards #card-content a:hover {
+    background-color: #005bb5;
+}
+
+#recommendations #recommendation-cards #card-content div {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
