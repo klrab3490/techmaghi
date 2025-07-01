@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Array</title>
+    </head>
+    <body>
+        <h1>Array</h1>
+        <p>Arrays are used to store multiple values in a single variable.</p>
+        <p>In JavaScript, arrays are a special type of object that can hold multiple values.</p>
+
+        <h2>Creating an Array</h2>
+        <pre><code>let fruits = ['apple', 'banana', 'cherry'];</code></pre>
+        <p>Arrays can be created using the array literal syntax, which is a comma-separated list of values enclosed in square brackets.</p>
+
+        <h2>Accessing Array Elements</h2>
+        <pre><code>console.log(fruits[0]); // Output: apple</code></pre>
+        <pre><code>console.log(fruits[1]); // Output: banana</code></pre>
+        <pre><code>console.log(fruits[2]); // Output: cherry</code></pre>
+
+        <h2>Array Length</h2>
+        <pre><code>console.log(fruits.length); // Output: 3</code></pre>
+
+        <h2>Array Methods</h2>
+        <ul>
+            <li><strong>push()</strong>: Adds one or more elements to the end of an array.</li>
+            <li><strong>pop()</strong>: Removes the last element from an array.</li>
+            <li><strong>shift()</strong>: Removes the first element from an array.</li>
+            <li><strong>unshift()</strong>: Adds one or more elements to the beginning of an array.</li>
+            <li><strong>splice()</strong>: Adds or removes elements from an array at a specified index.</li>
+            <li><strong>slice()</strong>: Returns a shallow copy of a portion of an array into a new array object.</li>
+            <li><strong>forEach()</strong>: Executes a provided function once for each array element.</li>
+            <li><strong>map()</strong>: Creates a new array populated with the results of calling a provided function on every element in the calling array.</li>
+            <li><strong>filter()</strong>: Creates a new array with all elements that pass the test implemented by the provided function.</li>
+            <li><strong>reduce()</strong>: Executes a reducer function on each element of the array, resulting in a single output value.</li>
+            <li><strong>find()</strong>: Returns the value of the first element in the array that satisfies the provided testing function.</li>
+            <li><strong>indexof()</strong>:</li>
+        </ul>
+        
+    </body>
+    <script>
+        let fruits = ['apple', 'banana', 'cherry'];
+        // console.log(fruits[0]); // Output: apple
+        // for (let index = 0; index < fruits.length; index++) {
+        //     console.log(fruits[index]); // Output: apple, banana, cherry
+        // }
+
+        // Add Elements to an Array
+        fruits.push('orange'); // Adds 'orange' to the end of the array
+        console.log(fruits); // Output: ['apple', 'banana', 'cherry', 'orange']
+        
+        // Remove Elements from an Array End
+        fruits.pop(); // Removes the last element ('orange')
+        console.log(fruits); // Output: ['apple', 'banana', 'cherry']
+
+        // Remove Elements from an Array Start
+        fruits.shift(); // Removes the first element ('apple')
+        console.log(fruits); // Output: ['banana', 'cherry']
+        
+        // Add Elements to an Array Start
+        fruits.unshift('kiwi'); // Adds 'kiwi' to the beginning of the array
+        console.log(fruits); // Output: ['kiwi', 'banana', 'cherry']
+
+        // Modify Elements in an Array
+        fruits.splice(1, 1, 'mango'); // Removes 1 element at index 1 and adds 'mango'
+        console.log(fruits); // Output: ['kiwi', 'mango', 'cherry']
+
+        // Iterate Over an Array
+        let slicedFruits = fruits.slice(1, 2); // Creates a new array with elements from index 1 to 2 (exclusive)
+        console.log(slicedFruits); // Output: ['mango']
+        fruits.forEach((fruit) => {
+            console.log(fruit); // Output: kiwi, mango, cherry
+        });
+
+        // Add Array to an Array
+        let moreFruits = ['grape', 'kiwi'];
+        // fruits = fruits.concat(moreFruits); // Combines two arrays
+        fruits = fruits.push(moreFruits); // Combines two arrays
+        console.log(fruits); // Output: ['kiwi', 'mango', 'cherry', 'grape', 'kiwi']
+        
+    </script>
+</html>

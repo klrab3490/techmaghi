@@ -61,46 +61,63 @@ header nav #nav-right {
     justify-content: center;
 }
 
-#video video {
-    width: 650px;
+#video img {
+    width: 100%;
     height: 100%;
     display: block;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
 }
 
 #video #overlay {
     left: 0;
+    top: 0;
     z-index: 2;
     width: 100%;
+    color: white;
     height: 100%;
     position: absolute;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.15) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
-#video #company-logos {
+#video #overlay #overlay-content {
+    margin-left: 107px;
+    max-width: 600px;
+    pointer-events: auto;
+}
+
+#company-logos {
     left: 50%;
-    z-index: 3;
+    z-index: 100;
     height: 54px;
     bottom: 32px;
-    width: 429px;
+    width: 430px;
     display: grid;
-    position: absolute;
+    position: sticky;
+    top: 20px;
     justify-items: center;
     transform: translateX(-50%);
     grid-template-columns: repeat(3, 1fr);
 }
 
-#video #company-logos div {
+#company-logos div {
     width: 143px;
     height: 54px;
+    background-color: white;
     border: #000 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#video #company-logos img {
+#company-logos img {
     height: 10px;
+    width: auto;
 }
 
 #recommendations {
@@ -200,3 +217,229 @@ header nav #nav-right {
     justify-content: start;
 }
 
+#models {
+    display: flex;
+    flex-direction: column;
+    margin: 0 107px;
+    margin-top: 50px;
+}
+
+#models h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+#models button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #007aff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+#models button:hover {
+    background-color: #005bb5;
+}
+
+#models #models-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+#models #models-cards .model-card {
+    width: 410px;
+    height: 180px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background: #e8e8e8;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: 1px solid #e0e0e0;
+}
+
+#models #models-cards .model-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+    border-color: #007aff;
+}
+
+#models #models-cards .model-card img {
+    height: 120px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 0 14px 14px 0;
+    background: #f5f5f5;
+    margin-left: 12px;
+}
+
+#models #models-cards .model-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: none;
+    padding: 0 24px;
+    flex: 1;
+}
+
+#models #models-cards .model-card div h3 {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    color: #222;
+}
+
+#models #models-cards .model-card div p {
+    font-size: 0.97rem;
+    color: #555;
+    margin: 0;
+}
+
+#models #models-cards .model-card div a {
+    margin-top: 14px;
+    padding: 7px 18px;
+    background: #007aff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: fit-content;
+    transition: background 0.2s;
+}
+
+#models #models-cards .model-card div a:hover {
+    background: #005bb5;
+}
+
+#service-accessories {
+    display: flex;
+    flex-direction: column;
+    margin: 0 107px;
+    margin-top: 50px;
+}
+
+#service-accessories h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+#service-accessories #service-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: scroll;
+}
+
+#service-accessories #service-cards .service-card {
+    width: 640px;
+    height: 551px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.history {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 107px;
+    margin-top: 50px;
+}
+
+.history .history-text {
+    padding: 20px;
+}
+
+.history .history-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.history .history-text p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.history .history-text button {
+    padding: 10px 16px;
+    background-color: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.history .history-text button:hover {
+    background-color: #005bb5;
+} 
+
+.history .history-image {
+    width: auto;
+    height: 551px;
+    display: flex;
+    justify-content: center;
+}
+
+#bottom-cards {
+    gap: 10px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+#bottom-cards .cards {
+    display: flex;
+    width: 300px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 24px 16px;    
+}
+
+#bottom-cards .cards .icon1 {
+    height: 21px;
+    width: 21px;
+    margin-right: 16px;
+    display: inline-block;
+}
+
+#bottom-cards .cards .icon2 {
+    height: 21px;
+    width: 21px;
+    margin-right: 16px;
+    display: none;
+}
+
+#bottom-cards .cards:hover .icon1 {
+    display: none;
+}
+
+#bottom-cards .cards:hover .icon2 {
+    display: inline-block;
+    align-self: center;
+    margin-left: 16px;
+}
+
+
+#bottom-cards .cards h4,p {
+    margin-top: 0;
+}

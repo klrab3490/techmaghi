@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bill and Tip Calculation</h1>
+    <p>This script calculates the tip based on the bill amount and logs the results.</p
+    <p>Tips are calculated as follows:</p>
+    <ul>
+        <li>If the bill is between 50 and 300, the tip is 15% of the bill.</li>
+        <li>If the bill is outside this range, the tip is 20% of the bill.</li>
+    </ul>
+    <p>The total amount to be paid is the sum of the bill and the tip.</p>
+    <p>Check the console for the output of the calculations.</p>
+    <h2>Example Bills</h2>
+    <ul>
+        <li>Bill 1: $125</li>
+        <li>Bill 2: $555</li>
+        <li>Bill 3: $44</li>
+    </ul>
+    <script>
+        let bills = [125, 555, 44];
+        let tips = [];
+        let totals = [];
+
+        function calcTip(bill) {
+            if (bill >= 50 && bill <= 300) {
+                return bill * 0.15;
+            } else {
+                return bill * 0.2;
+            }
+        }
+
+        for (let i = 0; i < bills.length; i++) {
+            tips[i] = calcTip(bills[i]);
+            totals[i] = bills[i] + tips[i];
+            console.log(`The bill was for ${bills[i]}, then the tip is ${tips[i]} and the amount to be paid is ${totals[i]}`);
+        }
+    </script>
+    
+</body>
+</html>

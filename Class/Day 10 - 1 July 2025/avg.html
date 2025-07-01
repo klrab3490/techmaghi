@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let scoreDolphins = [44,23,71];
+        let scoreKoalas = [65,54,49];
+
+        const calcAverage = (score) => {
+            let sum = 0; 
+            for (let i = 0; i < score.length; i++) {
+                sum += score[i];
+            }
+            return sum / score.length;
+        }
+
+        let avgDolphins = calcAverage(scoreDolphins);
+        let avgKoalas = calcAverage(scoreKoalas);
+
+        if (avgDolphins>avgKoalas) {
+            console.log("Dolphins win the trophy");
+        } else if (avgDolphins<avgKoalas) {
+            console.log("Koalas win the trophy");
+        } else if (avgDolphins==avgKoalas) {
+            console.log("Both win the trophy");
+        } else {
+            console.log("None")
+        }
+    </script>
+</body>
+</html>
