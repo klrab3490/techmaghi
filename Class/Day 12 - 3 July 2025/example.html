@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Shopping Cart</h2>
+        <p>This example demonstrates a simple shopping cart using an object to manage items and their prices.</p>
+        <p>Items can be added or removed, and the total price is calculated automatically.</p>
+        
+        <script>
+            let cart = [];
+            let totalPrice = 0;
+
+            function addItems(item,price) {
+                cart.push({ item, price });
+                totalPrice += price;
+            }
+
+            function removeItem(item) {
+                cart = cart.filter(i => i.item !== item);
+                totalPrice = cart.reduce((sum, i) => sum + i.price, 0);
+            }
+
+            function displayCart() {
+                console.log("Cart Items:");
+                cart.forEach(i => {
+                    console.log(`${i.item}: $${i.price}`);
+                });
+                console.log(`Total Price: $${totalPrice}`);
+            }
+
+            displayCart();
+            addItems('Apple', 1.5);
+            addItems('Banana', 0.5);
+
+            displayCart();
+            removeItem('Apple');
+
+        </script>
+    </body>
+</html>

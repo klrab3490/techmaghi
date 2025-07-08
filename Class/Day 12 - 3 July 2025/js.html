@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+    <p>Objects are used to store keyed collections of various data and more complex entities.</p>
+    <p>In JavaScript, objects are a collection of properties, where each property is
+    a key-value pair.</p>
+    <h2>Creating an Object</h2>
+    <pre><code>let person = {
+        name: 'John',
+        age: 30,
+        city: 'New York'
+    };</code></pre>
+
+    <p>Objects can be created using the object literal syntax, which is a comma-separated list of key-value pairs enclosed in curly braces.</p>
+    <h2>Accessing Object Properties</h2>
+    <pre><code>console.log(person.name); // Output: John</code></pre>
+    <pre><code>console.log(person['age']); // Output: 30</code></pre>
+    <p>Properties can be accessed using dot notation or bracket notation.</p>   
+
+    <h2>Adding and Modifying Properties</h2>
+    <pre><code>person.country = 'USA'; // Adds a new property
+console.log(person.country); // Output: USA</code></pre>
+    <pre><code>person.age = 31; // Modifies an existing property
+console.log(person.age); // Output: 31</code></pre>
+
+    <h2>Deleting Properties</h2>
+    <pre><code>delete person.city; // Deletes the 'city' property       
+console.log(person.city); // Output: undefined</code></pre>
+    
+    <h2>Object Methods</h2>
+    <p>Objects can also have methods, which are functions that are properties of the object.</p>
+    <pre><code>let car = {
+        brand: 'Toyota',
+        model: 'Camry',
+        year: 2020,
+        start: function() {
+            console.log('Car started');
+        }
+    };
+    car.start(); // Output: Car started</code></pre>
+
+    <h2>Iterating Over Object Properties</h2>
+    <pre><code>for (let key in person) {
+        console.log(key + ': ' + person[key]);
+    }</code></pre>
+    <p>This loop iterates over all enumerable properties of the object.</p>
+
+    <h2>Object.keys(), Object.values(), and Object.entries()</h2>
+    <pre><code>console.log(Object.keys(person)); // Output: ['name', 'age', 'country']
+    console.log(Object.values(person)); // Output: ['John', 31, 'USA']
+    console.log(Object.entries(person)); // Output: [['name', 'John'], ['age', 31], ['country', 'USA']]</code></pre>
+    <p>These methods return arrays of the object's keys, values, or key-value pairs, respectively.</p>
+    
+    <h2>Object Destructuring</h2>
+    <pre><code>let { name, age } = person;
+console.log(name); // Output: John
+console.log(age); // Output: 31</code></pre>
+<p>Object destructuring allows you to extract properties from an object into variables.</p>
+
+    <h2>Nested Objects</h2>
+    <pre><code>let student = {
+        name: 'Alice',
+        age: 22,
+        address: {
+            street: '123 Main St',
+            city: 'Los Angeles'
+        }
+    };
+    console.log(student.address.city); // Output: Los Angeles</code></pre>
+    <p>Objects can contain other objects, allowing for complex data structures.</p>
+
+    <h2>Object Prototypes</h2>
+    <p>Every object in JavaScript has a prototype, which is another object from which
+    it inherits properties and methods. You can add properties or methods to an object's prototype using <code>Object.prototype</code>.</p>
+    <pre><code>Object.prototype.greet = function() {
+        console.log('Hello, ' + this.name);
+    };
+    person.greet(); // Output: Hello, John</code></pre>
+
+    <h2>Object Spread Operator</h2>
+    <pre><code>let newPerson = { ...person, occupation: 'Engineer' };
+    console.log(newPerson); // Output: { name: 'John', age: 31, country: 'USA', occupation: 'Engineer' }</code></pre>
+    <p>The spread operator (<code>...</code>) allows you to create a new object
+    by copying properties from an existing object and adding new properties.</p>
+    
+    <h2>Object Rest Operator</h2>
+    <pre><code>let { name, ...rest } = person;
+console.log(name); // Output: John
+console.log(rest); // Output: { age: 31, country: 'USA' }</code></pre>
+    <p>The rest operator (<code>...</code>) allows you to extract specific properties from an object and collect the remaining properties into a new object.</p>
+
+    <h2>Object Comparison</h2>
+    <p>Objects are compared by reference, not by value. Two objects are considered equal only if they reference the same object in memory.</p>
+    <pre><code>let obj1 = { a: 1 };
+    let obj2 = { a: 1 };
+    console.log(obj1 === obj2); // Output: false (different references)
+    let obj3 = obj1;
+    console.log(obj1 === obj3); // Output: true (same reference)</code></pre>
+
+    <h2>Object Freezing</h2>
+    <p>You can prevent an object from being modified by using <code>Object.freeze()</code>.</p>
+    <pre><code>let frozenPerson = Object.freeze({ name: 'Bob', age: 25 });
+    frozenPerson.age = 30; // This will not change the age property
+    console.log(frozenPerson.age); // Output: 25</code></pre>
+
+    <h2>Object Sealing</h2>
+    <p>You can prevent new properties from being added to an object and existing properties from being deleted by using <code>Object.seal()</code>.</p>
+    <pre><code>let sealedPerson = Object.seal({ name: 'Charlie', age: 28 });
+    sealedPerson.age = 30; // This will change the age property
+    console.log(sealedPerson.age); // Output: 30
+    sealedPerson.city = 'New York'; // This will not add a new property
+    console.log(sealedPerson.city); // Output: undefined</code></pre>
+
+    <h2>Object Cloning</h2>
+    <p>You can create a shallow copy of an object using <code>Object.assign()</code> or the spread operator.</p>
+    <pre><code>let original = { a: 1, b: 2 };
+    let clone = Object.assign({}, original);
+    console.log(clone); // Output: { a: 1, b: 2 }
+    let spreadClone = { ...original };
+    console.log(spreadClone); // Output: { a: 1, b: 2 }</code></pre>
+    <p>Note that these methods create a shallow copy, meaning nested objects are still referenced.</p>
+
+    <h2>Object Iteration</h2>
+    <p>You can iterate over the properties of an object using a <code>for...in</code> loop.</p>
+    <pre><code>for (let key in person) {    
+    console.log(key + ': ' + person[key]);
+    }</code></pre>
+    <p>This loop will log each key-value pair in the object.</p>
+
+    <script>
+        let person = {
+            name: 'John',
+            age: 30,
+            city: 'New York'
+        };
+
+        // Accessing properties
+        console.log(person.name); // Output: John
+        console.log(person['age']); // Output: 30
+
+    </script>
+</body>
+</html>

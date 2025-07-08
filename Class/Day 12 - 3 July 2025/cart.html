@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Shopping Cart</h2>
+        <p>This example demonstrates a simple shopping cart using an object to manage items and their prices.</p>
+        <p>Items can be added or removed, and the total price is calculated automatically.</p>
+        <div style="display: flex; flex-direction: row; gap: 20px; margin-bottom: 20px;">
+
+            <div style="display: flex; flex-direction: column;">
+                <input type="text" id="itemName" placeholder="Item name">
+                <input type="number" id="itemPrice" placeholder="Price" min="0">
+                <button onclick="addToCart()">Add Item</button>
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <input type="text" id="removeName" placeholder="Item name to remove">
+                <button onclick="removeFromCart()">Remove Item</button>
+            </div>
+        </div>
+        <div>
+            <h3>Cart Contents:</h3>
+            <ol id="cartItems"></ol>
+            <h3>Total Price: $<span id="totalPrice">0</span></h3>
+        </div>
+        <script>
+            function updateCartView() {
+                const cartItems = document.getElementById('cartItems');
+                cartItems.innerHTML = '';
+                cart.items.forEach(i => {
+                    const li = document.createElement('li');
+                    li.textContent = `${i.item}: $${i.price}`;
+                    cartItems.appendChild(li);
+                });
+                document.getElementById('totalPrice').textContent = cart.totalPrice;
+            }
+
+            function addToCart() {
+                const name = document.getElementById('itemName').value.trim();
+                const price = parseFloat(document.getElementById('itemPrice').value);
+                if (name && !isNaN(price)) {
+                    cart.addItem(name, price);
+                    updateCartView();
+                }
+                document.getElementById('itemName').value = '';
+                document.getElementById('itemPrice').value = '';
+            }
+
+            function removeFromCart() {
+                const name = document.getElementById('removeName').value.trim();
+                if (name) {
+                    cart.removeItem(name);
+                    updateCartView();
+                }
+                document.getElementById('removeName').value = '';
+            }
+
+            let cart = {
+                items: [],
+                totalPrice: 0,
+                addItem: function(item, price) {
+                    this.items.push({ item, price });
+                    this.totalPrice += price;
+                },
+                removeItem: function(item) {
+                    const index = this.items.findIndex(i => i.item === item);
+                    if (index !== -1) {
+                        this.totalPrice -= this.items[index].price;
+                        this.items.splice(index, 1);
+                    }
+                },
+                displayCart: function() {
+                    console.log("Cart Items:");
+                    this.items.forEach(i => {
+                        console.log(`${i.item}: $${i.price}`);
+                    });
+                    console.log(`Total Price: $${this.totalPrice}`);
+                }
+            }
+
+            // Initialize view
+            updateCartView();
+        </script>
+    </body>
+</html>

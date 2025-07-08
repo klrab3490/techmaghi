@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Shopping Cart</h2>
+        <p>This example demonstrates a simple shopping cart using an object to manage items and their prices.</p>
+        <p>Items can be added or removed, and the total price is calculated automatically.</p>
+        
+        <script>
+            let cart = {
+                items: [],
+                totalPrice: 0,
+                addItem: function(item, price) {
+                    this.items.push({ item, price });
+                    this.totalPrice += price;
+                },
+                removeItem: function(item) {
+                    const index = this.items.findIndex(i => i.item === item);
+                    if (index !== -1) {
+                        this.totalPrice -= this.items[index].price;
+                        this.items.splice(index, 1);
+                    }
+                },
+                displayCart: function() {
+                    console.log("Cart Items:");
+                    this.items.forEach(i => {
+                        console.log(`${i.item}: $${i.price}`);
+                    });
+                    console.log(`Total Price: $${this.totalPrice}`);
+                }
+            }
+
+            while (true) {
+                let choice = parseInt(prompt("Choose an option:\n1. Add Item\n2. Remove Item\n3. Display Cart\n4. Exit"));
+                if (choice == 1) {
+                    let itemName = prompt("Enter item name:");
+                    let itemPrice = parseFloat(prompt("Enter item price:"));
+                    if (itemName && !isNaN(itemPrice)) {
+                        cart.addItem(itemName, itemPrice);
+                        alert(`Added ${itemName} for $${itemPrice}`);
+                    } else {
+                        alert("Invalid input.");
+                    }
+                } else if (choice == 2) {
+                    let removeName = prompt("Enter item name to remove:");
+                    if (removeName) {
+                        cart.removeItem(removeName);
+                        alert(`Removed ${removeName}`);
+                    } else {
+                        alert("Invalid input.");
+                    }
+                } else if (choice == 3) {
+                    alert("Cart Contents:\n" + cart.items.map(i => `${i.item}: $${i.price}`).join("\n") + `\nTotal Price: $${cart.totalPrice}`);
+                    cart.displayCart(); 
+                } else if (choice == 4) {
+                    alert("Exiting...");
+                    break;
+                } else {
+                    alert("Invalid choice.");
+                }
+            }
+
+        </script>
+    </body>
+</html>
