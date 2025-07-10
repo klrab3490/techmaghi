@@ -1,0 +1,90 @@
+#featured {
+    height: 895px;
+    margin: 120px 8px;
+    padding: 0 32px;
+}
+
+#featured #featured-title {
+    text-align: center;
+}
+
+#featured #featured-title div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#featured #featured-title h2 {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 48px;
+}
+
+#featured #featured-title div h3 {
+    margin: 0;
+    padding: 0 28px;
+}
+
+.featured-button {
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    height: 40px;
+}
+
+.featured-button:hover {
+    color: #FF6900;
+    border-bottom: #FF6900 2px solid;
+}
+
+.featured-button.active {
+    color: #FF6900;
+    border-bottom: #FF6900 2px solid;
+}
+
+.featured-content {
+    display: flex;
+    height: 768px;
+    padding: 24px;
+    position: relative;
+}
+
+.featured-tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1400px;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.featured-tab.active {
+    opacity: 1;
+    pointer-events: auto;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(4, 320px);
+    gap: 24px;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+}
+
+.featured-tab .card1 {
+    grid-column: span 2;
+}
+
+.featured-tab #featured-card {
+    background-color: rgb(201, 201, 201);
+    width: auto;
+    height: 348px;
+}
