@@ -1,131 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Xiaomi India | Smartphone | Tablet | TV</title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+            rel="stylesheet">
         <link rel="stylesheet" href="./style.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <script
+            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
-    <body>
-        <header>
-            <div id="nav-left">
-                <a href="./index.html">
-                    <svg aria-hidden="true" class="logo__mi" viewBox="0 0 112 112" version="1.1">
+
+    <body class="bg-gray-100">
+
+        <!-- Navigation Section -->
+        <header
+            class="flex justify-between items-center bg-white shadow-md px-8 h-[56px] sticky top-0 z-50">
+            <!-- Nav-Left -->
+            <div class="flex items-center">
+                <a href="./index.html" class="w-[32px] h-[32px]">
+                    <svg aria-hidden="true" class="logo__mi"
+                        viewBox="0 0 112 112" version="1.1">
                         <g fill="#ff6900">
-                            <path d="M100.326,11.702 C89.76,1.176 74.566,0 56,0 C37.41,0 22.194,1.19 11.632,11.744 C1.072,22.294 0,37.486 0,56.054 C0,74.626 1.072,89.822 11.636,100.376 C22.198,110.932 37.412,112 56,112 C74.588,112 89.8,110.932 100.362,100.376 C110.926,89.82 112,74.626 112,56.054 C112,37.462 110.914,22.254 100.326,11.702 L100.326,11.702 Z"></path>
+                            <path
+                                d="M100.326,11.702 C89.76,1.176 74.566,0 56,0 C37.41,0 22.194,1.19 11.632,11.744 C1.072,22.294 0,37.486 0,56.054 C0,74.626 1.072,89.822 11.636,100.376 C22.198,110.932 37.412,112 56,112 C74.588,112 89.8,110.932 100.362,100.376 C110.926,89.82 112,74.626 112,56.054 C112,37.462 110.914,22.254 100.326,11.702 L100.326,11.702 Z">
+                            </path>
                         </g>
                         <g fill="#ffffff">
-                            <path class="logo__home" d="M57.8054292,26.743366 L57.931608,26.8782679 L81.3680343,53.7784796 C82.7703315,55.3874915 81.6885448,57.872013 79.5991142,57.9952335 L79.4364262,58 L76,58 L76,71.3345882 C76,75.0164706 72.9809524,78 69.2552381,78 L42.7447619,78 C39.0190476,78 36,75.0164706 36,71.3345882 L36,58 L32.5635738,58 C30.4234399,58 29.2530924,55.5557037 30.5289714,53.903922 L30.6319657,53.7784796 L54.068392,26.8782679 C55.0457355,25.754085 56.766743,25.7091177 57.8054292,26.743366 Z M200.6006,34.56 C200.9866,34.56 201.3066,34.87 201.3066,35.252 L201.3066,76.754 C201.3066,77.13 200.9866,77.442 200.6006,77.442 L191.5066,77.442 C191.1166,77.442 190.8006,77.13 190.8006,76.754 L190.8006,35.252 C190.8006,34.87 191.1166,34.56 191.5066,34.56 L200.6006,34.56 Z M161.1406,34.56 C168.0006,34.56 175.1726,34.874 178.7086,38.414 C182.188558,41.897875 182.564028,48.8333125 182.578162,55.5684076 L182.5786,76.754 C182.5786,77.13 182.2626,77.442 181.8726,77.442 L172.7826,77.442 C172.3926,77.442 172.0746,77.13 172.0746,76.754 L172.0746,55.204 C172.0646,51.442 171.8486,47.576 169.9086,45.63 C168.2386,43.956 165.1226,43.572 161.8826,43.492 L145.4026,43.492 C145.0146,43.492 144.6986,43.804 144.6986,44.18 L144.6986,76.754 C144.6986,77.13 144.3786,77.442 143.9906,77.442 L134.8926,77.442 C134.5046,77.442 134.1906,77.13 134.1906,76.754 L134.1906,35.252 C134.1906,34.87 134.5046,34.56 134.8926,34.56 L161.1406,34.56 Z M163.1766,51.088 C163.5626,51.088 163.8766,51.398 163.8766,51.776 L163.8766,76.754 C163.8766,77.13 163.5626,77.442 163.1766,77.442 L153.6246,77.442 C153.2326,77.442 152.9166,77.13 152.9166,76.754 L152.9166,51.776 C152.9166,51.398 153.2326,51.088 153.6246,51.088 L163.1766,51.088 Z M59.2999404,54 L52.6952892,54 C51.2597451,54 50.0896172,55.1942589 50.0049103,56.6981405 L50,56.872989 L50,63.127011 C50,64.6534011 51.1169596,65.9041929 52.530874,65.9947504 L52.6952892,66 L59.2999404,66 C60.7354844,66 61.910036,64.8057411 61.9950706,63.3018595 L62,63.127011 L62,56.872989 C62,55.2878916 60.7906977,54 59.2999404,54 Z"></path>
+                            <path class="logo__home"
+                                d="M57.8054292,26.743366 L57.931608,26.8782679 L81.3680343,53.7784796 C82.7703315,55.3874915 81.6885448,57.872013 79.5991142,57.9952335 L79.4364262,58 L76,58 L76,71.3345882 C76,75.0164706 72.9809524,78 69.2552381,78 L42.7447619,78 C39.0190476,78 36,75.0164706 36,71.3345882 L36,58 L32.5635738,58 C30.4234399,58 29.2530924,55.5557037 30.5289714,53.903922 L30.6319657,53.7784796 L54.068392,26.8782679 C55.0457355,25.754085 56.766743,25.7091177 57.8054292,26.743366 Z M200.6006,34.56 C200.9866,34.56 201.3066,34.87 201.3066,35.252 L201.3066,76.754 C201.3066,77.13 200.9866,77.442 200.6006,77.442 L191.5066,77.442 C191.1166,77.442 190.8006,77.13 190.8006,76.754 L190.8006,35.252 C190.8006,34.87 191.1166,34.56 191.5066,34.56 L200.6006,34.56 Z M161.1406,34.56 C168.0006,34.56 175.1726,34.874 178.7086,38.414 C182.188558,41.897875 182.564028,48.8333125 182.578162,55.5684076 L182.5786,76.754 C182.5786,77.13 182.2626,77.442 181.8726,77.442 L172.7826,77.442 C172.3926,77.442 172.0746,77.13 172.0746,76.754 L172.0746,55.204 C172.0646,51.442 171.8486,47.576 169.9086,45.63 C168.2386,43.956 165.1226,43.572 161.8826,43.492 L145.4026,43.492 C145.0146,43.492 144.6986,43.804 144.6986,44.18 L144.6986,76.754 C144.6986,77.13 144.3786,77.442 143.9906,77.442 L134.8926,77.442 C134.5046,77.442 134.1906,77.13 134.1906,76.754 L134.1906,35.252 C134.1906,34.87 134.5046,34.56 134.8926,34.56 L161.1406,34.56 Z M163.1766,51.088 C163.5626,51.088 163.8766,51.398 163.8766,51.776 L163.8766,76.754 C163.8766,77.13 163.5626,77.442 163.1766,77.442 L153.6246,77.442 C153.2326,77.442 152.9166,77.13 152.9166,76.754 L152.9166,51.776 C152.9166,51.398 153.2326,51.088 153.6246,51.088 L163.1766,51.088 Z M59.2999404,54 L52.6952892,54 C51.2597451,54 50.0896172,55.1942589 50.0049103,56.6981405 L50,56.872989 L50,63.127011 C50,64.6534011 51.1169596,65.9041929 52.530874,65.9947504 L52.6952892,66 L59.2999404,66 C60.7354844,66 61.910036,64.8057411 61.9950706,63.3018595 L62,63.127011 L62,56.872989 C62,55.2878916 60.7906977,54 59.2999404,54 Z"
+                                fmp-c="3">
+                            </path>
                         </g>
                     </svg>
                 </a>
-                <div>
-                    <a href="./store.html"> Store </a>
+
+                <div
+                    class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                    <a href="./store.html"
+                        class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Store</a>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                    </div>
                 </div>
-                <div>
-                    <a href="./phone.html"> Phones </a>
+
+                <div
+                    class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                    <a href="./phone.html"
+                        class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Phones</a>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                    </div>
                 </div>
-                <div>
-                    <a href="./tablet.html"> Tablets </a>
+                <div
+                    class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                    <a href="./tablet.html"
+                        class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Tablets</a>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                    </div>
                 </div>
-                <div>
-                    <a href="./tv-smart-home.html"> TV & Smart Home </a>
+                <div
+                    class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                    <a href="./tv-smart-home.html"
+                        class="text-black group-hover:text-[#FF6900] transition-colors duration-300">TV
+                        & Smart Home</a>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                    </div>
                 </div>
-                <div>
-                    <a href="./watch-audio.html" id="active"> Smat Watch & Audio </a>
+                <div
+                    class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                    <a href="./watch-audio.html"
+                        class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Smart
+                        Watch & Audio</a>
+                    <div
+                        class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                    </div>
                 </div>
             </div>
-            <div id="nav-right">
-                <div id="nav-right_links">
-                    <div>
-                        <a href="./discover.html"> Discover </a>
+
+            <!-- Nav-Right -->
+            <div class="flex items-center gap-4">
+                <div class="flex items-center">
+                    <div
+                        class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                        <a href="./discover.html"
+                            class="text-black group-hover:text-[#FF6900] transition-colors duration-300">
+                            Discover </a>
+                        <div
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                        </div>
                     </div>
-                    <div>
-                        <a href="./support.html"> Support </a>
+                    <div
+                        class="relative group px-8 h-[56px] flex items-center cursor-pointer">
+                        <a href="./support.html"
+                            class="text-black group-hover:text-[#FF6900] transition-colors duration-300">
+                            Support </a>
+                        <div
+                            class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100">
+                        </div>
                     </div>
                 </div>
-                <div id="nav-right_icons">
-                    <div class="">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="flex items-center w-[228px] justify-between">
+                    <div class>
+                        <i class="fa-solid fa-magnifying-glass"
+                            style="height:28px;width:28px;font-size:28px;"></i>
                     </div>
-                    <div class="">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                    <div class>
+                        <i class="fa-solid fa-cart-shopping"
+                            style="height:28px;width:28px;font-size:28px;"></i>
                     </div>
-                    <div class="">
-                        <i class="fa-regular fa-user"></i>
+                    <div class>
+                        <i class="fa-regular fa-user"
+                            style="height:28px;width:28px;font-size:28px;"></i>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- Slider Section -->
-        <div class="header_slider">
-            <div class="slider-wrapper">
-                <div class="slider-card active">
+        <div class="relative h-[600px] overflow-hidden">
+            <div id="sliderWrapper"
+                class="flex transition-transform duration-500 h-full">
+                <!-- Slides 1 -->
+                <div
+                    class="slider-card active relative w-[100vw] h-[600px] items-start justify-start text-left px-0">
                     <img
-                        src="https://i03.appmifile.com/525_operator_in/01/07/2025/e6938f0ed5d2591723d06144999d8d87.jpg?thumb=1&w=720&f=webp&q=85"
-                        alt="Product 1">
-                    <div>
-                        <h1>Redmi Note 13 Pro</h1>
-                        <p>200MP camera. 120Hz AMOLED display. Unbeatable
-                            price.</p>
-                        <button>Buy Now</button>
+                        src="https://i03.appmifile.com/702_operator_in/11/07/2025/59fdec5b3e9e2a620842e0d14764933f.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 1"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Xiaomi Insider
+                            Days</h1>
+                        <p class="text-lg mb-4">Your Access to Exclusive Rewards
+                            <br> Benefits worth ₹13,000/- </p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
                     </div>
                 </div>
-                <div class="slider-card">
+
+                <!-- Slides 2 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
                     <img
-                        src="https://i03.appmifile.com/980_operator_in/10/07/2025/b9a26388d10ed5cd7272f7654e495260.png?thumb=1&w=1440&f=webp&q=85"
-                        alt="Product 2">
-                    <div>
-                        <h1>Xiaomi Pad 6</h1>
-                        <p>Work, play, and create with the new Xiaomi Pad 6.</p>
-                        <button>Shop Tablets</button>
+                        src="https://i03.appmifile.com/740_operator_in/11/07/2025/36f1f735742d646048bbee9f218495f9.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 2"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Upgrade Your
+                            Sound Game</h1>
+                        <p class="text-lg mb-4">Buy Redmi Note 14 Pro+ & Get
+                            <br> Redmi Buds 6 at ₹2,499/- </p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
                     </div>
                 </div>
-                <div class="slider-card">
+
+                <!-- Slides 3 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
                     <img
-                        src="https://i03.appmifile.com/644_operator_in/02/07/2025/28e401e856dc4fa55885e908503bdd07.jpg?thumb=1&w=720&f=webp&q=85"
-                        alt="Product 3">
-                    <div>
-                        <h1>Mi TV Q1</h1>
-                        <p>4K QLED. Cinematic experience at home.</p>
-                        <button>Explore TVs</button>
+                        src="https://i03.appmifile.com/287_operator_in/10/07/2025/76c4f03730a4c55cf26137c1e843cc1b.png?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 3"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Xiaomi Compact
+                            Power Bank 20000</h1>
+                        <p class="text-lg mb-4">Durability Champion Launch Price
+                            ₹1,799</p>
+                        <p class="text-sm">Sale is Live</p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
                     </div>
                 </div>
-                <div class="slider-card">
+
+                <!-- Slides 4 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
                     <img
-                        src="https://i03.appmifile.com/158_operator_in/26/06/2025/0a4cbd8019afebf6fac1deecf889efdb.png?thumb=1&w=1440&f=webp&q=85"
-                        alt="Product 4">
-                    <div>
-                        <h1>Redmi Buds 5 Pro</h1>
-                        <p>Active noise cancellation. Pure sound, pure
-                            freedom.</p>
-                        <button>Shop Audio</button>
+                        src="https://i03.appmifile.com/695_operator_in/11/07/2025/9a01dcb26e5ede5803b87f7cabb0f8cf.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 4"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Smarter Phone,
+                            Smarter Time</h1>
+                        <p class="text-lg mb-4">Unlock ₹500 Off on Watch 5 <br>
+                            Only with Note 14 Pro+</p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
                     </div>
                 </div>
-                <div class="slider-card">
+
+                <!-- Slides 5 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
                     <img
-                        src="https://i03.appmifile.com/141_operator_in/07/07/2025/85293a53b6c4547f5ad8ee7eb0c6d3dc.jpg?thumb=1&w=1440&f=webp&q=85"
-                        alt="Product 5">
-                    <div>
-                        <h1>Mi Watch S1</h1>
-                        <p>Style meets performance. Track your fitness in
-                            style.</p>
-                        <button>View Watches</button>
+                        src="https://i03.appmifile.com/701_operator_in/30/06/2025/48cc657836784d9cb7fc0ac660cb6035.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 5"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">REDMI Pad 2</h1>
+                        <p class="text-lg mb-4">Built for More <br> Starting at
+                            just ₹12,999*</p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
                     </div>
                 </div>
-            </div>
-            <button class="slider-btn prev">&#10094;</button>
-            <button class="slider-btn next">&#10095;</button>
-            <div class="slider-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
+
+                <!-- Slides 6 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
+                    <img
+                        src="https://i03.appmifile.com/469_operator_in/11/07/2025/4f463fe7ed90bc35df4fa4a8041ce9df.png?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 6"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Free Redmi Buds
+                            5A with Redmi Note 14</h1>
+                        <p class="text-lg mb-4">Get Redmi Buds 5A Absolutely
+                            Free Redmi <br> Note 14 Series</p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
+                    </div>
+                </div>
+
+                <!-- Slides 7 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
+                    <img
+                        src="https://i03.appmifile.com/203_operator_in/11/07/2025/b50335e3471a9b04cb9930425704caf5.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 7"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Xiaomi QLED TV
+                            FX Pro Series 2025</h1>
+                        <p class="text-lg mb-4">FantastiQLED <br> Starting from
+                            ₹25,999* (1 Unit)</p>
+                        <button
+                            class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                            More</button>
+                    </div>
+                </div>
+
+                <!-- Slides 8 -->
+                <div
+                    class="slider-card relative w-full h-[600px] items-start justify-start text-left px-0">
+                    <img
+                        src="https://i03.appmifile.com/150_operator_in/02/07/2025/f0f5655a0dbc998790fa26c53196b1d2.jpg?thumb=1&w=5120&f=webp&q=85"
+                        alt="Product 8"
+                        class="absolute top-0 left-0 w-full h-full object-cover z-[1]" />
+                    <div
+                        class="relative z-[2] bg-white/85 p-8 rounded-xl max-w-md m-10">
+                        <h1 class="text-3xl font-semibold mb-3">Xiaomi 4K TV F
+                            43 2025</h1>
+                        <p class="text-lg mb-4">Cinematic Clarity <br> Available
+                            at ₹22,999* (1 Unit)/p>
+                            <button
+                                class="bg-[#ff6900] hover:bg-[#e65c00] text-white px-8 py-3 rounded-full text-base">Learn
+                                More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <button id="prevBtn"
+                    class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-[#ff6900] text-2xl px-4 py-2 rounded-full z-10">&#10094;</button>
+                <button id="nextBtn"
+                    class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-[#ff6900] text-2xl px-4 py-2 rounded-full z-10">&#10095;</button>
+
+                <!-- Dots -->
+                <div
+                    class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span
+                        class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                </div>
             </div>
         </div>
+
+
+
+
 
         <!-- Footer -->
         <footer class="footer">
@@ -237,6 +421,8 @@
             </div>
         </footer>
 
-        <script src="./script.js"></script>
+        <script src="./hero-slider.js"></script>
+        <script src="./featured-section.js"></script>
     </body>
+
 </html>
