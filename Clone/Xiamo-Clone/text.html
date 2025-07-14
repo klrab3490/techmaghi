@@ -1,150 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-            rel="stylesheet">
-        <link rel="stylesheet" href="./style.css">
-        <script
-            src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Xiaomi Card Slider</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <section class="my-20 px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Explore Xiaomi</h2>
+    <body class="bg-gray-100">
 
-            <!-- Carousel Container -->
-            <div class="relative max-w-xl mx-auto">
+        <section class="max-w-6xl mx-auto px-4 py-10">
+            <h2 class="text-3xl font-bold text-center mb-6">Explore Xiaomi</h2>
 
-                <!-- Cards Wrapper -->
-                <div id="carousel"
-                    class="flex transition-transform duration-500 ease-in-out"
-                    style="transform: translateX(0);">
+            <!-- Buttons -->
+            <div class="relative">
+                <button id="leftBtn"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow">
+                    &#8592;
+                </button>
 
+                <div id="slider"
+                    class="flex overflow-x-auto scroll-smooth gap-6 no-scrollbar px-10">
                     <!-- Card 1 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/664_item_in/29/03/2024/e5fae64b8cfbfb9d0e258f3e56b88a4e.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi
-                                Priority Club</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/775_item_in/15/02/2023/f400c9a973d814e4a3c64ffaf9c59ad7.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Xiaomi Rewards Club</div>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/237_item_in/17/05/2024/930911f7f108c747f7c5288e23b20a49.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi
-                                Rewards Club</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/100_item_in/25/01/2023/9d154d8d24d542b42fe33ad90cf99a7d.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Xiaomi Partnership</div>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/41_item_in/07/04/2023/1c5803d2db7f79e6f4ae93fc16ab047a.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi x
-                                Leica</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/109_item_in/12/02/2023/0d0f4fa48e88caae9623aebdf191c7e1.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Smartphone Showcase</div>
                     </div>
                     <!-- Card 1 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/664_item_in/29/03/2024/e5fae64b8cfbfb9d0e258f3e56b88a4e.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi
-                                Priority Club</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/775_item_in/15/02/2023/f400c9a973d814e4a3c64ffaf9c59ad7.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Xiaomi Rewards Club</div>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/237_item_in/17/05/2024/930911f7f108c747f7c5288e23b20a49.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi
-                                Rewards Club</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/100_item_in/25/01/2023/9d154d8d24d542b42fe33ad90cf99a7d.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Xiaomi Partnership</div>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="min-w-full px-4">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden">
-                            <img
-                                src="https://i03.appmifile.com/41_item_in/07/04/2023/1c5803d2db7f79e6f4ae93fc16ab047a.jpg"
-                                class="w-full h-56 object-cover" />
-                            <div class="p-4 text-center font-semibold">Xiaomi x
-                                Leica</div>
-                        </div>
+                    <div
+                        class="min-w-[300px] flex-shrink-0 bg-white rounded-lg overflow-hidden shadow-md text-center">
+                        <img
+                            src="https://i03.appmifile.com/109_item_in/12/02/2023/0d0f4fa48e88caae9623aebdf191c7e1.jpg"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-4 font-semibold">Smartphone Showcase</div>
                     </div>
 
-                    <!-- Add more cards if needed, just duplicate -->
-
+                    <!-- Add more cards here -->
                 </div>
 
-                <!-- Navigation Buttons -->
-                <div class="flex justify-between mt-6 px-4">
-                    <button id="prevBtn"
-                        class="bg-gray-300 text-black font-bold px-4 py-2 rounded disabled:opacity-40"
-                        disabled>&larr;</button>
-                    <button id="nextBtn"
-                        class="bg-black text-white font-bold px-4 py-2 rounded">&rarr;</button>
-                </div>
-
+                <button id="rightBtn"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 p-2 rounded-full shadow">
+                    &#8594;
+                </button>
             </div>
         </section>
 
-        <!-- JavaScript -->
-        <!-- Update the JS to start the carousel from the 2nd card -->
-<script>
-    const carousel = document.getElementById('carousel');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    let currentIndex = 1; // Start from the 2nd card (index 1)
-    const totalCards = carousel.children.length;
-
-    function updateCarousel() {
-        const offset = -currentIndex * 100;
-        carousel.style.transform = `translateX(${offset}%)`;
+        <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
     }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        updateCarousel();
-    });
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalCards;
-        updateCarousel();
-    });
-
-    // Initialize carousel position
-    updateCarousel();
-
-    // Optional: auto scroll every 4 seconds
-    // setInterval(() => {
-    //   currentIndex = (currentIndex + 1) % totalCards;
-    //   updateCarousel();
-    // }, 4000);
-</script>
-
+        <script>
+    const slider = document.getElementById('slider');
+    document.getElementById('leftBtn').onclick = () => {
+      slider.scrollLeft -= 320;
+    };
+    document.getElementById('rightBtn').onclick = () => {
+      slider.scrollLeft += 320;
+    };
+  </script>
 
     </body>
 </html>
