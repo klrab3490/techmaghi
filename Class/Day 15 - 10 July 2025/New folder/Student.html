@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        form {
+            background: #fff;
+            width: 400px;
+            margin: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #bfc9d1;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button[type="submit"] {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <form autocomplete="off">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="1" max="120" required>
+
+        <label for="rollNo">Roll Number:</label>
+        <input type="text" id="rollNo" name="rollNo" required pattern="[A-Z]{3}[0-9]{2}[A-Z]{2}[0-9]{3}" title="Format: Three uppercase letters, two digits, two uppercase letters, three digits (e.g., ABC12DE345)">
+        
+        <label for="maths">Maths Mark:</label>
+        <input type="number" id="maths" name="maths" min="0" max="100" required>
+
+        <label for="science">Science Mark:</label>
+        <input type="number" id="science" name="science" min="0" max="100" required>
+        
+        <label for="english">English Mark:</label>
+        <input type="number" id="english" name="english" min="0" max="100" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div>
+        <h2>Student Data</h2>
+        <div id="studentData"></div>
+    </div>
+
+    <script>
+        let student_data = {
+            students: [],
+            addStudent: function(student) {
+                this.students.push(student);
+            },
+            displayStudents: function() {
+                let studentDataDiv = document.getElementById('studentData');
+                studentDataDiv.innerHTML = '';
+                if (this.students.length === 0) {
+                    studentDataDiv.textContent = 'No student data available.';
+                    return;
+                }
+                let table = document.createElement('table');
+                table.style.borderCollapse = 'collapse';
+                table.style.width = '100%';
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th style="border:1px solid #ccc;padding:6px;">Name</th>
+                            <th style="border:1px solid #ccc;padding:6px;">Age</th>
+                            <th style="border:1px solid #ccc;padding:6px;">Roll No</th>
+                            <th style="border:1px solid #ccc;padding:6px;">Maths</th>
+                            <th style="border:1px solid #ccc;padding:6px;">Science</th>
+                            <th style="border:1px solid #ccc;padding:6px;">English</th>
+                            <th style="border:1px solid #ccc;padding:6px;">Average</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${this.students.map(student => `
+                            <tr>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.name}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.age}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.rollNo}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.maths}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.science}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.english}</td>
+                                <td style="border:1px solid #ccc;padding:6px;">${student.average.toFixed(2)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                `;
+                studentDataDiv.appendChild(table);
+            }
+        };
+        
+        let form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById('name').value.trim();
+            let age = parseInt(document.getElementById('age').value, 10);
+            let rollNo = document.getElementById('rollNo').value.trim();
+            let maths = parseInt(document.getElementById('maths').value, 10);
+            let science = parseInt(document.getElementById('science').value, 10);
+            let english = parseInt(document.getElementById('english').value, 10);
+        
+            // Validate marks
+            if (
+                isNaN(maths) || maths < 0 || maths > 100 ||
+                isNaN(science) || science < 0 || science > 100 ||
+                isNaN(english) || english < 0 || english > 100
+            ) {
+                alert("Marks must be between 0 and 100.");
+                return;
+            }
+        
+            // Calculate average
+            let average = (maths + science + english) / 3;
+        
+            // Add student data to the object
+            student_data.addStudent({
+                name: name,
+                age: age,
+                rollNo: rollNo,
+                maths: maths,
+                science: science,
+                english: english,
+                average: average
+            });
+        
+            form.reset();
+            student_data.displayStudents();
+        });
+        student_data.displayStudents = student_data.displayStudents.bind(student_data);
+        student_data.displayStudents();
+    </script>
+</body>
+</html>
