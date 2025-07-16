@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Event Handler</h2>
+    <p>
+        Event trigger by the user or the browser that can be handled by JavaScript.
+        Click, keypress or pageload are some of the events that can be handled by JavaScript.
+    </p>
+
+
+    <h3>Event Handler Example</h3>
+    <p>
+        Click the button below to see an event handler in action.
+    </p>
+    <button onclick="showMessage()">Click Me!</button>
+    <p id="onClick-message"></p>
+
+    <p> On press </p>
+    <input type="text" onkeypress="console.log('Key pressed!')">
+    <p id="keypressed"></p>
+
+    <p> On Submit </p>
+    <form onsubmit="event.preventDefault(); alert('Form submitted!');">
+        <input type="text" placeholder="Type something..." required>
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <script>
+        function showMessage() {
+            document.getElementById("onClick-message").innerText = "Button was clicked!";
+        }
+
+    </script>
+
+</body>
+</html>
