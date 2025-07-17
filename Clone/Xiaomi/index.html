@@ -13,8 +13,7 @@
     <body class="bg-gray-100">
 
         <!-- Navigation Section -->
-        <header
-            class="flex justify-between items-center bg-white shadow-md px-8 h-[56px] sticky top-0 z-50">
+        <header class="flex justify-between items-center bg-white shadow-md px-8 h-[56px] sticky top-0 z-50">
             <!-- Nav-Left -->
             <div class="flex items-center gap-8">
                 <a href="./index.html" class="w-[32px] h-[32px]">
@@ -33,20 +32,23 @@
                     <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                 </div>
 
-                <div class="relative group h-[56px] flex items-center cursor-pointer hidden lg:flex">
-                    <a href="./phone.html" class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Phones</a>
+                <div class="relative phones-trigger group h-[56px] flex items-center cursor-pointer hidden lg:flex">
+                    <a href="./phone.html" class="text-black group-hover:text-[#FF6900] active:text-[#FF6900] transition-colors duration-300">Phones</a>
                     <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                 </div>
-                <div class="relative group h-[56px] flex items-center cursor-pointer hidden lg:flex">
-                    <a href="./tablet.html" class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Tablets</a>
+
+                <div class="relative tablets-trigger group h-[56px] flex items-center cursor-pointer hidden lg:flex">
+                    <a href="./tablet.html" class="text-black group-hover:text-[#FF6900] active:text-[#FF6900] transition-colors duration-300">Tablets</a>
                     <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                 </div>
-                <div class="relative group h-[56px] flex items-center cursor-pointer hidden lg:flex">
-                    <a href="./tv-smart-home.html" class="text-black group-hover:text-[#FF6900] transition-colors duration-300">TV & Smart Home</a>
+
+                <div class="relative tv-trigger group h-[56px] flex items-center cursor-pointer hidden lg:flex">
+                    <a href="./tv-smart-home.html" class="text-black group-hover:text-[#FF6900] active:text-[#FF6900] transition-colors duration-300">TV & Smart Home</a>
                     <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                 </div>
-                <div class="relative group h-[56px] flex items-center cursor-pointer hidden lg:flex">
-                    <a href="./watch-audio.html" class="text-black group-hover:text-[#FF6900] transition-colors duration-300">Smart Watch & Audio</a>
+
+                <div class="relative watch-trigger group h-[56px] flex items-center cursor-pointer hidden lg:flex">
+                    <a href="./watch-audio.html" class="text-black group-hover:text-[#FF6900] active:text-[#FF6900] transition-colors duration-300">Smart Watch & Audio</a>
                     <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                 </div>
             </div>
@@ -63,20 +65,67 @@
                         <div class="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF6900] scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></div>
                     </div>
                     <div>
-                        <i class="fa-solid fa-magnifying-glass" style="height:20px;width:20px;font-size:20px;"></i>
+                        <i class="fa-solid fa-magnifying-glass h-5 w-5 text-[20px]"></i>
                     </div>
                     <div>
-                        <i class="fa-solid fa-cart-shopping" style="height:20px;width:20px;font-size:20px;"></i>
+                        <i class="fa-solid fa-cart-shopping h-5 w-5 text-[20px]"></i>
                     </div>
-                    <div>
-                        <i class="fa-regular fa-user" style="height:20px;width:20px;font-size:20px;"></i>
+                    <div class="hidden lg:block">
+                        <i class="fa-regular fa-user h-5 w-5 text-[20px]"></i>
+                    </div>
+                    <div class="lg:hidden cursor-pointer">
+                        <i class="fa-solid fa-bars h-5 w-5 text-[20px]"></i>
                     </div>
                 </div>
             </div>
         </header>
 
+        <!-- Phones Dropdown -->
+        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden phones-dropdown">
+            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-8 px-8 py-6">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+            <!-- Tablets Dropdown -->
+        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden tablets-dropdown">
+            <div class="max-w-7xl mx-auto px-8 py-6 text-sm text-gray-700">
+                <h4 class="font-semibold mb-2">Tablet Categories</h4>
+                <ul class="space-y-1">
+                <li><a href="#" class="hover:text-[#FF6900]">Android Tablets</a></li>
+                <li><a href="#" class="hover:text-[#FF6900]">Kids Tablets</a></li>
+                </ul>
+            </div>
+        </div>
+
+            <!-- TV & Smart Home Dropdown -->
+        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden tv-dropdown">
+            <div class="max-w-7xl mx-auto px-8 py-6 text-sm text-gray-700">
+                <h4 class="font-semibold mb-2">Smart Devices</h4>
+                <ul class="space-y-1">
+                <li><a href="#" class="hover:text-[#FF6900]">Smart TVs</a></li>
+                <li><a href="#" class="hover:text-[#FF6900]">Security Cameras</a></li>
+                <li><a href="#" class="hover:text-[#FF6900]">Home Automation</a></li>
+                </ul>
+            </div>
+        </div>
+
+            <!-- Smart Watch & Audio Dropdown -->
+        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden watch-dropdown">
+            <div class="max-w-7xl mx-auto px-8 py-6 text-sm text-gray-700">
+                <h4 class="font-semibold mb-2">Wearables & Audio</h4>
+                <ul class="space-y-1">
+                <li><a href="#" class="hover:text-[#FF6900]">Smart Watches</a></li>
+                <li><a href="#" class="hover:text-[#FF6900]">Earbuds</a></li>
+                <li><a href="#" class="hover:text-[#FF6900]">Bluetooth Speakers</a></li>
+                </ul>
+            </div>
+        </div>
+
+
         <!-- Slider Section -->
-        <section class="relative h-[600px] overflow-hidden">
+        <section class="relative h-[480px] md:h-[360px] lg:h-[600px] overflow-hidden">
             <div id="sliderWrapper" class="flex transition-transform duration-500 h-full">
                 <!-- Slides 1 -->
                 <div class="slider-card active relative w-[100vw] h-[600px] items-start justify-start text-left px-0">
@@ -165,23 +214,23 @@
 
                 <!-- Dots -->
                 <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
-                    <span class="dot w-6 h-3 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
+                    <span class="dot w-5 md:w-16 h-1 bg-gray-300 rounded-full cursor-pointer"></span>
                 </div>
             </div>
         </section>
 
         <!-- Featured -->
-        <section class="p-4 sm:my-[120px] sm:mx-[8px] sm:px-[32px]" id="featured">
+        <section class="my-4 pt-14 pb-4 md:my-[120px] md:mx-[8px] md:px-[32px]" id="featured">
             <!-- Title & Tabs -->
             <div class="text-center">
-                <h2 class="text-3xl font-semibold mb-12">Featured Products</h2>
+                <h2 class="text-3xl font-semibold mb-8 md:md-10 lg:mb-12">Featured Products</h2>
                 <div class="flex flex-wrap justify-center gap-4 md:gap-12 font-semibold">
                     <h3 data-index="0" class="featured-button cursor-pointer text-lg text-gray-800 hover:text-orange-500 h-[40px] border-b-2 border-orange-500 text-orange-500">New Launch</h3> 
                     <h3 data-index="1" class="featured-button cursor-pointer text-lg text-gray-800 hover:text-orange-500 h-[40px]">Phones</h3>
@@ -498,8 +547,8 @@
         </section>
 
         <!-- Exclusive Offers -->
-        <section class="p-4 sm:my-[120px] sm:mx-[8px] sm:px-[32px]">
-            <div class="flex justify-between items-center mb-8">
+        <section class="my-4 pt-14 pb-4 md:my-[120px] md:mx-[8px] md:px-[32px]">
+            <div class="flex justify-between items-center mb-8 md:md-10 lg:mb-12">
                 <div></div>
                 <h2 class="text-[32px] font-bold text-center">Exclusive Offers</h2>
                 <div class="flex gap-4">
@@ -561,8 +610,8 @@
 
 
         <!-- Xiaomi Support -->
-        <section class="my-[120px] mx-[8px] px-[32px] text-center">
-            <h2 class="text-3xl font-bold mb-12">Xiaomi Support</h2>
+        <section class="my-4 pt-14 pb-4 md:my-[120px] md:mx-[8px] md:px-[32px] text-center">
+            <h2 class="text-3xl font-bold mb-8 md:md-10 lg:mb-12">Xiaomi Support</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 
                 <!-- Xiaomi Exchange -->
@@ -595,8 +644,6 @@
 
             </div>
         </section>
-
-
 
         <!-- Footer -->
         <footer class="bg-neutral-900 text-white px-8 flex flex-col font-[16px]">
@@ -714,6 +761,8 @@
             </div>
         </footer>
 
+        <!-- Scripts -->
+        <script src="./js/navbar.js"></script>
         <script src="./js/hero-slider.js"></script>
         <script src="./js/featured-section.js"></script>
         <script src="./js/exclusive.js"></script>
