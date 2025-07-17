@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
+        <h1 class="text-3xl font-extrabold text-center text-blue-700 mb-6 tracking-tight">TODO List</h1>
+        <form id="todo-form" class="flex gap-2 mb-6">
+            <input type="text" id="todo-input" placeholder="Add a new todo" class="border border-blue-300 rounded-lg p-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold shadow transition">Add</button>
+        </form>
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-600 font-medium">Your Todos</span>
+            <button id="delete-all" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow transition">
+                <i class="fas fa-trash-alt"></i> Delete All
+            </button>
+        </div>
+        <ul id="todo-list" class="space-y-2"></ul>
+    </div>
+
+    <script>
+        const form = document.getElementById('todo-form');
+        const input = document.getElementById('todo-input');
+        const todoList = document.getElementById('todo-list');
+        const deleteAllBtn = document.getElementById('delete-all');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (input.value.trim() !== '') {
+                const li = document.createElement('li');
+                li.className = "flex items-center justify-between bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 shadow-sm hover:bg-blue-100 transition";
+                li.innerHTML = `
+                    <span class="text-gray-800">${input.value}</span>
+                    <button class="delete-todo bg-red-400 hover:bg-red-500 text-white px-3 py-1 rounded-lg text-xs font-semibold shadow transition">Delete</button>
+                `;
+                todoList.appendChild(li);
+                input.value = '';
+            }
+        });
+
+        todoList.addEventListener('click', function(event) {
+            if (event.target.classList.contains('delete-todo')) {
+                event.target.parentElement.remove();
+            }
+        });
+
+        deleteAllBtn.addEventListener('click', function() {
+            todoList.innerHTML = '';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 text-gray-800 min-h-screen">
+        <div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow mt-10">
+            <h1 class="text-3xl font-bold mb-4 text-blue-700">DOM</h1>
+            <p class="mb-2">Document Object Model (DOM) is a programming
+                interface for web documents. It represents the structure of a
+                document as a tree of objects.</p>
+            <p class="mb-2">DOM allows programming languages to manipulate the
+                structure, style, and content of web pages.</p>
+            <p class="mb-2">It is a language-neutral interface, meaning it can
+                be used with various programming languages like JavaScript,
+                Python, and Java.</p>
+            <p class="mb-6">DOM is essential for creating dynamic and
+                interactive web applications.</p>
+            <h2 class="text-2xl font-semibold mb-3 text-blue-600">DOM
+                Manipulation</h2>
+            <p class="mb-6">DOM manipulation refers to the process of changing
+                the document structure, style, and content using programming
+                languages.</p>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-500">Methods for
+                Selecting Elements</h3>
+            <ol class="list-decimal list-inside mb-6 space-y-2">
+                <li>
+                    The <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementById(id)</code>
+                    method is used to select an element by its unique ID. For
+                    example, if you have an element with the ID "myElement", you
+                    can select it like this:
+                </li>
+                <li>
+                    The <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementsByClassName(classname)</code>
+                    method selects all elements with a specific class name. For
+                    example, to select all elements with the class "myClass",
+                    you can use:
+                </li>
+                <li>
+                    The <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementsByTagName(tag)</code>
+                    method selects all elements with a specific tag name. For
+                    example, to select all <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">&lt;div&gt;</code>
+                    elements, you can use:
+                </li>
+                <li>
+                    Elements can also be selected using CSS selectors with the
+                    <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">document.querySelector(selector)</code>
+                    method, which returns the first matching element. For
+                    example, to select an element with a specific class or id,
+                    you can use:
+                </li>
+                <li>
+                    All elements in the document can be selected using the <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">document.querySelectorAll(selector)</code>
+                    method, which returns a NodeList of all matching elements.
+                </li>
+            </ol>
+
+            <h3 class="text-xl font-semibold mb-2 text-blue-500">DOM
+                Properties</h3>
+            <ol class="list-decimal list-inside space-y-2">
+                <li>
+                    <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">element.innerText</code>:
+                    This property gets or sets the text content of an element.
+                    For example, if you want to change the text of a paragraph,
+                    you can use:
+                </li>
+                <li>
+                    <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">element.innerHTML</code>:
+                    This property gets or sets the HTML content of an element.
+                    It allows you to insert HTML tags and content into an
+                    element. For example, to add a new paragraph inside a div,
+                    you can use:
+                </li>
+                <li>
+                    <code
+                        class="bg-gray-100 px-1 rounded text-purple-700">element.style</code>:
+                    This property allows you to get or set the inline styles of
+                    an element. You can change the CSS styles directly using
+                    JavaScript. For example, to change the background color of a
+                    div, you can use:
+                </li>
+            </ol>
+        </div>
+    </body>
+</html>

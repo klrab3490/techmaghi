@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col gap-2 items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-700">document.getElementById(id) Example</h1>
+        <div class="flex gap-2 mb-4">
+            <input
+                type="text"
+                id="myInput"
+                class="border border-gray-300 rounded px-3 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Type your name..."
+                onkeydown="if(event.key==='Enter'){greet();}"
+                autofocus
+            >
+            <button
+                onclick="greet()"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+                Submit
+            </button>
+        </div>
+        <p id="greet-output" class="text-lg text-green-700 font-medium text-center"></p>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-8 w-fit">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-700">document.getElementsByClassName(className) Example</h1>
+        <div class="flex gap-2 mb-4">
+            <input
+                type="text"
+                class="myInput border border-gray-300 rounded px-3 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Type your name..."
+                onkeydown="if(event.key==='Enter'){greetByClass();}"
+                autofocus
+            >
+            <button
+                onclick="greetByClass()"
+                class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+                Submit
+            </button>
+        </div>
+        <p class="greet-output text-lg text-green-700 font-medium text-center"></p>
+    </div>
+    <script>
+        function greet() {
+            const input = document.getElementById('myInput');
+            const output = document.getElementById('greet-output');
+            const name = input.value.trim();
+            if (name) {
+                output.innerText = `Hello, ${name}!`;
+            } else {
+                output.innerText = "Please enter your name.";
+            }
+            input.value = '';
+            input.focus();
+        }
+
+        function greetByClass() {
+            const input = document.getElementsByClassName('myInput')[0];
+            const output = document.getElementsByClassName('greet-output')[0];
+            const name = input.value.trim();
+            if (name) {
+                output.innerText = `Hello, ${name}!`;
+            } else {
+                output.innerText = "Please enter your name.";
+            }
+            input.value = '';
+            input.focus();
+        }
+    </script>
+</body>
+</html>
