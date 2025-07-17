@@ -33,5 +33,3 @@ setupDropdown(".phones-trigger", ".phones-dropdown");
 setupDropdown(".tablets-trigger", ".tablets-dropdown");
 setupDropdown(".tv-trigger", ".tv-dropdown");
 setupDropdown(".watch-trigger", ".watch-dropdown");
-
-

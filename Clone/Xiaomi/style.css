@@ -1,3 +1,8 @@
+/* Navbar */
+.phones-trigger.active .underline-indicator {
+    transform: scaleX(1);
+}
+
 /* Hero Section */
 .slider-card {
     display: none;
