@@ -75,7 +75,7 @@
                     <div class="hidden lg:block">
                         <i class="fa-regular fa-user h-5 w-5 text-[20px]"></i>
                     </div>
-                    <div class="lg:hidden cursor-pointer">
+                    <div class="lg:hidden cursor-pointer mobile-trigger">
                         <i class="fa-solid fa-bars h-5 w-5 text-[20px]"></i>
                     </div>
                 </div>
@@ -294,6 +294,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- Mobile View -->
+        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden mobile-dropdown text-sm">
+            <div class="grid grid-cols-5 gap-8 py-10 px-8">
+                <div class="flex flex-col gap-4">
+                    <a href="./watch-audio.html#audio" class="font-bold text-black hover:text-[#FF6900]">Audio</a>
+                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Earbuds</a>
+                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Neckbands</a>
+                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Wired Earphones</a>
+                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Speakers</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <a href="./watch-audio.html#lifestyle" class="font-bold text-black hover:text-[#FF6900]">Lifestyle</a>
+                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Smart Watch</a>
+                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Backpack</a>
+                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Grooming</a>
+                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Shoes</a>
+                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Writing Pad</a>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Slider Section -->
         <section class="relative h-[480px] md:h-[360px] lg:h-[600px] overflow-hidden">
@@ -847,8 +869,8 @@
 
         <!-- Footer -->
         <footer class="bg-neutral-900 text-white px-8 flex flex-col font-[16px]">
-            <div class="pt-16 px-0 flex justify-between">
-                <div class="flex">
+            <div class="pt-16 px-0 flex flex-col xl:flex-row justify-between">
+                <div class="hidden md:flex">
                     <div class="flex flex-col w-[224px] gap-4 text-neutral-500">
                         <h3 class="font-semibold text-white">Support</h3>
                         <ul class="flex flex-col gap-4">
