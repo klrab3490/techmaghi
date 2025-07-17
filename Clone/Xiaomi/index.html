@@ -75,8 +75,8 @@
                     <div class="hidden lg:block">
                         <i class="fa-regular fa-user h-5 w-5 text-[20px]"></i>
                     </div>
-                    <div class="lg:hidden cursor-pointer">
-                        <i class="fa-solid fa-bars h-5 w-5 text-[20px] mobile-trigger"></i>
+                    <div class="lg:hidden cursor-pointer" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-bars h-5 w-5 text-[20px]"></i>
                     </div>
                 </div>
             </div>
@@ -296,22 +296,615 @@
         </div>
 
         <!-- Mobile View -->
-        <div class="absolute left-0 top-[56px] w-full bg-white shadow-lg z-40 hidden mobile-dropdown text-sm sticky">
-            <div class="grid grid-cols-5 gap-8 py-10 px-8">
-                <div class="flex flex-col gap-4">
-                    <a href="./watch-audio.html#audio" class="font-bold text-black hover:text-[#FF6900]">Audio</a>
-                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Earbuds</a>
-                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Neckbands</a>
-                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Wired Earphones</a>
-                    <a href="./watch-audio.html#audio" class="text-black hover:text-[#FF6900]">Speakers</a>
+        <div id="mobile-view" class="fixed inset-0 w-full h-full flex flex-col justify-start bg-white z-50 text-sm overflow-x-scroll p-6 hidden">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2">
+                    <span class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center mx-auto">
+                        <i class="fa-regular fa-user text-xl text-gray-500"></i>
+                    </span>
+                    <span class="text-gray-700 font-medium">Sign in / Sign up</span>
                 </div>
-                <div class="flex flex-col gap-4">
-                    <a href="./watch-audio.html#lifestyle" class="font-bold text-black hover:text-[#FF6900]">Lifestyle</a>
-                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Smart Watch</a>
-                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Backpack</a>
-                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Grooming</a>
-                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Shoes</a>
-                    <a href="./watch-audio.html#lifestyle" class="text-black hover:text-[#FF6900]">Writing Pad</a>
+                <button class="text-2xl text-gray-500 close-mobile-dropdown" aria-label="Close" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <hr>
+            <div class="flex flex-col text-lg font-medium">
+                <a href="./store.html" class="text-black py-3">Store</a>
+                <div class="text-black py-2 flex justify-between items-center" onclick="openInner('mobile-phone')">
+                    Phones
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="text-black py-2 flex justify-between items-center" onclick="openInner('mobile-tablet')">
+                    Tablets
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="text-black py-2 flex justify-between items-center" onclick="openInner('mobile-tv')">
+                    TV & Smart Home
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <div class="text-black py-2 flex justify-between items-center" onclick="openInner('mobile-watch')">
+                    Smart Watch & Audio
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                <a href="./discover.html" class="text-black py-2">Discover</a>
+                <a href="./support.html" class="text-black py-2">Support</a>
+            </div>
+            <hr>
+            <div class="flex flex-col gap-4 my-4">
+                <div x-data="{ open: null }">
+                    <button @click="open === 1 ? open = null : open = 1" class="flex justify-between items-center text-left w-full mb-2">
+                        <span>Support</span>
+                        <i :class="open === 1 ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                    </button>
+                    <div x-show="open === 1" class="pl-4 py-2 text-gray-700" x-transition>
+                        <ul class="flex flex-col gap-2 text-gray-700">
+                            <li><a href="#" class="py-2">Online Help</a></li>
+                            <li><a href="#" class="py-2">Customer Service</a></li>
+                            <li><a href="#" class="py-2">Shipping FAQ</a></li>
+                            <li><a href="#" class="py-2">Warranty</a></li>
+                            <li><a href="#" class="py-2">Xiaomi Exchange</a></li>
+                            <li><a href="#" class="py-2">User Guide</a></li>
+                            <li><a href="#" class="py-2">Laptop Drivers</a></li>
+                            <li><a href="#" class="py-2">Mi Screen Protect</a></li>
+                            <li><a href="#" class="py-2">Mi Extended Warranty</a></li>
+                            <li><a href="#" class="py-2">Mi Complete Protect</a></li>
+                            <li><a href="#" class="py-2">Certification</a></li>
+                            <li><a href="#" class="py-2">Service Centre</a></li>
+                            <li><a href="#" class="py-2">Xiaomi Easy Finance</a></li>
+                            <li><a href="#" class="py-2">Xiaomi Spotify India</a></li>
+                        </ul>
+                    </div>
+
+                    <button @click="open === 2 ? open = null : open = 2" class="flex justify-between items-center text-left w-full mb-2">
+                        <span>SHOP AND LEARN</span>
+                        <i :class="open === 2 ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                    </button>
+                    <div x-show="open === 2" class="pl-4 py-2 text-gray-700" x-transition>
+                        <ul class="flex flex-col gap-2">
+                            <li><a href="#" class="py-2">Xiaomi Phones</a></li>
+                            <li><a href="#" class="py-2">Redmi Phones</a></li>
+                            <li><a href="#" class="py-2">Tv's</a></li>
+                            <li><a href="#" class="py-2">Laptops and Tablets</a></li>
+                            <li><a href="#" class="py-2">Audio</a></li>
+                            <li><a href="#" class="py-2">Lifestyle</a></li>
+                            <li><a href="#" class="py-2">Smart Home</a></li>
+                        </ul>
+                    </div>
+
+                    <button @click="open === 3 ? open = null : open = 3" class="flex justify-between items-center text-left w-full mb-2">
+                        <span>RETAIL STORE</span>
+                        <i :class="open === 3 ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                    </button>
+                    <div x-show="open === 3" class="pl-4 py-2 text-gray-700" x-transition>
+                        <ul class="flex flex-col gap-2">
+                            <li><a href="#" class="py-2">Mi Home</a></li>
+                            <li><a href="#" class="py-2">Mi Authorized Store</a></li>
+                            <li><a href="#" class="py-2">Mi Store Franchise</a></li>
+                        </ul>
+                    </div>
+
+                    <button @click="open === 4 ? open = null : open = 4" class="flex justify-between items-center text-left w-full mb-2">
+                        <span>ABOUT US</span>
+                        <i :class="open === 4 ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
+                    </button>
+                    <div x-show="open === 4" class="pl-4 py-2 text-gray-700" x-transition>
+                        <ul class="flex flex-col gap-2">
+                            <li><a href="#" class="py-2">Xiaomi</a></li>
+                            <li><a href="#" class="py-2">Privacy Policy</a></li>
+                            <li><a href="#" class="py-2">User Agreement</a></li>
+                            <li><a href="#" class="py-2">Integrity & Compliance</a></li>
+                            <li><a href="#" class="py-2">CSR and Disclosures</a></li>
+                            <li><a href="#" class="py-2">E-Waste Management</a></li>
+                            <li><a href="#" class="py-2">In The Press</a></li>
+                            <li><a href="#" class="py-2">Trust Center</a></li>
+                            <li><a href="#" class="py-2">Culture</a></li>
+                            <li><a href="#" class="py-2">Smartphone Quality</a></li>
+                            <li><a href="#" class="py-2">TV Quality</a></li>
+                            <li><a href="#" class="py-2">Service Quality</a></li>
+                            <li><a href="#" class="py-2">Xiaomi HyperOS</a></li>
+                            <li><a href="#" class="py-2">Join Our Team</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Name > Phone View -->
+        <div id="mobile-phone" class="fixed inset-0 w-full h-full flex flex-col justify-start bg-white z-50 text-sm overflow-x-scroll p-6 hidden">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2" onclick="closeSubMenu('mobile-phone')">
+                    <i class="fa-solid fa-angle-left text-lg"></i>
+                    <span class="text-gray-700 text-lg">Phone</span>
+                </div>
+                <button class="text-2xl text-gray-500 close-mobile-dropdown" aria-label="Close" onclick="closeInner('mobile-phone')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div>
+                <div x-data="{ selected: 'xiaomi' }">
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'xiaomi' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'xiaomi' ? null : 'xiaomi'"
+                        >
+                            Xiaomi Phone
+                            <i :class="selected === 'xiaomi' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'xiaomi'" class="flex flex-col gap-2" x-transition>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/890_item_in/17/03/2025/a5604b65e2865004f68b05ef4fae70dd.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi 15 Ultra</p>
+                                    <p class="mt-2">₹1,09,999</p>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/783_item_in/17/03/2025/d8ecae0f2ed29d943d83c44afac14873.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi 15</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹64,999</span>
+                                        <span><del>₹79,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/827_item_in/06/08/2024/7eaaf672e54e53ecb7efac46efedb860.jpg?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi 14 CIVI (Co-engineered with Leica)</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹36,999</span>
+                                        <span><del>₹54,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/340_item_in/05/08/2024/469dc3d02fddc74f11e54f63e83ec91f.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi 14 Civi Limited Edition (Co-engineered with Leica)</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹39,999</span>
+                                        <span><del>₹59,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Accessories
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Xiaomi Phones
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Compare
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'redmi' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'redmi' ? null : 'redmi'"
+                        >
+                            Redmi Phone
+                            <i :class="selected === 'redmi' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'redmi'" class="flex flex-col gap-2" x-transition>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Note 14 Pro+ 5G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹27,999</span>
+                                        <span><del>₹34,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>>Redmi Note 14 Pro 5G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹22,999</span>
+                                        <span><del>₹28,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/343_item_in/21/01/2025/57963bb57ad1a92735070525f0350b85.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Note 14 5G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹16,999</span>
+                                        <span><del>₹21,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/738_item_in/21/01/2025/d8f5a301a8af8c815d4889b5cd9171f8.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi A4 5G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹8,499</span>
+                                        <span><del>₹10,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/329_item_in/11/04/2025/2a9e8ffe9a3772b764bc3b9cb4e83576.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi A5</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹6,499</span>
+                                        <span><del>₹8,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Accessories
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Xiaomi Phones
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Compare
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Name > Tablet View -->
+        <div id="mobile-tablet" class="fixed inset-0 w-full h-full flex flex-col justify-start bg-white z-50 text-sm overflow-x-scroll p-6 hidden">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2" onclick="closeSubMenu('mobile-tablet')">
+                    <i class="fa-solid fa-angle-left text-lg"></i>
+                    <span class="text-gray-700 text-lg">Tablets</span>
+                </div>
+                <button class="text-2xl text-gray-500 close-mobile-dropdown" aria-label="Close" onclick="closeInner('mobile-tablet')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div>
+                <div x-data="{ selected: 'xiaomi' }">
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'xiaomi' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'xiaomi' ? null : 'xiaomi'"
+                        >
+                            Xiaomi Pad
+                            <i :class="selected === 'xiaomi' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'xiaomi'" class="flex flex-col gap-2" x-transition>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/720_item_in/30/04/2025/eb75ab41d15aec25802406a63c1865b7.jpg?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi Pad 7</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹26,999</span>
+                                        <span><del>₹34,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/826_item_in/20/09/2024/377a210d58d4034e4d5a49d37f51355a.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Xiaomi Pad 6</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>From ₹18,999</span>
+                                        <span><del>₹39,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Accessories
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Xiaomi Pads
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'redmi' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'redmi' ? null : 'redmi'"
+                        >
+                            Redmi Pad
+                            <i :class="selected === 'redmi' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'redmi'" class="flex flex-col gap-2" x-transition>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/52_item_in/16/06/2025/864e4ca7b0685b5dbabe0e1b972ff7cc.jpg?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Pad 2 Wifi + Cellular</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹27,999</span>
+                                        <span><del>₹34,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/953_item_in/16/06/2025/b90889ab567040b1cfba15a97c54360c.jpg?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Pad 2</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹13,999</span>
+                                        <span><del>₹16,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/691_item_in/20/09/2024/fcd25c22ed6c39f7b324cb7704b81b0d.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Pad Pro 5G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹23,999</span>
+                                        <span><del>₹27,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/65_item_in/30/04/2025/0cd4401c29f791ceaf356871344d265b.jpg?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Pad Pro WIFI</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹19,999</span>
+                                        <span><del>₹24,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg flex items-center h-24 p-3">
+                                <img src="https://i03.appmifile.com/812_item_in/20/09/2024/de184b8affba8a484b8f63930c6fc6a0.png?thumb=1&w=400&f=webp&q=85" class="w-14 h-14 object-cover">
+                                <div class="ml-2 text-xs">
+                                    <p>Redmi Pad SE 4G</p>
+                                    <div class="flex gap-2 mt-2">
+                                        <span>₹9,999</span>
+                                        <span><del>₹15,999</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    Accessories
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Redmi Pads
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Name > TV & Smart Home View -->
+        <div id="mobile-tv" class="fixed inset-0 w-full h-full flex flex-col justify-start bg-white z-50 text-sm overflow-x-scroll p-6 hidden">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2" onclick="closeSubMenu('mobile-tv')">
+                    <i class="fa-solid fa-angle-left text-lg"></i>
+                    <span class="text-gray-700 text-lg">TV & Smart Home</span>
+                </div>
+                <button class="text-2xl text-gray-500 close-mobile-dropdown" aria-label="Close" onclick="closeInner('mobile-tv')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div>
+                <div x-data="{ selected: 'tv' }">
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'tv' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'tv' ? null : 'tv'"
+                        >
+                            TV
+                            <i :class="selected === 'tv' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'tv'" class="flex flex-col gap-2" x-transition>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/883_item_in/17/07/2025/6b1c2f82f9078e47c73694ad0a704f4d.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Xiaomi TV</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/367_item_in/16/07/2024/9733e21df87d4399e71adf22ed667b24.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Redmi TV</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1678446775.87548519.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>TV Accessories</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Xiaomi Phones
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'smarthome' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'smarthome' ? null : 'smarthome'"
+                        >
+                            Smart Home
+                            <i :class="selected === 'smarthome' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'smarthome'" class="flex flex-col gap-2" x-transition>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/386_item_in/28/06/2024/c8e47e4b4b19492df1922c52d52e1b0c.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Air Purifier</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/559_item_in/18/07/2024/febed6e3d412bea6b43f9e0a959a7efa.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Security Camera</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1616606687.68573462.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Smart Light</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/281_item_in/18/07/2024/504049d66d2b27a9a425b44bd3bb2cd6.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Smart Vacuum Cleaner</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/179_item_in/05/07/2024/d80bd4b9fce759a296077d027b004b01.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Vaccum Cleaner Accessories</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Smart Home
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Name > Smart Watch & Audio View -->
+        <div id="mobile-watch" class="fixed inset-0 w-full h-full flex flex-col justify-start bg-white z-50 text-sm overflow-x-scroll p-6 hidden">
+            <div class="flex items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2" onclick="closeSubMenu('mobile-watch')">
+                    <i class="fa-solid fa-angle-left text-lg"></i>
+                    <span class="text-gray-700 text-lg">Smart Watch & Audio</span>
+                </div>
+                <button class="text-2xl text-gray-500 close-mobile-dropdown" aria-label="Close" onclick="closeInner('mobile-watch')">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div>
+                <div x-data="{ selected: 'audio' }">
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'audio' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'audio' ? null : 'audio'"
+                        >
+                            Audio
+                            <i :class="selected === 'audio' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'audio'" class="flex flex-col gap-2" x-transition>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/20_item_in/20/06/2024/90ba1e83b768aa05aa7a5fe9fe370d3c.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Earbuds</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/632_item_in/20/06/2024/efd33ffa77aa023cb67a33b0589784ae.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Neckbands</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/881_item_in/29/10/2024/d5d0b6420fd8ef23fd64e49aa0165cdd.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Wired Earphones</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/551_item_in/09/12/2024/9fc894a06b1a330079d350a08f142930.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Speakers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Audio
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div 
+                            class="flex items-center justify-between py-3 cursor-pointer font-semibold text-base"
+                            :class="selected === 'lifestyle' ? 'text-[#FF6900]' : 'text-black'"
+                            @click="selected = selected === 'lifestyle' ? null : 'lifestyle'"
+                        >
+                            Lifestyle
+                            <i :class="selected === 'lifestyle' ? 'fa-solid fa-chevron-up' : 'fa-solid fa-chevron-down'"></i>
+                        </div>
+                        <div x-show="selected === 'lifestyle'" class="flex flex-col gap-2" x-transition>
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/924_item_in/17/06/2024/58eab5dad44ddc051e15f80671ce873e.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Smart Watch</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1563519255.60161264.jpg?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Backpack</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/303_item_in/26/10/2023/f240afcca9ebd4c533180cbb9ae59fed.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Grooming</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/303_item_in/26/10/2023/f240afcca9ebd4c533180cbb9ae59fed.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Shoes</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 rounded-lg flex flex-col items-center h-24 p-3">
+                                    <img src="https://i03.appmifile.com/303_item_in/26/10/2023/f240afcca9ebd4c533180cbb9ae59fed.png?thumb=1&f=webp&q=85" class="w-14 h-14 object-cover">
+                                    <div class="ml-2 text-xs">
+                                        <p>Writing Pad</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 h-11 w-full bg-gray-100 rounded-lg justify-items-center items-center">
+                                <div class="flex items-center gap-2 text-gray-700 cursor-pointer hover:text-[#FF6900]">
+                                    All Lifestyle
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -972,7 +1565,7 @@
             <div class="flex justify-between mt-16 px-0 pt-6 pb-[38px] border-t-2 border-gray-800">
                 <div class="flex gap-[20px]">
                     <p>Copyright © 2010 - 2025 Xiaomi. All Rights Reserved</p>
-                    <p><a href="#">Sitemap</a></p>
+                    <p><a href="#" class="py-2">Sitemap</a></p>
                 </div>
                 <div class="flex gap-[16px]">
                     <p>India / English</p>
