@@ -3245,28 +3245,27 @@
             </div>
         </section>
 
-
         <!-- Why Shop on mi.com -->
         <section class="mx-10 pt-14 pb-5">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-3xl font-semibold">Why Shop on mi.com</h2>
                 <div class="flex gap-4">
-                    <button id="shopPrevious">
+                    <button id="shopPrevious" onclick="scrollToPreviousSection()">
                         <i class="fa-regular fa-square-caret-left text-3xl text-gray-400"></i>
                     </button>
-                    <button id="shopNext">
+                    <button id="shopNext" onclick="scrollToNextSection()">
                         <i class="fa-regular fa-square-caret-right text-3xl text-gray-400"></i>
                     </button>
                 </div>
             </div>
-            <div id="shopContainer" class="grid grid-cols-1 justify-center gap-6">
-                <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+            <div id="shopScrollContainer" class="flex overflow-x-auto gap-4">
+                <div class="card shop1 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center w-screen">
                     <img src="https://i02.appmifile.com/38_operatorx_operatorx_xm/27/11/2024/f7184560e02644c9c4cf5d23b0618c6c.png?thumb=1&f=webp&q=85" class="w-full h-40 md:w-full md:h-56 lg:h-72 object-cover rounded-lg">
                     <div class="text-center mt-8 mr-0 mb-10 ml-4">
                         <h2 class="text-[22px] font-bold">Exclusive Bundles</h2>
                     </div>
                 </div>
-                <div class="p-4 bg-white rounded-lg shadow-lg flex flex-col items-center">
+                <div class="card shop2 p-4 bg-white rounded-lg shadow-lg flex flex-col items-center w-screen">
                     <img src="https://i03.appmifile.com/823_operator_in/16/06/2025/e5ae94971baf9c77036f348a6afea1e3.jpg?thumb=1&f=webp&q=85" class="w-full h-40 md:w-full md:h-56 lg:h-72 object-cover rounded-lg">
                     <div class="text-center mt-8 mr-0 mb-10 ml-4">
                         <h2 class="text-[22px] font-bold">Special Rewards</h2>
@@ -3393,6 +3392,7 @@
         </footer>
 
         <!-- Scripts -->
+        <script src="./js/shop.js"></script>
         <script src="./js/navbar.js"></script>
         <script src="./js/newlaunch.js"></script>
         <script src="./js/hero-slider.js"></script>
