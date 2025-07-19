@@ -1,19 +1,19 @@
-const shopPrevious = document.getElementById("shopPrevious");
-const shopNext = document.getElementById("shopNext");
-const shopScrollContainer = document.getElementById("shopScrollContainer"); // Add an id to your scrollable container
+const prevBtnCard = document.getElementById("prevBtnShopCard");
+const nextBtnCard = document.getElementById("nextBtnShopCard");
+const shop1 = document.querySelectorAll(".shop1");
+const shop2 = document.querySelectorAll(".shop2");
 
-const scrollAmount = 300; // Adjust as needed
+function showGroup(showFirst) {
+  shop1.forEach((el) => el.classList.toggle("hidden", !showFirst));
+  shop2.forEach((el) => el.classList.toggle("hidden", showFirst));
 
-shopPrevious.addEventListener("click", () => {
-    shopScrollContainer.scrollBy({
-        left: -scrollAmount,
-        behavior: "smooth"
-    });
-});
+  prevBtnCard.disabled = showFirst;
+  prevBtnCard.classList.toggle("cursor-not-allowed", showFirst);
+  prevBtnCard.classList.toggle("cursor-pointer", !showFirst);
+  nextBtnCard.disabled = !showFirst;
+  nextBtnCard.classList.toggle("cursor-not-allowed", !showFirst);
+  nextBtnCard.classList.toggle("cursor-pointer", showFirst);
+}
 
-shopNext.addEventListener("click", () => {
-    shopScrollContainer.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth"
-    });
-});
+prevBtnCard.addEventListener("click", () => showGroup(true));
+nextBtnCard.addEventListener("click", () => showGroup(false));
