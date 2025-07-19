@@ -30,3 +30,18 @@
     pointer-events: auto;
     z-index: 1;
 }
+
+/* Redmi Slider */
+.redmicard {
+    display: none;
+    opacity: 0;
+}
+
+.redmicard.active {
+    display: flex;
+    opacity: 1;
+}
+
+.redmidot.active {
+    background-color: #ff6900;
+}
