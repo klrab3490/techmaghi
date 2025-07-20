@@ -85,3 +85,14 @@
 .smarthomesliderdot.active {
     background-color: #D1D5DB; /* Gray-300 */
 }
+
+/* Smart Watch Slider */
+.smartwatch-card {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+.smartwatchdot.active {
+  background-color: #D1D5DB; /* Gray-300 */
+}
