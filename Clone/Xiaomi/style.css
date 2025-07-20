@@ -45,3 +45,18 @@
 .redmidot.active {
     background-color: #ff6900;
 }
+
+/* Tablet Slider */
+.tabletcard {
+    display: none;
+    opacity: 0;
+}
+
+.tabletcard.active {
+    display: flex;
+    opacity: 1;
+}
+
+.tabletdot.active {
+    background-color: #ff6900;
+}
