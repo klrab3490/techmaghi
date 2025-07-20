@@ -60,3 +60,28 @@
 .tabletdot.active {
     background-color: #ff6900;
 }
+
+/* TV Slider */
+.tv-card {
+    display: none;
+    opacity: 0;
+}
+
+.tv-card.active {
+    display: flex;
+    opacity: 1;
+}
+
+.tvdot.active {
+    background-color: #D1D5DB; /* Gray-300 */
+}
+
+/* TN Slider 2 */
+.tvsliderdot.active {
+    background-color: #D1D5DB; /* Gray-300 */
+}
+
+/* Smarthome Slider */
+.smarthomesliderdot.active {
+    background-color: #D1D5DB; /* Gray-300 */
+}
