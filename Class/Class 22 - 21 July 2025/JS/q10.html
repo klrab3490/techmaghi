@@ -12,75 +12,44 @@
             <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
                 <div>
                     <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
-                        <i class="fa-solid fa-chevron-left mr-2"></i>
-                        Back
+                    <i class="fa-solid fa-chevron-left mr-2"></i>
+                    Back
                     </a>
                 </div>
                 <h2 class="text-2xl font-bold mb-4 text-center text-purple-700">Company Employee Manager</h2>
-                <p class="mb-6 text-gray-600 text-center">Add employees to departments and view the list below.</p>
-                <div class="flex flex-col gap-3 mb-4">
-                    <select id="department" class="border border-purple-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
-                        <option>Select Department</option>
-                        <option value="development">Development</option>
-                        <option value="marketing">Marketing</option>
-                    </select>
-                    <input type="text" id="employeeName" placeholder="Employee Name" class="border border-purple-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
-                    <button onclick="addEmployeeButton()" class="bg-purple-600 text-white font-semibold py-2 rounded hover:bg-purple-700 transition">Add Employee</button>
+
+                <form id="employeeForm" class="space-y-4">
+                    <div>
+                    <label class="block text-gray-700 mb-1" for="name">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300">
+                    </div>
+                    <div>
+                    <label class="block text-gray-700 mb-1" for="email">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300">
+                    </div>
+                    <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">Submit</button>
+                </form>
+                <div id="spinner" class="flex justify-center mt-4 hidden">
+                    <i class="fa-solid fa-spinner fa-spin text-purple-600 text-2xl"></i>
                 </div>
-                <div id="employeeList" class="bg-purple-50 rounded p-4 text-gray-700"></div>
             </div>
         </div>
 
         <script>
-            const company = {
-                name: "Techmaghi",
-                departments: {
-                    development: {
-                        employees: [],
-                    },
-                    marketing: {
-                        employees: [],
-                    }
-                }
-            }
+            const form = document.getElementById('employeeForm');
+            const spinner = document.getElementById('spinner');
 
-            function addEmployee(department, employeeName) {
-                if (company.departments[department]) {
-                    company.departments[department].employees.push(employeeName);
-                } else {
-                    console.log(`Department ${department} does not exist.`);
-                }
-            }
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                spinner.classList.remove('hidden');
 
-            function listEmployees() {
-                const employeeListDiv = document.getElementById('employeeList');
-                let html = '';
-                for (const department in company.departments) {
-                    const employees = company.departments[department].employees;
-                    html += `<div class="mb-2"><strong>${department.charAt(0).toUpperCase() + department.slice(1)}:</strong></div>`;
-                    if (employees.length) {
-                        html += '<ul class="list-disc list-inside mb-4">';
-                        for (const emp of employees) {
-                            html += `<li>${emp}</li>`;
-                        }
-                        html += '</ul>';
-                    } else {
-                        html += '<ul class="list-disc list-inside mb-4"><li>No employees</li></ul>';
-                    }
-                }
-                employeeListDiv.innerHTML = html;
-            }
-
-            function addEmployeeButton() {
-                const department = document.getElementById('department').value;
-                const employeeName = document.getElementById('employeeName').value;
-                addEmployee(department, employeeName);
-                listEmployees();
-
-                document.getElementById('employeeName').value = ''; // Clear input field
-            }
-
-            listEmployees(); // Initial call to display empty lists
+                // Simulate async submission (replace with actual submission logic)
+                setTimeout(() => {
+                spinner.classList.add('hidden');
+                alert('Form submitted!');
+                form.reset();
+                }, 2000);
+            });
         </script>
     </body>
 </html>

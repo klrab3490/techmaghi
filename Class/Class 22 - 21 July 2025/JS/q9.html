@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Fetch Data Periodically</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
@@ -14,32 +14,43 @@
                     <i class="fa-solid fa-chevron-left mr-2"></i>
                     Back
                 </a>
-                <h2 class="text-xl font-bold mb-4 text-gray-700">Merge Two Arrays (No Duplicates, No Set)</h2>
+                <h2 class="text-xl font-bold mb-4 text-gray-700">Fetch Data Periodically</h2>
             </div>
-            <label for="array1" class="block mb-2 text-gray-600">First Array (comma separated):</label>
-            <input type="text" id="array1" placeholder="e.g. 1, 2, 3" class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <label for="array2" class="block mb-2 text-gray-600">Second Array (comma separated):</label>
-            <input type="text" id="array2" placeholder="e.g. 3, 4, 5" class="w-full border p-2 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <button onclick="mergeArrays()" id="mergeButton" class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded font-semibold transition">Merge Arrays</button>
-            <div id="result" class="mt-6 p-4 bg-gray-100 border rounded text-gray-800 font-mono min-h-[40px]"></div>
+            <div class="mb-4">
+                <span id="timer" class="text-lg font-mono text-green-600"></span>
+                <div id="data-container"></div>
+            </div>
         </div>
 
         <script>
-            function mergeArrays() {
-                const array1 = document.getElementById('array1').value.split(',').map(item => item.trim());
-                const array2 = document.getElementById('array2').value.split(',').map(item => item.trim());
+            let interval = 10;
+            const timerEl = document.getElementById('timer');
 
-                const mergedArray = [...array1, ...array2];
-                const uniqueArray = [];
-
-                for (const item of mergedArray) {
-                    if (!uniqueArray.includes(item)) {
-                        uniqueArray.push(item);
-                    }
+            function updateTimer() {
+                timerEl.textContent = `Next fetch in: ${interval}s`;
+                interval--;
+                if (interval < 0) {
+                    interval = 10;
                 }
-
-                document.getElementById('result').innerText = `Merged Array: [${uniqueArray.join(', ')}]`;
             }
+
+            function fetchData() {
+                const dataContainer = document.getElementById('data-container');
+                console.log("Fetching updated data from the server...");
+                dataContainer.textContent = `Data fetched at: ${new Date().toLocaleTimeString()}`;
+                interval = 10;
+            }
+
+            setInterval(() => {
+                updateTimer();
+                if (interval === 0) {
+                    fetchData();
+                }
+            }, 1000);
+
+            // Initial fetch and timer setup
+            fetchData();
+            updateTimer();
         </script>
     </body>
 </html>

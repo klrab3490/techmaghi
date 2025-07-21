@@ -15,30 +15,23 @@
                         <i class="fa-solid fa-chevron-left mr-2"></i>
                         Back
                     </a>
-                    <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center">Flatten a Nested Array</h1>
+                    <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center">Button Click</h1>
                 </div>
-                <p class="mb-6 text-gray-600 text-center">Enter a nested array (e.g., <span class="font-mono text-sm">[1, [2, 3], [4, [5]]]</span>) and flatten it.</p>
-                <input type="text" id="nestedArray" placeholder="Enter nested array" class="border border-gray-300 rounded px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4 font-mono">
                 <button id="flattenButton" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full font-semibold transition-colors duration-200">Flatten Array</button>
                 <div id="result" class="mt-6 text-center text-lg text-purple-700 font-medium min-h-[2rem]"></div>
             </div>
         </div>
 
         <script>
-            function flattenArray(arr) {
-                return arr.reduce((flat, toFlatten) => {
-                    return flat.concat(Array.isArray(toFlatten) ? flattenArray(toFlatten) : toFlatten);
-                }, []);
-            }
-
-            document.getElementById('flattenButton').addEventListener('click', () => {
-                const input = document.getElementById('nestedArray').value;
-                try {
-                    const nestedArray = JSON.parse(input);
-                    const flattened = flattenArray(nestedArray);
-                    document.getElementById('result').innerText = `Flattened Array: [${flattened.join(', ')}]`;
-                } catch (error) {
-                    document.getElementById('result').innerText = 'Invalid input. Please enter a valid nested array.';
+            // Button Click Function
+            let count = 0;
+            document.getElementById('flattenButton').addEventListener('click', function() {
+                count++;
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = `Button clicked ${count} times.`;
+                if (count === 5) {
+                    document.getElementById('flattenButton').disabled = true;
+                    document.getElementById('flattenButton').classList.add('opacity-50', 'cursor-not-allowed');
                 }
             });
         </script>
