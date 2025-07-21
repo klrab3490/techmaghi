@@ -3,80 +3,199 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Toggle Paragraph Visibility</title>
+        <title>E-Commerce Site: Shopping Cart</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
     <body>
-        <div class="max-w-2xl mx-auto mt-12 p-8 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-2xl border border-blue-200">
+        <div class="mx-auto mt-12 p-8 bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-2xl shadow-2xl border border-blue-200">
             <div class="mb-8">
                 <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
                     <i class="fa-solid fa-chevron-left mr-2"></i>
                     Back
                 </a>
-                <h2 class="text-3xl font-extrabold mb-6 text-center text-blue-800 tracking-tight">Toggle Paragraph Visibility</h2>
+                <h2 class="text-3xl font-extrabold mb-6 text-center text-blue-800 tracking-tight">E-Commerce Site: Shopping Cart</h2>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-blue-600">US designates
-                The Resistance Front, LeT proxy behind Pahalgam attack, as
-                Foreign Terrorist Organization</h3>
-            <div class="mb-6 text-gray-800 leading-relaxed">
-                In a move underscoring growing US-India counterterrorism
-                cooperation, the United States has designated The Resistance
-                Front (TRF), a proxy of the Lashkar-e-Taiba (LeT), as a Foreign
-                Terrorist Organization (FTO). The designation comes in response
-                to TRF’s alleged role in the April 22 attack in Pahalgam that
-                left 26 civilians dead.
-                <br>
-                Secretary of State Marco Rubio announced the designation on
-                Thursday, stating that it aligns with President Donald Trump’s
-                demand for accountability in the aftermath of the Pahalgam
-                attack.
+            <div class="flex gap-6">
+                <!-- Shopping Cards -->
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=1" alt="Product Image 1" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Wireless Headphones</h3>
+                            <p class="text-gray-600 mb-2">High-quality wireless headphones with noise cancellation and long battery life.</p>
+                            <span class="text-sm text-gray-400">ID: 10001</span>
+                            <button onclick="addToCart({id:10001,name:'Wireless Headphones',desc:'High-quality wireless headphones with noise cancellation and long battery life.',img:'https://via.placeholder.com/100?text=1'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=2" alt="Product Image 2" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Smart Watch</h3>
+                            <p class="text-gray-600 mb-2">Track your fitness and notifications with this stylish smart watch.</p>
+                            <span class="text-sm text-gray-400">ID: 10002</span>
+                            <button onclick="addToCart({id:10002,name:'Smart Watch',desc:'Track your fitness and notifications with this stylish smart watch.',img:'https://via.placeholder.com/100?text=2'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=3" alt="Product Image 3" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Bluetooth Speaker</h3>
+                            <p class="text-gray-600 mb-2">Portable Bluetooth speaker with deep bass and waterproof design.</p>
+                            <span class="text-sm text-gray-400">ID: 10003</span>
+                            <button onclick="addToCart({id:10003,name:'Bluetooth Speaker',desc:'Portable Bluetooth speaker with deep bass and waterproof design.',img:'https://via.placeholder.com/100?text=3'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=4" alt="Product Image 4" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Fitness Tracker</h3>
+                            <p class="text-gray-600 mb-2">Monitor your health stats and daily activity with this fitness tracker.</p>
+                            <span class="text-sm text-gray-400">ID: 10004</span>
+                            <button onclick="addToCart({id:10004,name:'Fitness Tracker',desc:'Monitor your health stats and daily activity with this fitness tracker.',img:'https://via.placeholder.com/100?text=4'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=5" alt="Product Image 5" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Laptop Stand</h3>
+                            <p class="text-gray-600 mb-2">Ergonomic laptop stand for comfortable typing and better posture.</p>
+                            <span class="text-sm text-gray-400">ID: 10005</span>
+                            <button onclick="addToCart({id:10005,name:'Laptop Stand',desc:'Ergonomic laptop stand for comfortable typing and better posture.',img:'https://via.placeholder.com/100?text=5'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=6" alt="Product Image 6" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">USB-C Hub</h3>
+                            <p class="text-gray-600 mb-2">Expand your laptop's connectivity with this multi-port USB-C hub.</p>
+                            <span class="text-sm text-gray-400">ID: 10006</span>
+                            <button onclick="addToCart({id:10006,name:'USB-C Hub',desc:'Expand your laptop\'s connectivity with this multi-port USB-C hub.',img:'https://via.placeholder.com/100?text=6'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=7" alt="Product Image 7" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Wireless Mouse</h3>
+                            <p class="text-gray-600 mb-2">Smooth and responsive wireless mouse with ergonomic design.</p>
+                            <span class="text-sm text-gray-400">ID: 10007</span>
+                            <button onclick="addToCart({id:10007,name:'Wireless Mouse',desc:'Smooth and responsive wireless mouse with ergonomic design.',img:'https://via.placeholder.com/100?text=7'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=8" alt="Product Image 8" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Portable Charger</h3>
+                            <p class="text-gray-600 mb-2">High-capacity portable charger for charging devices on the go.</p>
+                            <span class="text-sm text-gray-400">ID: 10008</span>
+                            <button onclick="addToCart({id:10008,name:'Portable Charger',desc:'High-capacity portable charger for charging devices on the go.',img:'https://via.placeholder.com/100?text=8'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=9" alt="Product Image 9" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Gaming Keyboard</h3>
+                            <p class="text-gray-600 mb-2">Mechanical gaming keyboard with RGB lighting and fast response.</p>
+                            <span class="text-sm text-gray-400">ID: 10009</span>
+                            <button onclick="addToCart({id:10009,name:'Gaming Keyboard',desc:'Mechanical gaming keyboard with RGB lighting and fast response.',img:'https://via.placeholder.com/100?text=9'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=10" alt="Product Image 10" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Noise Cancelling Earbuds</h3>
+                            <p class="text-gray-600 mb-2">Compact earbuds with active noise cancellation and clear sound.</p>
+                            <span class="text-sm text-gray-400">ID: 10010</span>
+                            <button onclick="addToCart({id:10010,name:'Noise Cancelling Earbuds',desc:'Compact earbuds with active noise cancellation and clear sound.',img:'https://via.placeholder.com/100?text=10'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=11" alt="Product Image 11" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Tablet Stand</h3>
+                            <p class="text-gray-600 mb-2">Adjustable tablet stand for hands-free viewing and video calls.</p>
+                            <span class="text-sm text-gray-400">ID: 10011</span>
+                            <button onclick="addToCart({id:10011,name:'Tablet Stand',desc:'Adjustable tablet stand for hands-free viewing and video calls.',img:'https://via.placeholder.com/100?text=11'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=12" alt="Product Image 12" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">External Hard Drive</h3>
+                            <p class="text-gray-600 mb-2">Reliable external hard drive for secure data backup and storage.</p>
+                            <span class="text-sm text-gray-400">ID: 10012</span>
+                            <button onclick="addToCart({id:10012,name:'External Hard Drive',desc:'Reliable external hard drive for secure data backup and storage.',img:'https://via.placeholder.com/100?text=12'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=13" alt="Product Image 13" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Webcam</h3>
+                            <p class="text-gray-600 mb-2">HD webcam for clear video calls and online meetings.</p>
+                            <span class="text-sm text-gray-400">ID: 10013</span>
+                            <button onclick="addToCart({id:10013,name:'Webcam',desc:'HD webcam for clear video calls and online meetings.',img:'https://via.placeholder.com/100?text=13'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=14" alt="Product Image 14" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Desk Lamp</h3>
+                            <p class="text-gray-600 mb-2">LED desk lamp with adjustable brightness and color temperature.</p>
+                            <span class="text-sm text-gray-400">ID: 10014</span>
+                            <button onclick="addToCart({id:10014,name:'Desk Lamp',desc:'LED desk lamp with adjustable brightness and color temperature.',img:'https://via.placeholder.com/100?text=14'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white rounded-lg shadow-md p-6">
+                        <img src="https://via.placeholder.com/100?text=15" alt="Product Image 15" class="w-24 h-24 object-cover rounded-md mr-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-blue-700 mb-1">Wireless Charger</h3>
+                            <p class="text-gray-600 mb-2">Fast wireless charger compatible with all Qi-enabled devices.</p>
+                            <span class="text-sm text-gray-400">ID: 10015</span>
+                            <button onclick="addToCart({id:10015,name:'Wireless Charger',desc:'Fast wireless charger compatible with all Qi-enabled devices.',img:'https://via.placeholder.com/100?text=15'})" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/4" id="cart"></div>
             </div>
-            <button id="toggleButton" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full font-semibold shadow transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4">Toggle Paragraph</button>
-            <p id="toggleParagraph" class="mt-4 text-gray-700 bg-white rounded-lg p-5 shadow-inner border border-blue-100 hidden leading-relaxed">
-                In a move underscoring growing US-India counterterrorism
-                cooperation, the United States has designated The Resistance
-                Front (TRF), a proxy of the Lashkar-e-Taiba (LeT), as a Foreign
-                Terrorist Organization (FTO). The designation comes in response
-                to TRF’s alleged role in the April 22 attack in Pahalgam that
-                left 26 civilians dead.
-                <br>
-                Secretary of State Marco Rubio announced the designation on
-                Thursday, stating that it aligns with President Donald Trump’s
-                demand for accountability in the aftermath of the Pahalgam
-                attack.
-                <br>
-                “This action against the TRF demonstrates the Trump
-                administration’s commitment to protecting our national security
-                interests, countering terrorism, and enforcing President Trump’s
-                call for justice for the Pahalgam attack,” Rubio said in a
-                statement issued by the Department of State.
-                <br>
-                Rubio added that the TRF, along with other aliases, has been
-                added to LeT’s designation as both an FTO and a Specially
-                Designated Global Terrorist (SDGT) under Section 219 of the
-                Immigration and Nationality Act and Executive Order 13224.
-                <br>
-                Reacting to the news, External Affairs Minister S Jaishankar
-                said: “A strong affirmation of India-US counter-terrorism
-                cooperation.”
-                <br>
-                “Another demonstration of strong India-USA counter-terrorism
-                cooperation. Appreciate the Department of State for listing The
-                Resistance Front (TRF) as a designated Foreign Terrorist
-                Organization and Specially Designated Global Terrorist. TRF is a
-                proxy of Lashkar-e-Tayyiba and claimed responsibility for the
-                April 22 terror
-            </p>
+            <script>
+                let cartItems = [];
+                function addToCart(data) {
+                    alert('Added to cart: ' + data.name);
+                    // You can implement your cart logic here
+                    cartItems.push(data);
+                    cartItems.sort((a, b) => a.id - b.id);
+                    updateCart();
+                }
+
+                function updateCart() {
+                    const cart = document.getElementById('cart');
+                    cart.innerHTML = '<h3 class="text-xl font-bold text-blue-700 mb-4">Shopping Cart</h3>';
+                    if (cartItems.length === 0) {
+                        cart.innerHTML += '<p class="text-gray-600">Your cart is empty.</p>';
+                        return;
+                    }
+                    cartItems.forEach(item => {
+                        cart.innerHTML += `
+                            <div class="flex items-center bg-white rounded-lg shadow-md p-4 mb-4">
+                                <img src="${item.img}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-blue-700">${item.name}</h4>
+                                    <p class="text-gray-600">${item.desc}</p>
+                                    <span class="text-sm text-gray-400">ID: ${item.id}</span>
+                                </div>
+                                <button onclick="removeFromCart(${item.id})" class="ml-auto px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition">Remove</button>
+                            </div>
+                        `;
+                    });
+                }
+
+                function removeFromCart(id) {
+                    cartItems = cartItems.filter(item => item.id !== id);
+                    updateCart();
+                }
+            </script>
         </div>
 
-        <script>
-            const toggleButton = document.getElementById('toggleButton');
-            const toggleParagraph = document.getElementById('toggleParagraph');
-
-            toggleButton.addEventListener('click', () => {
-                toggleParagraph.classList.toggle('hidden');
-            });
-        </script>
+        
     </body>
 </html>

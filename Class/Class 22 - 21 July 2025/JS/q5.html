@@ -169,6 +169,7 @@
             document.getElementById('scoreBoard').addEventListener('click', function() {
                 document.getElementById('scoreForm').classList.remove('hidden');
                 document.getElementById('quizForm').classList.add('hidden');
+                scores.updateScoreBoard();
             });
 
             document.querySelector('form').addEventListener('submit', function(event) {

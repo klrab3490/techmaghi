@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Find Top Scoring Student</title>
+        <title>Search Input Box</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
@@ -12,90 +12,55 @@
             <div>
                 <a href="../index.html"
                    class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
-                    <i class="fa-solid fa-chevron-left mr-2"></i>
+                    <i class="fa-solid fa-chevron-left mr-2" aria-hidden="true"></i>
                     Back
                 </a>
-                <h2 class="text-2xl font-bold mb-4 text-center text-blue-700">Find Top Scoring Student</h2>
-                </div>
-            <div class="mb-4">
-                <input type="text" id="studentName"
-                    placeholder="Enter student name"
-                    class="border border-gray-300 p-2 rounded w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                <input type="number" id="studentScore"
-                    placeholder="Enter student score"
-                    class="border border-gray-300 p-2 rounded w-full mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                <button onclick="saveAll()"
-                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded w-full transition">Add
-                    Student</button>
+                <h2 class="text-2xl font-bold mb-4 text-center text-blue-700">Search Input Box</h2>
             </div>
-            <div class="mb-4 flex justify-start items-center gap-4">
-                <h3 class="text-lg font-semibold text-gray-700">Top
-                    Student:</h3>
-                <p id="topStudent" class="text-green-600 font-medium"></p>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold text-gray-700 mb-2">Student
-                    List:</h3>
-                <div id="studentList" class="space-y-1"></div>
+            <div class="mt-6">
+                <label for="searchInput" class="sr-only">Search</label>
+                <input type="text" id="searchInput" placeholder="Type to search..." class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div id="results" class="mt-4"></div>
             </div>
         </div>
-
+        
         <script>
-            const students = [];
+            // Default data for search
+            const searchData = [
+                "Alice Johnson",
+                "Bob Smith",
+                "Charlie Brown",
+                "David Williams",
+                "Eva Green",
+                "Fiona White",
+                "George Black",
+                "Hannah Blue"
+            ];
 
-            function addStudent(name, score) {
-                students.push({ name, score });
-            }
+            const searchInput = document.getElementById('searchInput');
+            const resultsDiv = document.getElementById('results');
 
-            function displayStudents() {
-                const studentList = document.getElementById('studentList');
-                studentList.innerHTML = '';
-                if (students.length === 0) {
-                    studentList.innerHTML = '<span class="text-gray-400">No students added yet.</span>';
+            function showResults(query) {
+                resultsDiv.innerHTML = '';
+                if (!query) return;
+                const filtered = searchData.filter(name =>
+                    name.toLowerCase().includes(query.toLowerCase())
+                );
+                if (filtered.length === 0) {
+                    resultsDiv.innerHTML = '<span class="text-gray-400">No results found.</span>';
                     return;
                 }
-                students.forEach((student, idx) => {
-                    const studentDiv = document.createElement('div');
-                    studentDiv.className = "flex justify-between items-center bg-gray-50 px-3 py-1 rounded";
-                    studentDiv.innerHTML = `<span>${idx + 1}. <span class="font-medium">${student.name}</span></span> <span class="text-blue-700">${student.score}</span>`;
-                    studentList.appendChild(studentDiv);
+                filtered.forEach(name => {
+                    const div = document.createElement('div');
+                    div.className = "py-1 px-2 hover:bg-blue-100 rounded";
+                    div.textContent = name;
+                    resultsDiv.appendChild(div);
                 });
             }
 
-            function findTopStudent() {
-                if (students.length === 0) return null;
-                return students.reduce((topStudent, current) => {
-                    return current.score > topStudent.score ? current : topStudent;
-                });
-            }
-
-            function displayTopStudent() {
-                const topStudent = findTopStudent();
-                const topStudentElem = document.getElementById('topStudent');
-                if (topStudent) {
-                    topStudentElem.textContent = `${topStudent.name} (${topStudent.score})`;
-                } else {
-                    topStudentElem.textContent = "No students yet.";
-                }
-            }
-
-            function saveAll() {
-                const name = document.getElementById('studentName').value.trim();
-                const score = parseInt(document.getElementById('studentScore').value, 10);
-                if (name && !isNaN(score)) {
-                    addStudent(name, score);
-                    document.getElementById('studentName').value = '';
-                    document.getElementById('studentScore').value = '';
-                    displayTopStudent();
-                    displayStudents();
-                } else {
-                    alert("Please enter a valid name and score.");
-                }
-            }
-
-            // Initialize display
-            displayTopStudent();
-            displayStudents();
+            searchInput.addEventListener('input', (e) => {
+                showResults(e.target.value);
+            });
         </script>
     </body>
 </html>
