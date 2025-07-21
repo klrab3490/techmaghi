@@ -3,61 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Filter Prime Numbers</title>
+        <title>Find Longest Word</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
-    <body>
-        <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200">
-            <div class="bg-white shadow-lg rounded-lg p-8 w-fit">
-                <a href="../index.html"
-                   class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
+    <body class="bg-gradient-to-br from-blue-100 to-purple-200 min-h-screen flex items-center justify-center">
+        <div class="bg-white shadow-xl rounded-xl p-8 w-3/4">
+            <div>
+                <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
                     <i class="fa-solid fa-chevron-left mr-2"></i>
                     Back
                 </a>
-                <h1 class="text-2xl font-bold mb-6 text-center text-blue-700">
-                    Filter Prime Numbers from an Array
-                </h1>
-                <label for="inputArray"
-                    class="block mb-2 text-gray-700 font-medium">
-                    Enter numbers separated by commas
-                </label>
-                <input
-                    type="text"
-                    id="inputArray"
-                    placeholder="e.g. 2, 3, 4, 5, 6"
-                    class="border border-blue-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 p-2 rounded w-full mb-4 outline-none transition" />
-                <button
-                    type="button"
-                    onclick="displayPrimes()"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded w-full transition mb-2 shadow">
-                    Get Primes
-                </button>
-                <div id="result"
-                    class="mt-4 text-center text-lg text-purple-700 font-medium"></div>
+                <h1 class="text-2xl font-bold mb-4 text-blue-700 text-center">To-do List Web App</h1>
             </div>
+            
         </div>
-
-        <script>
-        function filterPrimes(arr) {
-            return arr.filter(num => {
-                if (num === 1) return false;
-                if (num == 2) return true;
-                for (let i = 2; i < Math.sqrt(num) + 1; i++) {
-                    if (num % i === 0) return false;
-                }
-                return true;
-            });
-        }
-
-        function displayPrimes() {
-            const input = document.getElementById('inputArray').value;
-            const numbers = input.split(',').map(num => parseInt(num.trim(), 10));
-            console.log(`Input numbers: ${numbers}`); // Debugging line to check input
-            const primes = filterPrimes(numbers);
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = primes.length > 0 ? `Primes: ${primes.join(', ')}` : 'No prime numbers found.';
-        }
-    </script>
+        
+        <script></script>
     </body>
 </html>
