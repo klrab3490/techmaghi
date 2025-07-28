@@ -2,6 +2,7 @@
     path = Clone/mi-clone
     url = https://github.com/klrab3490/mi-clone.git
 
-[submodule "Class/Class 23 - 28 July 2025"]
-    path = Class/Class 23 - 28 July 2025
+[submodule "Class/Class 23 - 28 July 2025/To Do List"]
+    path = Class/Class 23 - 28 July 2025/To Do List
     url = https://github.com/klrab3490/to-do-list.git
+
