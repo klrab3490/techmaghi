@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <strong>Higher Order Function?</strong><br>
+        A higher order function is a function that takes another function as an argument, returns a function, or both. In JavaScript, functions like <code>map</code>, <code>filter</code>, and <code>reduce</code> are common examples.
+    </p>
+    <h2>Higher Order Function Example</h2>
+    <div id="result"></div>
+    <script>
+        // Higher Order Function: takes another function as argument
+        function operateOnNumbers(a, b, operation) {
+            return operation(a, b);
+        }
+
+        // Callback functions
+        function add(x, y) {
+            return x + y;
+        }
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        // Using the higher order function
+        const sum = operateOnNumbers(5, 3, add);
+        const product = operateOnNumbers(5, 3, multiply);
+
+        document.getElementById('result').innerHTML = 
+            `Sum: ${sum} <br>Product: ${product}`;
+    </script>
+</body>
+</html>
