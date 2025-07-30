@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Error Handling</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-gradient-to-br from-blue-500 to-purple-100 min-h-screen">
+        <div class="container mx-auto my-8">
+            <div class="bg-white shadow-lg rounded-xl p-8">
+                <h1 class="text-3xl font-extrabold text-purple-700 mb-6 text-center">🔍 Search Names</h1>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="border-2 border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition p-3 rounded-lg w-full mb-4 outline-none text-lg" 
+                    placeholder="Type to search names..."
+                >
+                <ul id="results" class="mt-2 space-y-2">
+                    <!-- Results will appear here -->
+                </ul>
+            </div>
+        </div>
+        <script>
+            const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Heidi", "Ivan", "Judy"];
+            const searchInput = document.getElementById('searchInput');
+            const results = document.getElementById('results');
+
+            function renderNames(list) {
+                results.innerHTML = '';
+                if (list.length === 0) {
+                    const li = document.createElement('li');
+                    li.textContent = 'No results found.';
+                    li.className = 'text-gray-400 text-center py-2';
+                    results.appendChild(li);
+                    return;
+                }
+                list.forEach(name => {
+                    const li = document.createElement('li');
+                    li.textContent = name;
+                    li.className = 'bg-purple-100 hover:bg-purple-200 transition rounded px-4 py-2 font-medium text-purple-800 shadow-sm';
+                    results.appendChild(li);
+                });
+            }
+
+            // Show all names initially
+            renderNames(names);
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                if (query) {
+                    const filteredNames = names.filter(name => name.toLowerCase().includes(query));
+                    renderNames(filteredNames);
+                } else {
+                    renderNames(names);
+                }
+            });
+        </script>
+    </body>
+</html>

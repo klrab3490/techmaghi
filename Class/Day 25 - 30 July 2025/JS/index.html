@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Error Handling</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+        <div class="bg-white shadow-lg rounded-lg p-8 max-w-xl w-full">
+            <h1 class="text-3xl font-bold text-blue-700 mb-4">JavaScript Error Handling</h1>
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">try-catch</h2>
+                <p class="text-gray-700 mb-2">
+                    <code class="bg-gray-200 px-2 py-1 rounded">try-catch</code> blocks are the most basic structures used
+                    for error handling in JavaScript.
+                </p>
+                <pre class="bg-gray-100 rounded p-4 text-sm mb-2">
+                    <code>try {
+                        // code that may throw an error
+                    } catch (error) {
+                        // handle the error
+                    }</code>
+                </pre>
+            </section>
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Asynchronous Operations</h2>
+                <ul class="list-disc list-inside text-gray-700 mb-2">
+                    <li><span class="font-medium">Promise</span>
+                        <ul>
+                            <li>Its an object is an eventual completion of an asynchronous operation</li>
+                            <li>.then and .catch methods are used to handle the result or error of the promise</li>
+                            <li>It can be in one of three states: pending, fulfilled, or rejected</li>
+                        </ul>
+                    </li>
+                    <li><span class="font-medium">Callbacks</span></li>
+                    <li>
+                        <span class="font-medium">async/await</span>
+                        <ul class="list-disc list-inside ml-6 text-gray-600">
+                            <li>Syntactic sugar for promises</li>
+                            <li>Allows writing asynchronous code in a synchronous manner</li>
+                            <li>Built on top of promises</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Example: Promise with try-catch</h2>
+                <pre class="bg-gray-100 rounded p-4 text-sm"><code>function fetchData() {
+        return new Promise((resolve, reject) => {
+            try {
+                // Simulate an API call
+                setTimeout(() => {
+                    const data = { id: 1, name: 'John Doe' };
+                    resolve(data);
+                }, 1000);
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }</code></pre>
+            </section>
+            
+            <section>
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">Example: async/await with try-catch</h2>
+                <pre class="bg-gray-100 rounded p-4 text-sm"><code>async function fetchData() {
+        try {
+            const response = await fetch('https://api.example.com/data');
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }</code></pre>
+            </section>
+        </div>
+    </body>
+    <script>
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                try {
+                    // Simulate an API call
+                    setTimeout(() => {
+                        const data = { 
+                            id: 1, 
+                            name: 'John Doe',
+                            email: 'john.doe@example.com',
+                            age: 30,
+                            address: {
+                                street: '123 Main St',
+                                city: 'Metropolis',
+                                country: 'USA'
+                            },
+                            isActive: true
+                        };
+                        resolve(data);
+                    }, 10000);
+                } catch (error) {
+                    reject(error);
+                }
+            });
+        }
+        // Example usage of fetchData
+        fetchData()
+            .then(data => console.log('Data fetched:', data))
+            .catch(error => console.error('Error fetching data:', error));  
+    </script>
+</html>
+ 
