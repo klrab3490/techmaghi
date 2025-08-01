@@ -1,182 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>DSA - Data Structures and Algorithms</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-900 min-h-screen">
-    <div class="max-w-2xl mx-auto py-10 px-6">
-        <h1 class="text-3xl font-bold mb-6 text-blue-700">DSA - Data Structures and Algorithms</h1>
-        <ul class="list-disc ml-6 space-y-6">
-            <li>
-                <span class="font-semibold text-lg">String Manipulation</span>
-                <ul class="list-[circle] ml-6 mt-2 space-y-4">
-                    <li>
-                        <span class="font-medium">Reverse a String</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>2 pointers: Start and End or Left and Right</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Initialize two pointers: one at the start and one at the end of the list. <span class="italic">Start=0 and End=len(string)-1</span></li>
-                                    <li>Repeat until start &lt; end. Swap the character of start and end. Increment start, decrement end.</li>
-                                    <li>After loop ends, string is reversed.</li>
-                                    <li>Return or print the reversed string.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Check if a String is a Palindrome</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>A palindrome is a string that reads the same backward as forward (e.g., "madam", "racecar").</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Remove all non-alphanumeric characters and convert the string to lowercase.</li>
-                                    <li>Reverse the cleaned string.</li>
-                                    <li>Compare the cleaned string with its reversed version.</li>
-                                    <li>If both are equal, the string is a palindrome; otherwise, it is not.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Count Vowels and Consonants</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Iterate through each character in the string.</li>
-                            <li>Use a counter for vowels and another for consonants.</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Initialize two counters: vowels = 0, consonants = 0.</li>
-                                    <li>Loop through each character in the string.</li>
-                                    <li>For each character, check if it is a letter.</li>
-                                    <li>If the letter is a vowel (a, e, i, o, u), increment vowels.</li>
-                                    <li>If the letter is a consonant, increment consonants.</li>
-                                    <li>Return or print the counts of vowels and consonants.</li>
-                                </ol>
-                            </li>
-                            <li>Return or print the counts.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Find the First Non-Repeating Character</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Identifies the first character in a string that does not repeat.</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Traverse the string to count occurrences of each character.</li>
-                                    <li>Iterate again to find the first character with a count of one.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Anagram Check</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Determines if two strings are anagrams (contain the same characters in any order).</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Sort both strings and compare, or count character frequencies and compare.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">String Compression</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Compresses a string by replacing sequences of the same character with the character followed by the count.</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Iterate through the string, count consecutive characters, and build the compressed string.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Longest Substring Without Repeating Characters</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Finds the length of the longest substring without repeating characters.</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Use a sliding window with a hash set to track unique characters.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="font-medium">Capitalize First Letter Each Word In a String</span>
-                        <ul class="list-[square] ml-6 mt-1 space-y-2">
-                            <li>Capitalizes the first letter of each word in a given string.</li>
-                            <li>
-                                <span class="font-semibold">Algorithm:</span>
-                                <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                    <li>Split the string into words, capitalize the first letter of each, and join them back.</li>
-                                </ol>
-                            </li>
-                            <li>
-                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <span class="font-semibold text-lg">Array Manipulation</span>
-            </li>
-        </ul>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>DSA - Data Structures and Algorithms</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 text-gray-900 min-h-screen">
+        <div class="max-w-2xl mx-auto py-10 px-6">
+            <h1 class="text-3xl font-bold mb-6 text-blue-700">DSA - Data Structures and Algorithms</h1>
+            <ul class="list-disc ml-6 space-y-6">
+                <li>
+                    <span class="font-semibold text-lg">String Manipulation</span>
+                    <ul class="list-[circle] ml-6 mt-2 space-y-4">
+                        <li>
+                            <span class="font-medium">Reverse a String</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>2 pointers: Start and End or Left and Right</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Initialize two pointers: one at the start and one at the end of the list. <span class="italic">Start=0 and End=len(string)-1</span></li>
+                                        <li>Repeat until start &lt; end. Swap the character of start and end. Increment start, decrement end.</li>
+                                        <li>After loop ends, string is reversed.</li>
+                                        <li>Return or print the reversed string.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Check if a String is a Palindrome</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>A palindrome is a string that reads the same backward as forward (e.g., "madam", "racecar").</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Remove all non-alphanumeric characters and convert the string to lowercase.</li>
+                                        <li>Reverse the cleaned string.</li>
+                                        <li>Compare the cleaned string with its reversed version.</li>
+                                        <li>If both are equal, the string is a palindrome; otherwise, it is not.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Count Vowels and Consonants</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Iterate through each character in the string.</li>
+                                <li>Use a counter for vowels and another for consonants.</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Initialize two counters: vowels = 0, consonants = 0.</li>
+                                        <li>Loop through each character in the string.</li>
+                                        <li>For each character, check if it is a letter.</li>
+                                        <li>If the letter is a vowel (a, e, i, o, u), increment vowels.</li>
+                                        <li>If the letter is a consonant, increment consonants.</li>
+                                        <li>Return or print the counts of vowels and consonants.</li>
+                                    </ol>
+                                </li>
+                                <li>Return or print the counts.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Find the First Non-Repeating Character</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Identifies the first character in a string that does not repeat.</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Traverse the string to count occurrences of each character.</li>
+                                        <li>Iterate again to find the first character with a count of one.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Anagram Check</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Determines if two strings are anagrams (contain the same characters in any order).</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Sort both strings and compare, or count character frequencies and compare.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">String Compression</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Compresses a string by replacing sequences of the same character with the character followed by the count.</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Iterate through the string, count consecutive characters, and build the compressed string.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Longest Substring Without Repeating Characters</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Finds the length of the longest substring without repeating characters.</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Use a sliding window with a hash set to track unique characters.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="font-medium">Capitalize First Letter Each Word In a String</span>
+                            <ul class="list-[square] ml-6 mt-1 space-y-2">
+                                <li>Capitalizes the first letter of each word in a given string.</li>
+                                <li>
+                                    <span class="font-semibold">Algorithm:</span>
+                                    <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                        <li>Split the string into words, capitalize the first letter of each, and join them back.</li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="font-semibold text-lg">Array Manipulation</span>
+                </li>
+            </ul>
+        </div>
 
-    <script>
-        // Example of reversing a string
-        const l = 'Rahul A B';
-        const m = l.split('').reverse().join(''); // Reverse the string using split, reverse, and join
-        console.log(m);
+        <script>
+            // Example of reversing a string
+            const l = 'Rahul A B';
+            const m = l.split('').reverse().join(''); // Reverse the string using split, reverse, and join
+            console.log("String reversal check: " + l + " => " + m + " => " + (l === m ? "Palindrome" : "Not a Palindrome"));
 
-        const isPalindrome = (str) => {
-            const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-            const reversed = cleaned.split('').reverse().join('');
-            return cleaned === reversed;
-        };
+            // Palindrome check function
+            const isPalindrome = (str) => {
+                const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+                const reversed = cleaned.split('').reverse().join('');
+                return cleaned === reversed;
+            };
 
-        console.log(isPalindrome('Malayalam'));
+            const inputStr = 'Malayalam';
+            console.log("Is '" + inputStr + "' a palindrome (case-insensitive)? " + isPalindrome(inputStr)); // Example usage
 
-        const checkPalindrome = (str) => {
-            const temp = str;
-            let reverse = "";
-            for(let i = temp.length - 1; i >= 0; i--) {
-                reverse += temp[i];
-            }
-            return reverse === temp;
-        };
-        console.log(checkPalindrome('Malayalam'));
-    </script>
+            const checkPalindrome = (str) => {
+                const temp = str;
+                let reverse = "";
+                for(let i = temp.length - 1; i >= 0; i--) {
+                    reverse += temp[i];
+                }
+                return reverse === temp;
+            };
+            console.log("Is 'Malayalam' a palindrome?(Not Case-Insensitive) " + checkPalindrome('Malayalam'));
 
-</body>
+            // Function to count vowels and consonants
+            const countVowelsAndConsonants = (str) => {
+                const vowels = 'aeiouAEIOU';
+                let vowelCount = 0;
+                let consonantCount = 0;
+
+                for (let char of str) {
+                    if (char.match(/[a-zA-Z]/)) {
+                        if (vowels.includes(char)) {
+                            vowelCount++;
+                        } else {
+                            consonantCount++;
+                        }
+                    }
+                }
+                return { vowelCount, consonantCount };
+            };
+            const result = countVowelsAndConsonants('Hello World!');
+            console.log(`Test string: 'Hello World!' \nAns: Vowels: ${result.vowelCount}, Consonants: ${result.consonantCount}`);
+
+            // Function to find the first non-repeating character
+            const firstNonRepeatingCharacter = (str) => {
+                const charCount = {};
+                for (let char of str) {
+                    charCount[char] = (charCount[char] || 0) + 1;
+                }
+                for (let char of str) {
+                    if (charCount[char] === 1) {
+                        return char;
+                    }
+                }
+                return null; // No non-repeating character found
+            };
+            const testStr = 'swiss';
+            console.log(`First non-repeating character in \nAns: '${testStr}': ${firstNonRepeatingCharacter(testStr)}`);
+
+            // Function to check if two strings are anagrams
+            const areAnagrams = (str1, str2) => {
+                const normalize = (str) => str.toLowerCase().replace(/[^a-z]/g, '').split('').sort().join('');
+                return normalize(str1) === normalize(str2);
+            };
+            const str1 = 'listen';
+            const str2 = 'silent';
+            console.log(`Are '${str1}' and '${str2}' anagrams? \nAns: ${areAnagrams(str1, str2)}`);
+            const str3 = 'hello';
+            console.log(`Are '${str1}' and '${str3}' anagrams? \nAns: ${areAnagrams(str1, str3)}`);
+
+            // Function to compress a string
+            const compressString = (str) => {
+                let compressed = '';
+                let count = 1;
+
+                for (let i = 0; i < str.length; i++) {
+                    if (str[i] === str[i + 1]) {
+                        count++;
+                    } else {
+                        compressed += str[i] + count;
+                        count = 1;
+                    }
+                }
+                return compressed.length < str.length ? compressed : str; // Return the compressed string or original if longer
+            };
+            const inputString = 'aaabbcddd';
+            console.log(`Compressed string of '${inputString}': \nAns: ${compressString(inputString)}`);
+
+            // Function to find the longest substring without repeating characters
+            const longestSubstringWithoutRepeating = (str) => {
+                let maxLength = 0;
+                let start = 0;
+                let longest = '';
+                const charIndexMap = {};
+
+                for (let end = 0; end < str.length; end++) {
+                    if (charIndexMap[str[end]] !== undefined && charIndexMap[str[end]] >= start) {
+                        start = charIndexMap[str[end]] + 1;
+                    }
+                    charIndexMap[str[end]] = end;
+                    if (end - start + 1 > maxLength) {
+                        maxLength = end - start + 1;
+                        longest = str.slice(start, end + 1);
+                    }
+                }
+                return { length: maxLength, substring: longest };
+            };
+            const testSubstring = 'abcabcbb';
+            const longestResult = longestSubstringWithoutRepeating(testSubstring);
+            console.log(`Longest substring without repeating characters in '${testSubstring}': \nAns: Length = ${longestResult.length}, Substring = '${longestResult.substring}'`);
+
+            // Function to capitalize the first letter of each word in a string
+            const capitalizeFirstLetter = (str) => {
+                return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            };
+            const inputCapitalize = 'hello world';
+            console.log(`Capitalized string of '${inputCapitalize}': \nAns: ${capitalizeFirstLetter(inputCapitalize)}`);
+        </script>
+    </body>
 </html>
