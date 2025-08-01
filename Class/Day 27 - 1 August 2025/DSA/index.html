@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSA - Data Structures and Algorithms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+    <div class="max-w-2xl mx-auto py-10 px-6">
+        <h1 class="text-3xl font-bold mb-6 text-blue-700">DSA - Data Structures and Algorithms</h1>
+        <ul class="list-disc ml-6 space-y-6">
+            <li>
+                <span class="font-semibold text-lg">String Manipulation</span>
+                <ul class="list-[circle] ml-6 mt-2 space-y-4">
+                    <li>
+                        <span class="font-medium">Reverse a String</span>
+                        <ul class="list-[square] ml-6 mt-1 space-y-2">
+                            <li>2 pointers: Start and End or Left and Right</li>
+                            <li>
+                                <span class="font-semibold">Algorithm:</span>
+                                <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                    <li>Initialize two pointers: one at the start and one at the end of the list. <span class="italic">Start=0 and End=len(string)-1</span></li>
+                                    <li>Repeat until start &lt; end. Swap the character of start and end. Increment start, decrement end.</li>
+                                    <li>After loop ends, string is reversed.</li>
+                                    <li>Return or print the reversed string.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="font-medium">Check if a String is a Palindrome</span>
+                        <ul class="list-[square] ml-6 mt-1 space-y-2">
+                            <li>A palindrome is a string that reads the same backward as forward (e.g., "madam", "racecar").</li>
+                            <li>
+                                <span class="font-semibold">Algorithm:</span>
+                                <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                    <li>Remove all non-alphanumeric characters and convert the string to lowercase.</li>
+                                    <li>Reverse the cleaned string.</li>
+                                    <li>Compare the cleaned string with its reversed version.</li>
+                                    <li>If both are equal, the string is a palindrome; otherwise, it is not.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span></span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="font-medium">Count Vowels and Consonants</span>
+                        <ul class="list-[square] ml-6 mt-1 space-y-2">
+                            <li>Iterate through each character in the string.</li>
+                            <li>Use a counter for vowels and another for consonants.</li>
+                            <li>
+                                <span class="font-semibold">Algorithm:</span>
+                                <ol class="list-decimal ml-6 mt-1 space-y-1">
+                                    <li>Initialize two counters: vowels = 0, consonants = 0.</li>
+                                    <li>Loop through each character in the string.</li>
+                                    <li>For each character, check if it is a letter.</li>
+                                    <li>If the letter is a vowel (a, e, i, o, u), increment vowels.</li>
+                                    <li>If the letter is a consonant, increment consonants.</li>
+                                    <li>Return or print the counts of vowels and consonants.</li>
+                                </ol>
+                            </li>
+                            <li>Return or print the counts.</li>
+                        </ul>
+                    </li>
+                    <li>Find the First Non-Repeating Character</li>
+                    <li>Anagram Check</li>
+                    <li>String Compression</li>
+                    <li>Longest Substring Without Repeating Characters</li>
+                    <li>Capitalize First Letter Each Word In a String</li>
+                </ul>
+            </li>
+            <li>
+                <span class="font-semibold text-lg">Array Manipulation</span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Example of reversing a string
+        const l = 'Rahul A B';
+        const m = l.split('').reverse().join(''); // Reverse the string using split, reverse, and join
+        console.log(m);
+
+        const isPalindrome = (str) => {
+            const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+            const reversed = cleaned.split('').reverse().join('');
+            return cleaned === reversed;
+        };
+
+        console.log(isPalindrome('Malayalam'));
+
+        const checkPalindrome = (str) => {
+            const temp = str;
+            let reverse = "";
+            for(let i = temp.length - 1; i >= 0; i--) {
+                reverse += temp[i];
+            }
+            return reverse === temp;
+        };
+        console.log(checkPalindrome('Malayalam'));
+    </script>
+
+</body>
+</html>

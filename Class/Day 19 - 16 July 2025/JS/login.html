@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gradient-to-br from-orange-100 via-white to-orange-200 min-h-screen flex items-center justify-center">
+        <form onsubmit="submitFunction()" class="w-full max-w-sm bg-white rounded-xl shadow-lg p-8 flex flex-col gap-6">
+            <h2 class="text-2xl font-bold text-orange-500 text-center mb-2">Login</h2>
+            <div class="flex flex-col gap-2">
+                <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                <input type="text" id="email" placeholder="Enter your email" required
+                    class="px-4 py-2 border border-orange-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 transition">
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required
+                    class="px-4 py-2 border border-orange-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-400 transition">
+            </div>
+            <button type="submit"
+                class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded transition shadow">
+                Submit
+            </button>
+        </form>
+    </body>
+    <script>
+        function submitFunction() {
+            event.preventDefault();
+            const userEmail = document.getElementById("email").value;
+            const userPassword = document.getElementById("password").value; 
+            const email = "test@gmail.com";
+            const password = "test@123";
+
+            // Check if the entered email and password match the predefined ones
+            if (email == userEmail && password == userPassword) {
+                alert(`Login successful!`);
+            } else {
+                alert("Login failed! Please check your email and password.");
+            }
+        }
+    </script>
+</html>

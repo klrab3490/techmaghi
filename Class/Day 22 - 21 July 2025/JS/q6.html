@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Odd Number Filter</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200">
+            <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+                <div>
+                    <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
+                        <i class="fa-solid fa-chevron-left mr-2"></i>
+                        Back
+                    </a>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">Event Delegation Example</h2>
+                    <p class="mb-4 text-gray-600 text-center">Click any item below:</p>
+                    <ul id="itemList" class="divide-y divide-gray-200 mb-4 cursor-pointer">
+                        <!-- Items will be generated here -->
+                    </ul>
+                    <div id="output" class="text-center text-green-600 font-semibold"></div>
+                </div>
+                <script>
+                    // Dynamically generate list items
+                    const itemList = document.getElementById('itemList');
+                    for (let i = 1; i <= 5; i++) {
+                        const li = document.createElement('li');
+                        li.className = "py-2 px-4 hover:bg-blue-50 transition";
+                        li.textContent = `Item ${i}`;
+                        li.setAttribute('data-index', i);
+                        itemList.appendChild(li);
+                    }
+
+                    // Event delegation: handle clicks on list items
+                    itemList.addEventListener('click', function(e) {
+                        if (e.target && e.target.nodeName === "LI") {
+                            document.getElementById('output').textContent = `You clicked ${e.target.textContent}`;
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

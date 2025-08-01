@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fetch Data Periodically</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+            <div>
+                <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
+                    <i class="fa-solid fa-chevron-left mr-2"></i>
+                    Back
+                </a>
+                <h2 class="text-xl font-bold mb-4 text-gray-700">Fetch Data Periodically</h2>
+            </div>
+            <div class="mb-4">
+                <span id="timer" class="text-lg font-mono text-green-600"></span>
+                <div id="data-container"></div>
+            </div>
+        </div>
+
+        <script>
+            let interval = 10;
+            const timerEl = document.getElementById('timer');
+
+            function updateTimer() {
+                timerEl.textContent = `Next fetch in: ${interval}s`;
+                interval--;
+                if (interval < 0) {
+                    interval = 10;
+                }
+            }
+
+            function fetchData() {
+                const dataContainer = document.getElementById('data-container');
+                console.log("Fetching updated data from the server...");
+                dataContainer.textContent = `Data fetched at: ${new Date().toLocaleTimeString()}`;
+                interval = 10;
+            }
+
+            setInterval(() => {
+                updateTimer();
+                if (interval === 0) {
+                    fetchData();
+                }
+            }, 1000);
+
+            // Initial fetch and timer setup
+            fetchData();
+            updateTimer();
+        </script>
+    </body>
+</html>

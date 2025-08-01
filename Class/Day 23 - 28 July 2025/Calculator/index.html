@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <div class="flex items-center justify-center min-h-screen bg-gray-100">
+            <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+                <h1 class="text-2xl font-bold text-center mb-6">Calculator</h1>
+                <div class="bg-gray-200 p-4 rounded mb-4">
+                    <input type="text" id="display" class="w-full bg-gray-200 text-right text-2xl font-semibold focus:outline-none">
+                </div>
+                <form id="calculator-form" class="space-y-4">
+                    <div class="grid grid-cols-4 gap-3 mt-4">
+                        <!-- Row 1: Clear, Divide, Multiply, Backspace -->
+                        <button type="button" class="bg-red-500 hover:bg-red-600 text-white text-2xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="C">C</button>
+                        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white text-3xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="/">
+                            <i class="fa-solid fa-divide"></i>
+                        </button>
+                        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white text-3xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="*">
+                            <i class="fa-solid fa-multiply"></i>
+                        </button>
+                        <button type="button" class="bg-yellow-400 hover:bg-yellow-500 text-white text-2xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="back">
+                            <i class="fas fa-backspace"></i>
+                        </button>
+                        <!-- Row 2: 7 8 9 - -->
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="7">7</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="8">8</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="9">9</button>
+                        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white text-3xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="-">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <!-- Row 3: 4 5 6 + -->
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="4">4</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="5">5</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="6">6</button>
+                        <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white text-3xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="+">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <!-- Row 4: 1 2 3 = -->
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="1">1</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="2">2</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value="3">3</button>
+                        <button type="button" class="bg-green-500 hover:bg-green-600 text-white text-xl rounded p-4 font-semibold focus:outline-none row-span-2 flex items-center justify-center" data-value="=">
+                            <i class="fa-solid fa-equals"></i>
+                        </button>
+                        <!-- Row 5: 0 . (empty) (empty) -->
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none col-span-2 flex items-center justify-center" data-value="0">0</button>
+                        <button type="button" class="bg-gray-200 hover:bg-gray-300 text-xl rounded p-4 font-semibold focus:outline-none flex items-center justify-center" data-value=".">.</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

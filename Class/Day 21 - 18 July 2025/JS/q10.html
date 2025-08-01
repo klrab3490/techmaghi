@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    <body>
+        <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200 py-10">
+            <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+                <div>
+                    <a href="../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
+                        <i class="fa-solid fa-chevron-left mr-2"></i>
+                        Back
+                    </a>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 text-center text-purple-700">Company Employee Manager</h2>
+                <p class="mb-6 text-gray-600 text-center">Add employees to departments and view the list below.</p>
+                <div class="flex flex-col gap-3 mb-4">
+                    <select id="department" class="border border-purple-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
+                        <option>Select Department</option>
+                        <option value="development">Development</option>
+                        <option value="marketing">Marketing</option>
+                    </select>
+                    <input type="text" id="employeeName" placeholder="Employee Name" class="border border-purple-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-purple-400 transition">
+                    <button onclick="addEmployeeButton()" class="bg-purple-600 text-white font-semibold py-2 rounded hover:bg-purple-700 transition">Add Employee</button>
+                </div>
+                <div id="employeeList" class="bg-purple-50 rounded p-4 text-gray-700"></div>
+            </div>
+        </div>
+
+        <script>
+            const company = {
+                name: "Techmaghi",
+                departments: {
+                    development: {
+                        employees: [],
+                    },
+                    marketing: {
+                        employees: [],
+                    }
+                }
+            }
+
+            function addEmployee(department, employeeName) {
+                if (company.departments[department]) {
+                    company.departments[department].employees.push(employeeName);
+                } else {
+                    console.log(`Department ${department} does not exist.`);
+                }
+            }
+
+            function listEmployees() {
+                const employeeListDiv = document.getElementById('employeeList');
+                let html = '';
+                for (const department in company.departments) {
+                    const employees = company.departments[department].employees;
+                    html += `<div class="mb-2"><strong>${department.charAt(0).toUpperCase() + department.slice(1)}:</strong></div>`;
+                    if (employees.length) {
+                        html += '<ul class="list-disc list-inside mb-4">';
+                        for (const emp of employees) {
+                            html += `<li>${emp}</li>`;
+                        }
+                        html += '</ul>';
+                    } else {
+                        html += '<ul class="list-disc list-inside mb-4"><li>No employees</li></ul>';
+                    }
+                }
+                employeeListDiv.innerHTML = html;
+            }
+
+            function addEmployeeButton() {
+                const department = document.getElementById('department').value;
+                const employeeName = document.getElementById('employeeName').value;
+                addEmployee(department, employeeName);
+                listEmployees();
+
+                document.getElementById('employeeName').value = ''; // Clear input field
+            }
+
+            listEmployees(); // Initial call to display empty lists
+        </script>
+    </body>
+</html>
