@@ -38,9 +38,8 @@
                                 <li>
                                     <span class="font-semibold">Algorithm:</span>
                                     <ol class="list-decimal ml-6 mt-1 space-y-1">
-                                        <li>Remove all non-alphanumeric characters and convert the string to lowercase.</li>
-                                        <li>Reverse the cleaned string.</li>
-                                        <li>Compare the cleaned string with its reversed version.</li>
+                                        <li>Reverse the string.</li>
+                                        <li>Compare the original string with its reversed version.</li>
                                         <li>If both are equal, the string is a palindrome; otherwise, it is not.</li>
                                     </ol>
                                 </li>
@@ -60,12 +59,14 @@
                                         <li>Initialize two counters: vowels = 0, consonants = 0.</li>
                                         <li>Loop through each character in the string.</li>
                                         <li>For each character, check if it is a letter.</li>
-                                        <li>If the letter is a vowel (a, e, i, o, u), increment vowels.</li>
+                                        <li>If the letter is a vowel (a, e, i, o, u, A, E, I, O, U), increment vowels.</li>
                                         <li>If the letter is a consonant, increment consonants.</li>
                                         <li>Return or print the counts of vowels and consonants.</li>
                                     </ol>
                                 </li>
-                                <li>Return or print the counts.</li>
+                                <li>
+                                    <span class="text-sm text-gray-600">Time Complexity: <span class="font-mono">O(n)</span> n=length of the string</span>
+                                </li>
                             </ul>
                         </li>
                         <li>
