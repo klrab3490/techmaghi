@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Min Max Array</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-4 inline-block text-blue-600 hover:underline">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-2">Find the second largest element in an array.</h1>
+        <p class="mb-4">Given an array of integers, find the second largest element.</p>
+        <h2 class="text-xl font-semibold mb-1">Algorithm</h2>
+        <ol class="list-decimal ml-6 mb-2">
+            <li>Initialize two variables, first and second, to -Infinity.</li>
+            <li>Iterate through the array:
+                <ul class="list-disc ml-6">
+                    <li>If the current element is greater than first, update second to first and first to current element.</li>
+                    <li>If the current element is less than first but greater than second, update second to current element.</li>
+                </ul>
+            </li>
+            <li>Return or print the values.</li>
+        </ol>
+        <h2 class="text-xl font-semibold mb-1">Time Complexity</h2>
+        <p class="mb-6">The time complexity of this algorithm is O(n), where n is the number of elements in the array.</p>
+
+        <div class="mb-4">
+            <label for="arrayInput" class="block mb-2 font-medium">Enter array elements (comma separated):</label>
+            <input id="arrayInput" type="text" class="border rounded px-2 py-1 w-64" placeholder="e.g. 5,3,9,1,7">
+            <button id="findBtn" class="ml-2 px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700">Find Second Largest</button>
+        </div>
+        <div id="result" class="text-lg font-semibold text-green-700"></div>
+
+        <script>
+            function findSecondLargest(arr) {
+                let first = -Infinity, second = -Infinity;
+                for (let num of arr) {
+                    if (num > first) {
+                        second = first;
+                        first = num;
+                    } else if (num > second && num < first) {
+                        second = num;
+                    }
+                }
+                return second === -Infinity ? "No second largest element found." : second;
+            }
+
+            document.getElementById('findBtn').onclick = function() {
+                const input = document.getElementById('arrayInput').value;
+                const arr = input.split(',').map(x => Number(x.trim())).filter(x => !isNaN(x));
+                const result = findSecondLargest(arr);
+                document.getElementById('result').textContent = "Second Largest: " + result;
+            };
+        </script>
+    </body>
+
+</html>
