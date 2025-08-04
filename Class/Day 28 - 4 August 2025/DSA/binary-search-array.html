@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Binary Search Algorithm</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-4 inline-block text-blue-600 hover:underline">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-2">Implement binary search algorithm.</h1>
+        <p class="mb-4">Given an array of integers, do binary search on it.</p>
+        <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl justify-center items-center">
+            <div>
+                <h2 class="text-xl font-semibold mb-1">Algorithm</h2>
+                <ol class="list-decimal ml-6 mb-2">
+                    <li>Binary Search (array must be sorted):
+                    <ul class="list-disc ml-6">
+                        <li>Set low = 0 and high = array length - 1.</li>
+                        <li>While low ≤ high:
+                        <ul class="list-disc ml-6">
+                            <li>Calculate mid = Math.floor((low + high) / 2).</li>
+                            <li>If array[mid] equals target, return mid or indicate success.</li>
+                            <li>If array[mid] &lt; target, set low = mid + 1.</li>
+                            <li>If array[mid] &gt; target, set high = mid - 1.</li>
+                        </ul>
+                        </li>
+                        <li>If not found, indicate failure.</li>
+                    </ul>
+                    </li>
+                </ol>
+                <h2 class="text-xl font-semibold mb-1">Time Complexity</h2>
+                <ul class="mb-6 list-disc ml-6">
+                    <li><strong>Binary Search:</strong> O(log n), where n is the number of elements in the sorted array.</li>
+                </ul>
+            </div>
+            <div>
+                <div class="mb-6 w-full max-w-md bg-white shadow rounded-lg p-6">
+                    <div class="mb-4">
+                        <label for="arrayInput" class="block mb-1 font-semibold text-gray-700">Array Elements</label>
+                        <input id="arrayInput" type="text" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 5, 3, 9, 1, 7">
+                        <small class="text-gray-500">Enter numbers separated by commas</small>
+                    </div>
+                    <div class="mb-4">
+                        <label for="targetInput" class="block mb-1 font-semibold text-gray-700">Target Value</label>
+                        <input id="targetInput" type="number" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 3">
+                    </div>
+                    <div class="flex gap-3 mt-2">
+                        <button id="binarySearchBtn" class="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">Binary Search</button>
+                    </div>
+                </div>
+                <div id="result" class="text-lg font-semibold text-green-700"></div>
+            </div>
+        </div>
+        
+        <script>
+            let array = [];
+            let target = 0;
+
+            function binarySearch(arr, target) {
+                let low = 0;
+                let high = arr.length - 1;
+
+                while (low <= high) {
+                    const mid = Math.floor((low + high) / 2);
+                    if (arr[mid] === target) {
+                        return { mid, array: arr };
+                    } else if (arr[mid] < target) {
+                        low = mid + 1;
+                    } else {
+                        high = mid - 1;
+                    }
+                }
+                return `Element not found. Sorted array: [${arr.join(', ')}]`;
+            }
+
+            document.getElementById('binarySearchBtn').addEventListener('click', () => {
+                const input = document.getElementById('arrayInput').value;
+                array = input.split(',').map(num => parseInt(num.trim(), 10)).sort((a, b) => a - b);
+                target = parseInt(document.getElementById('targetInput').value, 10);
+                const result = binarySearch(array, target);
+                if (result && typeof result === 'object') {
+                    document.getElementById('result').innerHTML =
+                        `Binary search: Element found at index ${result.mid}<br>Sorted array: [${result.array.join(', ')}]`;
+                } else {
+                    document.getElementById('result').innerHTML =
+                        `Binary search: Element not found<br>Sorted array: [${array.join(', ')}]`;
+                }
+            });
+        </script>
+    </body>
+</html>

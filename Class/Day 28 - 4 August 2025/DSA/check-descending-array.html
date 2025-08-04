@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Descending Array</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-4 inline-block text-blue-600 hover:underline">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-2">Check if Array is in Descending Order</h1>
+        <p class="mb-4">This page demonstrates checking if an array is sorted in descending order.</p>
+        <div class="flex flex-col gap-6 w-full max-w-4xl justify-center items-center">
+            <div class="mb-6 w-full max-w-md bg-white shadow rounded-lg p-6">
+                <div class="mb-4">
+                    <label for="arrayInput" class="block mb-1 font-semibold text-gray-700">Array Elements</label>
+                    <input id="arrayInput" type="text" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 5, 3, 1">
+                    <small class="text-gray-500">Enter numbers separated by commas</small>
+                </div>
+                <button id="checkBtn" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Check Descending Order</button>
+            </div>
+            <div id="result" class="text-lg font-semibold text-green-700"></div>
+        
+        <script>
+            let array = [];
+
+            document.getElementById('checkBtn').addEventListener('click', () => {
+                const arrayInput = document.getElementById('arrayInput').value;
+
+                if (arrayInput.trim() === '') {
+                    alert('Please enter an array.');
+                    return;
+                }
+
+                array = arrayInput.split(',').map(num => parseInt(num.trim(), 10)).filter(num => !isNaN(num));
+
+                const isDescending = checkDescendingArray(array);
+                document.getElementById('result').textContent = isDescending ? 'The array is in descending order.' : 'The array is not in descending order.';
+            });
+
+            function checkDescendingArray(arr) {
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] < arr[i + 1]) {
+                        return false; // Found an element that is less than the next one
+                    }
+                }
+                return true; // All elements are in descending order
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flatten 2D Array</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="container mx-auto mt-8">
+            <h1 class="text-2xl font-bold mb-4">Flatten 2D Array</h1>
+            <p class="mb-4">Enter a 2D array to flatten it:</p>
+            <textarea id="inputArray" class="border border-gray-300 rounded-lg p-2 w-full h-32" placeholder="[[1, 2, 3], [4, 5, 6], [7, 8, 9]]]"></textarea>
+            <button id="flattenBtn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Flatten Array</button>
+            <h2 class="text-xl font-semibold mt-6">Flattened Array:</h2>
+            <pre id="output" class="bg-gray-100 p-4 rounded-lg"></pre>
+        </div>
+
+        <script>
+            // Function to flatten a 2D array
+            function flatten2DArray(arr) {
+                return arr.reduce((acc, val) => acc.concat(val), []);
+            }
+
+            document.getElementById('flattenBtn').onclick = function() {
+                const input = document.getElementById('inputArray').value;
+                try {
+                    const array = JSON.parse(input);
+                    const flattened = flatten2DArray(array);
+                    document.getElementById('output').textContent = JSON.stringify(flattened, null, 2);
+                } catch (error) {
+                    document.getElementById('output').textContent = 'Invalid input. Please enter a valid 2D array.';
+                }
+            };
+        </script>
+    </body>
+</html>

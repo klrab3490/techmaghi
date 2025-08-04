@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Merge Sorted Array</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-4 inline-block text-blue-600 hover:underline">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-2">Merge two sorted arrays into one sorted array</h1>
+        <p class="mb-4">This page demonstrates merging two sorted arrays into one sorted array.</p>
+        <div class="flex flex-col gap-6 w-full max-w-4xl justify-center items-center">
+            <div class="mb-6 w-full max-w-md bg-white shadow rounded-lg p-6">
+                <div class="mb-4">
+                    <label for="array1Input" class="block mb-1 font-semibold text-gray-700">Array 1 Elements</label>
+                    <input id="array1Input" type="text" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 1, 3, 5">
+                    <small class="text-gray-500">Enter numbers separated by commas</small>
+                </div>
+                <div class="mb-4">
+                    <label for="array2Input" class="block mb-1 font-semibold text-gray-700">Array 2 Elements</label>
+                    <input id="array2Input" type="text" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 2, 4, 6">
+                    <small class="text-gray-500">Enter numbers separated by commas</small>
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <button id="mergeBtn" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Merge Arrays</button>
+                </div>
+            </div>
+            <div id="result" class="text-lg font-semibold text-green-700"></div>
+        </div>
+
+        <script>
+            let array1 = [];
+            let array2 = [];
+
+            document.getElementById('mergeBtn').addEventListener('click', () => {
+                const array1Input = document.getElementById('array1Input').value;
+                const array2Input = document.getElementById('array2Input').value;
+
+                if (array1Input.trim() === '' || array2Input.trim() === '') {
+                    alert('Please enter both arrays.');
+                    return;
+                }
+
+                array1 = array1Input.split(',').map(num => parseInt(num.trim(), 10)).filter(num => !isNaN(num));
+                array2 = array2Input.split(',').map(num => parseInt(num.trim(), 10)).filter(num => !isNaN(num));
+
+                const mergedArray = mergeSortedArrays(array1, array2);
+                document.getElementById('result').textContent = `Merged Array: [${mergedArray.join(', ')}]`;
+            });
+
+            function mergeSortedArrays(arr1, arr2) {
+                let merged = [];
+                let i = 0, j = 0;
+
+                while (i < arr1.length && j < arr2.length) {
+                    if (arr1[i] < arr2[j]) {
+                        merged.push(arr1[i]);
+                        i++;
+                    } else {
+                        merged.push(arr2[j]);
+                        j++;
+                    }
+                }
+
+                while (i < arr1.length) {
+                    merged.push(arr1[i]);
+                    i++;
+                }
+
+                while (j < arr2.length) {
+                    merged.push(arr2[j]);
+                    j++;
+                }
+
+                return merged;
+            }
+        </script>
+    </body>
+</html>

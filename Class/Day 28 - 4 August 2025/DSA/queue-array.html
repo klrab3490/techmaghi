@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Queue Implementation</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-4 inline-block text-blue-600 hover:underline">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-2">Implement Queue using Array</h1>
+        <p class="mb-4">This page demonstrates queue operations using a simple array.</p>
+        <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl justify-center items-center">
+            <div>
+                <h2 class="text-xl font-semibold mb-1">Queue Operations</h2>
+                <ul class="list-disc ml-6 mb-2">
+                    <li>Enqueue: Add an element to the back of the queue.</li>
+                    <li>Dequeue: Remove the element from the front of the queue.</li>
+                    <li>Front: Get the element at the front of the queue without removing it.</li>
+                    <li>isEmpty: Check if the queue is empty.</li>
+                    <li>Follows FIFO (First In, First Out) principle.</li>
+                </ul>
+                <h2 class="text-xl font-semibold mb-1">Time Complexity</h2>
+                <ul class="mb-6 list-disc ml-6">
+                    <li><strong>Enqueue:</strong> O(1)</li>
+                    <li><strong>Dequeue:</strong> O(1)</li>
+                    <li><strong>Front:</strong> O(1)</li>
+                    <li><strong>isEmpty:</strong> O(1)</li>
+                </ul>
+            </div>
+            <div>
+                <div class="mb-6 w-full max-w-md bg-white shadow rounded-lg p-6">
+                    <div class="mb-4">
+                        <label for="queueInput" class="block mb-1 font-semibold text-gray-700">Queue Elements</label>
+                        <input id="queueInput" type="text" class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="e.g. 5, 3, 9">
+                        <small class="text-gray-500">Enter numbers separated by commas</small>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 mt-2">
+                        <button id="enqueueBtn" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Enqueue</button>
+                        <button id="dequeueBtn" class="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition">Dequeue</button>
+                        <button id="frontBtn" class="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">Front</button>
+                        <button id="isEmptyBtn" class="flex-1 px-4 py-2 bg-yellow-600 text-white rounded-lg font-semibold hover:bg-yellow-700 transition">Is Empty</button>
+                    </div>
+                </div>
+                <div id="result" class="text-lg font-semibold text-green-700"></div>
+            </div>
+        </div>
+        <div class="flex flex-col items-center">
+            <h2 class="text-xl font-semibold mb-2">Queue Visualization</h2>
+            <ul id="queueDisplay" class="flex gap-2 items-center">
+                <!-- Queue elements will be displayed here -->
+            </ul>
+        </div>
+
+        <script>
+            let queue = [];
+
+            function enqueue(element) {
+                queue.push(element);
+                return `Element ${element} added to queue.`;
+            }
+
+            function dequeue() {
+                if (queue.length === 0) {
+                    return "Queue is empty.";
+                }
+                const removedElement = queue.shift();
+                return `Element ${removedElement} removed from queue.`;
+            }
+
+            function front() {
+                if (queue.length === 0) {
+                    return "Queue is empty.";
+                }
+                return `Front element is ${queue[0]}.`;
+            }
+
+            function isEmpty() {
+                return queue.length === 0;
+            }
+
+            function updateQueueDisplay() {
+                const queueDisplay = document.getElementById('queueDisplay');
+                queueDisplay.innerHTML = '';
+                queue.forEach(element => {
+                    const li = document.createElement('li');
+                    li.textContent = element;
+                    li.className = 'bg-blue-100 text-blue-800 px-3 py-1 rounded';
+                    queueDisplay.appendChild(li);
+                });
+            }
+
+            document.getElementById('enqueueBtn').addEventListener('click', () => {
+                const input = document.getElementById('queueInput').value;
+                const elements = input.split(',').map(e => e.trim()).filter(e => e);
+                if (elements.length > 0) {
+                    elements.forEach(el => {
+                        const result = enqueue(el);
+                        document.getElementById('result').textContent = result;
+                    });
+                    updateQueueDisplay();
+                } else {
+                    document.getElementById('result').textContent = "Please enter valid elements.";
+                }
+                document.getElementById('queueInput').value = ''; // Clear input field
+            });
+
+            document.getElementById('dequeueBtn').addEventListener('click', () => {
+                const result = dequeue();
+                document.getElementById('result').textContent = result;
+                updateQueueDisplay();
+            });
+
+            document.getElementById('frontBtn').addEventListener('click', () => {
+                const result = front();
+                document.getElementById('result').textContent = result;
+            });
+
+            document.getElementById('isEmptyBtn').addEventListener('click', () => {
+                const result = isEmpty();
+                document.getElementById('result').textContent = result;
+            });
+        </script>
+    </body>
+</html>

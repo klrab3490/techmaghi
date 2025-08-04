@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix Multiplication</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen flex flex-col items-center p-6">
+        <a href="index.html" class="mb-6 inline-block text-blue-700 hover:underline text-lg font-medium">&larr; Back</a>
+        <div class="bg-white shadow-xl rounded-2xl p-8 w-full max-w-4xl flex flex-col items-center">
+            <h1 class="text-3xl font-extrabold mb-2 text-blue-800">Matrix Multiplication</h1>
+            <p class="mb-6 text-gray-700 text-center">Enter the size and elements of your matrices to find their product.</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-xl p-6 mt-8 w-full max-w-2xl gap-8 flex flex-col items-center">
+            <div class="grid grid-cols-2 gap-8">
+                <!-- Matrix 1 Inputs -->
+                <form id="matrix1Form" class="bg-blue-50 rounded-xl shadow p-6 flex flex-col items-center">
+                    <label class="block mb-3 text-xl font-bold text-blue-700 tracking-wide">Matrix 1</label>
+                    <div class="flex gap-3 mb-5">
+                        <input id="rows1" name="rows1" type="number" min="1" placeholder="Rows" class="p-3 border-2 border-blue-300 rounded-lg w-24 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                        <input id="cols1" name="cols1" type="number" min="1" placeholder="Columns" class="p-3 border-2 border-blue-300 rounded-lg w-24 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                    </div>
+                    <button type="submit" id="saveMatrix1" class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-5 py-2 rounded-lg font-semibold shadow hover:scale-105 hover:from-blue-600 hover:to-blue-800 transition">Generate Matrix Template</button>
+                    <div id="matrix1" class="mt-4"></div>
+                </form>
+                <!-- Matrix 2 Inputs -->
+                <form id="matrix2Form" class="bg-green-50 rounded-xl shadow p-6 flex flex-col items-center">
+                    <label class="block mb-3 text-xl font-bold text-green-700 tracking-wide">Matrix 2</label>
+                    <div class="flex gap-3 mb-5">
+                        <input id="rows2" name="rows2" type="number" min="1" placeholder="Rows" class="p-3 border-2 border-green-300 rounded-lg w-24 focus:outline-none focus:ring-2 focus:ring-green-400 transition" required>
+                        <input id="cols2" name="cols2" type="number" min="1" placeholder="Columns" class="p-3 border-2 border-green-300 rounded-lg w-24 focus:outline-none focus:ring-2 focus:ring-green-400 transition" required>
+                    </div>
+                    <button type="submit" id="saveMatrix2" class="bg-gradient-to-r from-green-500 to-green-700 text-white px-5 py-2 rounded-lg font-semibold shadow hover:scale-105 hover:from-green-600 hover:to-green-800 transition">Generate Matrix Template</button>
+                    <div id="matrix2" class="mt-4"></div>
+                </form>
+            </div>
+            <div class="flex justify-center">
+                <button id="multiplyBtn" type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold shadow hover:bg-blue-700 transition">Multiply</button>
+            </div>
+            <div id="result" class="mt-6 p-4 bg-gray-100 rounded-lg text-center text-lg font-medium"></div>
+        </div>
+
+        <script>
+            // JavaScript code for matrix multiplication will go here
+            let matrix1 = [];
+            let matrix2 = [];
+
+            function matrixMultiplication(arr1, arr2) {
+                if (!Array.isArray(arr1) || !Array.isArray(arr2)) {
+                    throw new Error("Both inputs must be 2D arrays");
+                }
+
+                const rows1 = arr1.length;
+                const cols1 = arr1[0].length;
+                const rows2 = arr2.length;
+                const cols2 = arr2[0].length;
+
+                if (!cols1 || !cols2) {
+                    throw new Error("Empty or invalid matrix format");
+                }
+
+                if (cols1 !== rows2) {
+                    throw new Error("Incompatible matrix dimensions");
+                }
+
+                const result = Array.from({ length: rows1 }, () => Array(cols2).fill(0));
+
+                for (let i = 0; i < rows1; i++) {
+                    for (let j = 0; j < cols2; j++) {
+                        for (let k = 0; k < cols1; k++) {
+                            result[i][j] += arr1[i][k] * arr2[k][j];
+                        }
+                    }
+                }
+
+                return result;
+            }
+
+            document.getElementById('matrix1Form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const rows = parseInt(document.getElementById('rows1').value);
+                const cols = parseInt(document.getElementById('cols1').value);
+                matrix1 = Array.from({ length: rows }, () => Array(cols).fill(0));
+                let html = '';
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        html += `<input type="number" class="p-2 border rounded w-20 m-1" value="${matrix1[i][j]}" onchange="updateMatrix(${i}, ${j}, this.value, matrix1)">`;
+                    }
+                    html += '<br>';
+                }
+                html += `<button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2" onclick="saveMatrixValues(matrix1, 1)">Save Values</button>`;
+                document.getElementById('matrix1').innerHTML = html;
+            });
+
+            document.getElementById('matrix2Form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const rows = parseInt(document.getElementById('rows2').value);
+                const cols = parseInt(document.getElementById('cols2').value);
+                matrix2 = Array.from({ length: rows }, () => Array(cols).fill(0));
+                let html = '';
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        html += `<input type="number" class="p-2 border rounded w-20 m-1" value="${matrix2[i][j]}" onchange="updateMatrix(${i}, ${j}, this.value, matrix2)">`;
+                    }
+                    html += '<br>';
+                }
+                html += `<button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2" onclick="saveMatrixValues(matrix2, 2)">Save Values</button>`;
+                document.getElementById('matrix2').innerHTML = html;
+            });
+
+            // Helper to update matrix values
+            function updateMatrix(i, j, value, matrix) {
+                matrix[i][j] = Number(value);
+            }
+
+            // Save button handler
+            function saveMatrixValues(matrix, matrixId) {
+                alert(`Matrix ${matrixId} values saved!`);
+                console.log(`Matrix ${matrixId}:`, matrix);
+                const display = document.getElementById(`matrix${matrixId}`);
+                let matrixHtml = `<p class="text-green-600 font-semibold">Matrix ${matrixId} saved successfully!</p><div class="mt-2">`;
+                matrixHtml += '<table class="mx-auto border border-green-400 rounded">';
+                for (let i = 0; i < matrix.length; i++) {
+                    matrixHtml += '<tr>';
+                    for (let j = 0; j < matrix[i].length; j++) {
+                        matrixHtml += `<td class="border px-3 py-1">${matrix[i][j]}</td>`;
+                    }
+                    matrixHtml += '</tr>';
+                }
+                matrixHtml += '</table></div>';
+                display.innerHTML = matrixHtml;
+
+            }
+
+            // Multiply button handler
+            document.getElementById('multiplyBtn').addEventListener('click', function() {
+                if (matrix1.length === 0 || matrix2.length === 0) {
+                    alert("Please enter both matrices before multiplying.");
+                    return;
+                }
+                try {
+                    const result = matrixMultiplication(matrix1, matrix2);
+                    let resultHtml = '<h2 class="text-xl font-bold text-blue-700 mb-4">Result Matrix</h2>';
+                    resultHtml += '<table class="mx-auto border border-blue-400 rounded">';
+                    for (let i = 0; i < result.length; i++) {
+                        resultHtml += '<tr>';
+                        for (let j = 0; j < result[i].length; j++) {
+                            resultHtml += `<td class="border px-3 py-1">${result[i][j]}</td>`;
+                        }
+                        resultHtml += '</tr>';
+                    }
+                    resultHtml += '</table>';
+                    document.getElementById('result').innerHTML = resultHtml;
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+
+        </script>
+    </body>
+</html>
