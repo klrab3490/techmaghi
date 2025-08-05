@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saddle Point Matrix</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen">
+        <div class="container mx-auto p-6">
+            <a href="index.html" class="mb-6 inline-block text-blue-700 hover:underline text-lg font-medium">&larr; Back</a>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="bg-white shadow-lg rounded-xl p-6 mb-8 md:w-1/2">
+                    <h1 class="text-3xl font-extrabold mb-2 text-blue-700">Saddle Point Matrix</h1>
+                    <p class="mb-4 text-gray-700">A <span class="font-semibold text-blue-600">saddle point</span> in a matrix is an element that is the minimum in its row and the maximum in its column.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 mb-4">
+                        <h2 class="text-xl font-semibold mb-2 text-blue-800">Example Matrix</h2>
+                        <table class="table-auto w-full border-collapse border border-blue-300 shadow-sm">
+                            <thead class="bg-blue-100">
+                                <tr>
+                                    <th class="border border-blue-300 px-4 py-2">Column 1</th>
+                                    <th class="border border-blue-300 px-4 py-2">Column 2</th>
+                                    <th class="border border-blue-300 px-4 py-2">Column 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">3</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">8</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">7</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">5</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">6</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">9</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">1</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">10</td>
+                                    <td class="border border-blue-300 px-4 py-2 text-center">12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-white h-fit shadow-lg rounded-xl p-6 md:w-1/2">
+                    <h2 class="text-xl font-semibold mb-4 text-blue-700">Try Your Own Matrix</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <input type="number" id="rows" placeholder="Number of rows" class="border border-blue-300 p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-400" min="1">
+                        <input type="number" id="cols" placeholder="Number of columns" class="border border-blue-300 p-2 rounded-lg w-full focus:ring-2 focus:ring-blue-400" min="1">
+                    </div>
+                    <button id="matrixInput" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition mb-4 w-full md:w-auto">Generate Matrix</button>
+                    <div id="matrixContainer" class="mt-4"></div>
+                    <div class="mt-6">
+                        <h2 class="text-lg font-semibold mb-2 text-blue-700">Input Matrix</h2>
+                        <pre id="inputMatrix" class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-gray-800"></pre>
+                    </div>
+                    <div class="mt-6">
+                        <h2 class="text-lg font-semibold mb-2 text-blue-700">Result</h2>
+                        <div id="result" class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-gray-900 font-medium"></div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Function to find saddle points in a matrix
+                function findSaddlePoint(matrix){
+                    const rows = matrix.length;
+                    const cols = matrix[0].length;
+
+                    for(let i =0; i<rows; i++){
+                        let minValue = matrix[i][0];
+                        let colIndex = 0;
+
+                        for (let j = 1; j < cols; j++) {
+                            if (matrix[i][j] < minValue) {
+                                minValue = matrix[i][j];
+                                colIndex = j;
+                            }
+                        }
+                        // Check if the found minimum is the maximum in its column
+                        let isSaddlePoint = true;
+                        for (let k = 0; k < rows; k++) {
+                            if (matrix[k][colIndex] > minValue) {
+                                isSaddlePoint = false;
+                                break;
+                            }
+                        }
+                        if (isSaddlePoint) {
+                            return `Saddle Point found at (${i}, ${colIndex}) with value ${minValue}`;
+                        }
+                    }
+                    return "No Saddle Point found";
+                }
+
+                // Store matrix input fields
+                let matrixInputs = [];
+                const resultDiv = document.getElementById('result');
+                const matrixContainer = document.getElementById('matrixContainer');
+                const inputMatrixPre = document.getElementById('inputMatrix');
+                
+                document.getElementById('matrixInput').addEventListener('click', function() {
+                    const matrixRow = document.getElementById('rows');
+                    const matrixCols = document.getElementById('cols');
+                    const rows = parseInt(matrixRow.value);
+                    const cols = parseInt(matrixCols.value);
+
+                    if (isNaN(rows) || isNaN(cols) || rows < 1 || cols < 1) {
+                        resultDiv.textContent = 'Please enter valid number of rows and columns.';
+                        matrixContainer.innerHTML = '';
+                        inputMatrixPre.textContent = '';
+                        return;
+                    }
+                
+                    // Clear previous matrix
+                    matrixContainer.innerHTML = '';
+                    matrixInputs = [];
+                
+                    // Create table for matrix input
+                    const table = document.createElement('table');
+                    table.className = 'table-auto w-full border-collapse border border-blue-300 mb-4';
+                    for (let i = 0; i < rows; i++) {
+                        const tr = document.createElement('tr');
+                        matrixInputs[i] = [];
+                        for (let j = 0; j < cols; j++) {
+                            const td = document.createElement('td');
+                            td.className = 'border border-blue-300 px-2 py-1';
+                            const input = document.createElement('input');
+                            input.type = 'number';
+                            input.placeholder = `[${i}][${j}]`;
+                            input.className = 'border border-blue-300 rounded-lg px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 text-center';
+                            td.appendChild(input);
+                            tr.appendChild(td);
+                            matrixInputs[i][j] = input;
+                        }
+                        table.appendChild(tr);
+                    }
+                    matrixContainer.appendChild(table);
+                
+                    // Add submit button
+                    let submitBtn = document.getElementById('submitMatrixBtn');
+                    if (!submitBtn) {
+                        submitBtn = document.createElement('button');
+                        submitBtn.id = 'submitMatrixBtn';
+                        submitBtn.textContent = 'Find Saddle Point';
+                        submitBtn.className = 'bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition mt-2 w-full md:w-auto';
+                        matrixContainer.appendChild(submitBtn);
+                    }
+                
+                    submitBtn.onclick = function() {
+                        // Collect matrix values
+                        const matrix = [];
+                        for (let i = 0; i < rows; i++) {
+                            const row = [];
+                            for (let j = 0; j < cols; j++) {
+                                const val = parseInt(matrixInputs[i][j].value);
+                                if (isNaN(val)) {
+                                    resultDiv.textContent = 'Please fill all matrix values.';
+                                    inputMatrixPre.textContent = '';
+                                    return;
+                                }
+                                row.push(val);
+                            }
+                            matrix.push(row);
+                        }
+                        // Show input matrix
+                        inputMatrixPre.textContent = matrix.map(r => r.join(' ')).join('\n');
+                        // Show result
+                        resultDiv.textContent = findSaddlePoint(matrix);
+                    };
+                });
+            </script>
+        </div>
+    </body>
+</html>

@@ -53,66 +53,66 @@
 
         <script>
             let matrix = [];
-            
-            function generateInputFields() {
-                const rows = parseInt(document.getElementById('rowCount').value, 10);
-                const cols = parseInt(document.getElementById('colCount').value, 10);
+
+            document.getElementById('generateFieldsBtn').onclick = () => {
+                const rows = +document.getElementById('rowCount').value;
+                const cols = +document.getElementById('colCount').value;
                 const arrayFields = document.getElementById('arrayFields');
                 arrayFields.innerHTML = '';
-                if (rows > 0 && cols > 0) {
+
+                if (rows && cols) {
                     const table = document.createElement('table');
                     table.className = 'mx-auto mb-2';
+
                     for (let i = 0; i < rows; i++) {
-                        const tr = document.createElement('tr');
+                        const row = document.createElement('tr');
                         for (let j = 0; j < cols; j++) {
-                            const td = document.createElement('td');
-                            td.className = 'p-1';
+                            const cell = document.createElement('td');
+                            cell.className = 'p-1';
                             const input = document.createElement('input');
                             input.type = 'number';
+                            input.placeholder = `[${i}][${j}]`;
                             input.className = 'border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400';
-                            input.placeholder = `Element [${i}][${j}]`;
-                            td.appendChild(input);
-                            tr.appendChild(td);
+                            cell.appendChild(input);
+                            row.appendChild(cell);
                         }
-                        table.appendChild(tr);
+                        table.appendChild(row);
                     }
+
                     arrayFields.appendChild(table);
                 }
-            }
-            document.getElementById('generateFieldsBtn').onclick = generateInputFields;
+            };
 
-            function transposeMatrix() {
-                const rows = parseInt(document.getElementById('rowCount').value, 10);
-                const cols = parseInt(document.getElementById('colCount').value, 10);
-                const arrayFields = document.querySelectorAll('#arrayFields input');
-                matrix = Array.from({ length: rows }, () => Array(cols).fill(0));
+            document.getElementById('transposeBtn').onclick = () => {
+                const rows = +document.getElementById('rowCount').value;
+                const cols = +document.getElementById('colCount').value;
+                const inputs = document.querySelectorAll('#arrayFields input');
+                matrix = [];
 
-                arrayFields.forEach(input => {
-                    const [row, col] = input.placeholder.match(/\d+/g).map(Number);
-                    matrix[row][col] = parseFloat(input.value) || 0;
-                });
+                for (let i = 0; i < rows; i++) {
+                    const row = [];
+                    for (let j = 0; j < cols; j++) {
+                        const index = i * cols + j;
+                        row.push(+inputs[index].value || 0);
+                    }
+                    matrix.push(row);
+                }
 
-                const transposed = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
-                console.log(transposed);
-            }
-            document.getElementById('transposeBtn').onclick = function() {
-                transposeMatrix();
-                const resultContainer = document.getElementById('resultContainer');
-                resultContainer.innerHTML = '';
-                const transposed = matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));
-                // Format output like:
-                // [
-                //   [1, 4, 7],
-                //   [2, 5, 8],
-                //   [3, 6, 9]
-                // ]
-                let formatted = '[\n';
-                formatted += transposed.map(row => '    [' + row.join(', ') + ']').join(',\n');
-                formatted += '\n]';
+                // Simple JS transpose
+                const transposed = [];
+                for (let i = 0; i < cols; i++) {
+                    transposed[i] = [];
+                    for (let j = 0; j < rows; j++) {
+                        transposed[i][j] = matrix[j][i];
+                    }
+                }
+
+                const formatted = '[\n' + transposed.map(r => '    [' + r.join(', ') + ']').join(',\n') + '\n]';
                 const result = document.createElement('pre');
                 result.className = 'bg-white p-4 rounded-lg border border-blue-100 text-blue-900 mt-4';
                 result.textContent = formatted;
-                resultContainer.appendChild(result);
+                document.getElementById('resultContainer').innerHTML = '';
+                document.getElementById('resultContainer').appendChild(result);
             };
         </script>
     </body>
