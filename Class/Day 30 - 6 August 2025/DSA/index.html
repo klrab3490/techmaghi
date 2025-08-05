@@ -159,114 +159,136 @@
                 </li>
                 <!-- Array Manipulation -->
                 <li>
-                    <div class="flex items-center space-x-4 mb-2 group">
-                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm font-semibold">4 August 2025</span>
+                    <div class="flex items-center space-x-4 mb-2 cursor-pointer group" onclick="toggleSection('array-manipulation-section')">
+                        <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm font-semibold flex flex-col">
+                            <span>4 August 2025</span>
+                            <span>5 August 2025</span>
+                        </span>
                         <span class="font-bold text-xl text-blue-800">Array Manipulation</span>
-                        <svg class="w-5 h-5 text-blue-600 transition-transform duration-200 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+                        <svg class="w-5 h-5 text-blue-600 transition-transform duration-200 inline-block" id="array-manipulation-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </div>
-                    <div class="mt-4 mb-2">
-                        <span class="font-semibold text-blue-600">Common Array Operations:</span>
-                        <ul class="list-[square] ml-6 mt-2 space-y-1 text-base">
-                            <li><span class="font-medium">Set</span>: Assign a value to an element at a specific index.</li>
-                            <li><span class="font-medium">Insert</span>: Add a new element at a specific position.</li>
-                            <li><span class="font-medium">Get</span>: Retrieve the value of an element at a specific index.</li>
-                            <li><span class="font-medium">Delete</span>: Remove an element from a specific position.</li>
-                            <li><span class="font-medium">Init</span>: Initialize the array with values.</li>
-                            <li><span class="font-medium">Traverse</span>: Visit each element in the array sequentially.</li>
-                        </ul>
-                    </div>
-                    <div class="mt-6">
-                        <span class="font-semibold text-blue-600 text-lg">Array Problems:</span>
-                        <ul class="list-disc ml-6 mt-2 space-y-2">
-                            <li>
-                                <span>Find the maximum and minimum elements in an array.</span>
-                                <a href="max-min-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Calculate the sum and average of elements in an array.</span>
-                                <a href="sum-average-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Rotate an array by a given number of steps.</span>
-                                <a href="rotate-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Find the second largest element in an array.</span>
-                                <a href="second-largest-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Remove duplicates from a sorted array.</span>
-                                <a href="remove-duplicates-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Implement linear search algorithms.</span>
-                                <a href="search-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Implement a stack using an array.</span>
-                                <a href="stack-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Implement a queue using an array.</span>
-                                <a href="queue-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Merge two sorted arrays into one sorted array.</span>
-                                <a href="merge-sorted-arrays.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Check if an array is not sorted in descending order.</span>
-                                <a href="check-descending-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Implement binary search on a sorted array.</span>
-                                <a href="binary-search-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Find maximum element in 2D array.</span>
-                                <a href="max-2d-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Transpose a Matrix.</span>
-                                <a href="transpose-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Rotate a Matrix by 90 degrees.</span>
-                                <a href="rotate-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Flatten a 2D array into a 1D array.</span>
-                                <a href="flatten-2d-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Find saddle point in a matrix.</span>
-                                <a href="saddle-point-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                            <li>
-                                <span>Implement matrix multiplication.</span>
-                                <a href="matrix-multiplication.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
-                            </li>
-                        </ul>
+                    <div id="array-manipulation-section" class="list-[circle] ml-6 mt-2 space-y-4" style="display:none;">
+                        <div class="mt-4 mb-2">
+                            <span class="font-semibold text-blue-600">Common Array Operations:</span>
+                            <ul class="list-[square] ml-6 mt-2 space-y-1 text-base">
+                                <li><span class="font-medium">Set</span>: Assign a value to an element at a specific index.</li>
+                                <li><span class="font-medium">Insert</span>: Add a new element at a specific position.</li>
+                                <li><span class="font-medium">Get</span>: Retrieve the value of an element at a specific index.</li>
+                                <li><span class="font-medium">Delete</span>: Remove an element from a specific position.</li>
+                                <li><span class="font-medium">Init</span>: Initialize the array with values.</li>
+                                <li><span class="font-medium">Traverse</span>: Visit each element in the array sequentially.</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6">
+                            <span class="font-semibold text-blue-600 text-lg">Array Problems:</span>
+                            <ul class="list-disc ml-6 mt-2 space-y-2">
+                                <li>
+                                    <span>Find the maximum and minimum elements in an array.</span>
+                                    <a href="max-min-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Calculate the sum and average of elements in an array.</span>
+                                    <a href="sum-average-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Rotate an array by a given number of steps.</span>
+                                    <a href="rotate-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Find the second largest element in an array.</span>
+                                    <a href="second-largest-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Remove duplicates from a sorted array.</span>
+                                    <a href="remove-duplicates-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Implement linear search algorithms.</span>
+                                    <a href="search-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Implement a stack using an array.</span>
+                                    <a href="stack-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Implement a queue using an array.</span>
+                                    <a href="queue-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Merge two sorted arrays into one sorted array.</span>
+                                    <a href="merge-sorted-arrays.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Check if an array is not sorted in descending order.</span>
+                                    <a href="check-descending-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Implement binary search on a sorted array.</span>
+                                    <a href="binary-search-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Find maximum element in 2D array.</span>
+                                    <a href="max-2d-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Transpose a Matrix.</span>
+                                    <a href="transpose-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Rotate a Matrix by 90 degrees.</span>
+                                    <a href="rotate-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Flatten a 2D array into a 1D array.</span>
+                                    <a href="flatten-2d-array.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Find saddle point in a matrix.</span>
+                                    <a href="saddle-point-matrix.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                                <li>
+                                    <span>Implement matrix multiplication.</span>
+                                    <a href="matrix-multiplication.html" class="ml-4 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">HTML</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
 
-        <!-- String Manipulation -->
+        <!-- Section Toggle Script -->
         <script>
             function toggleSection(id) {
                 const section = document.getElementById(id);
-                const arrow = document.getElementById('string-manipulation-arrow');
+                let arrow = null;
+                if (id === 'string-manipulation-section') {
+                    arrow = document.getElementById('string-manipulation-arrow');
+                } else if (id === 'array-manipulation-section') {
+                    arrow = document.getElementById('array-manipulation-arrow');
+                }
+
+                if (!section) return;
+
                 if (section.style.display === "none") {
                     section.style.display = "block";
-                    arrow.style.transform = "rotate(90deg)";
+                    if (arrow) arrow.style.transform = "rotate(90deg)";
                 } else {
                     section.style.display = "none";
-                    arrow.style.transform = "rotate(0deg)";
+                    if (arrow) arrow.style.transform = "rotate(0deg)";
                 }
             }
+
+            // Set default active section
+            document.addEventListener("DOMContentLoaded", () => {
+                const defaultSection = document.getElementById('array-manipulation-section');
+                const defaultArrow = document.getElementById('array-manipulation-arrow');
+                if (defaultSection) defaultSection.style.display = 'block';
+                if (defaultArrow) defaultArrow.style.transform = 'rotate(90deg)';
+            });
         </script>
+
     </body>
 </html>
