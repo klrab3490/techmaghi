@@ -7,96 +7,73 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
-    <body class="bg-gray-50 text-gray-800 min-h-screen">
-        <div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow mt-10">
-            <div class="flex items-center justify-between mb-4">
-                <a href="../../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold mb-4 transition-colors duration-200">
+    <body class="bg-gradient-to-br from-blue-50 via-white to-purple-100 text-gray-800 min-h-screen">
+        <div class="max-w-4xl mx-auto p-8 bg-white/90 rounded-2xl shadow-2xl mt-12 border border-blue-100">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+                <a href="../../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200">
                     <i class="fa-solid fa-chevron-left mr-2"></i>
                     Back
                 </a>
-                <h1 class="text-2xl font-bold text-center flex-1">DOM</h1>
+                <h1 class="text-3xl font-extrabold text-center flex-1 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-600 drop-shadow">DOM</h1>
+                <div class="flex space-x-4">
+                    <a href="JS/example.html" class="px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold transition">Button Example</a>
+                    <a href="JS/todo.html" class="px-3 py-1 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-700 font-semibold transition">To Do App</a>
+                </div>
             </div>
-            <p class="mb-2">Document Object Model (DOM) is a programming
-                interface for web documents. It represents the structure of a
-                document as a tree of objects.</p>
-            <p class="mb-2">DOM allows programming languages to manipulate the
-                structure, style, and content of web pages.</p>
-            <p class="mb-2">It is a language-neutral interface, meaning it can
-                be used with various programming languages like JavaScript,
-                Python, and Java.</p>
-            <p class="mb-6">DOM is essential for creating dynamic and
-                interactive web applications.</p>
-            <h2 class="text-2xl font-semibold mb-3 text-blue-600">DOM
-                Manipulation</h2>
-            <p class="mb-6">DOM manipulation refers to the process of changing
-                the document structure, style, and content using programming
-                languages.</p>
+            <div class="mb-8">
+                <p class="mb-2 text-lg">The <span class="font-semibold text-blue-700">Document Object Model (DOM)</span> is a programming interface for web documents. It represents the structure of a document as a tree of objects.</p>
+                <p class="mb-2 text-lg">DOM allows programming languages to manipulate the structure, style, and content of web pages.</p>
+                <p class="mb-2 text-lg">It is a language-neutral interface, meaning it can be used with various programming languages like JavaScript, Python, and Java.</p>
+                <p class="mb-4 text-lg">DOM is essential for creating dynamic and interactive web applications.</p>
+            </div>
+            <h2 class="text-2xl font-bold mb-4 text-blue-600 border-b-2 border-blue-100 pb-1">DOM Manipulation</h2>
+            <p class="mb-6 text-base">DOM manipulation refers to the process of changing the document structure, style, and content using programming languages.</p>
 
-            <h3 class="text-xl font-semibold mb-2 text-blue-500">Methods for
-                Selecting Elements</h3>
-            <ol class="list-decimal list-inside mb-6 space-y-2">
-                <li>
-                    The <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementById(id)</code>
-                    method is used to select an element by its unique ID. For
-                    example, if you have an element with the ID "myElement", you
-                    can select it like this:
+            <h3 class="text-xl font-semibold mb-3 text-purple-600">Methods for Selecting Elements</h3>
+            <ol class="list-decimal list-inside mb-8 space-y-3 pl-4"></ol>
+                <li class="bg-blue-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-blue-700">document.getElementById(id)</span> selects an element by its unique ID.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-purple-700 overflow-x-auto">const el = document.getElementById("myElement");</pre>
                 </li>
-                <li>
-                    The <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementsByClassName(classname)</code>
-                    method selects all elements with a specific class name. For
-                    example, to select all elements with the class "myClass",
-                    you can use:
+                <li class="bg-blue-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-blue-700">document.getElementsByClassName(classname)</span> selects all elements with a specific class name.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-purple-700 overflow-x-auto">const items = document.getElementsByClassName("myClass");</pre>
                 </li>
-                <li>
-                    The <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">document.getElementsByTagName(tag)</code>
-                    method selects all elements with a specific tag name. For
-                    example, to select all <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">&lt;div&gt;</code>
-                    elements, you can use:
+                <li class="bg-blue-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-blue-700">document.getElementsByTagName(tag)</span> selects all elements with a specific tag name.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-purple-700 overflow-x-auto">const divs = document.getElementsByTagName("div");</pre>
                 </li>
-                <li>
-                    Elements can also be selected using CSS selectors with the
-                    <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">document.querySelector(selector)</code>
-                    method, which returns the first matching element. For
-                    example, to select an element with a specific class or id,
-                    you can use:
+                <li class="bg-blue-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-blue-700">document.querySelector(selector)</span> selects the first element matching a CSS selector.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-purple-700 overflow-x-auto">const el = document.querySelector(".myClass");</pre>
                 </li>
-                <li>
-                    All elements in the document can be selected using the <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">document.querySelectorAll(selector)</code>
-                    method, which returns a NodeList of all matching elements.
+                <li class="bg-blue-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-blue-700">document.querySelectorAll(selector)</span> selects all elements matching a CSS selector.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-purple-700 overflow-x-auto">const nodes = document.querySelectorAll("div.note");</pre>
                 </li>
             </ol>
 
-            <h3 class="text-xl font-semibold mb-2 text-blue-500">DOM
-                Properties</h3>
-            <ol class="list-decimal list-inside space-y-2">
-                <li>
-                    <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">element.innerText</code>:
-                    This property gets or sets the text content of an element.
-                    For example, if you want to change the text of a paragraph,
-                    you can use:
+            <h3 class="text-xl font-semibold mb-3 text-purple-600">DOM Properties</h3>
+            <ol class="list-decimal list-inside space-y-3 pl-4">
+                <li class="bg-purple-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-purple-700">element.innerText</span>: Gets or sets the text content of an element.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-blue-700 overflow-x-auto">document.getElementById("demo").innerText = "Hello!";</pre>
                 </li>
-                <li>
-                    <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">element.innerHTML</code>:
-                    This property gets or sets the HTML content of an element.
-                    It allows you to insert HTML tags and content into an
-                    element. For example, to add a new paragraph inside a div,
-                    you can use:
+                <li class="bg-purple-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-purple-700">element.innerHTML</span>: Gets or sets the HTML content of an element.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-blue-700 overflow-x-auto">document.getElementById("demo").innerHTML = "&lt;b&gt;Bold!&lt;/b&gt;";</pre>
                 </li>
-                <li>
-                    <code
-                        class="bg-gray-100 px-1 rounded text-purple-700">element.style</code>:
-                    This property allows you to get or set the inline styles of
-                    an element. You can change the CSS styles directly using
-                    JavaScript. For example, to change the background color of a
-                    div, you can use:
+                <li class="bg-purple-50 rounded-lg p-3 shadow-sm">
+                    <span class="font-semibold text-purple-700">element.style</span>: Gets or sets the inline styles of an element.<br>
+                    <span class="text-sm text-gray-600">Example:</span>
+                    <pre class="bg-gray-100 rounded px-2 py-1 mt-1 text-sm text-blue-700 overflow-x-auto">document.getElementById("demo").style.backgroundColor = "yellow";</pre>
                 </li>
             </ol>
         </div>

@@ -4,57 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day 2: 18/6/25 : Techmaghi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2d3e50;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        section h2 {
+            color: #2d3e50;
+            margin-bottom: 10px;
+        }
+        ul, ol {
+            margin-left: 30px;
+        }
+        footer {
+            background: #2d3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        input {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #bbb;
+            margin-top: 10px;
+            width: 100%;
+            max-width: 300px;
+            display: block;
+        }
+        a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        article {
+            background: #e3f2fd;
+            padding: 12px 18px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Top -->
     <header>
+        <a href="../../index.html">back</a>
         <h1>Day 2: 18/6/25 : Techmaghi</h1>
+        <p>Welcome to the second day of the Techmaghi class! Explore the topics and activities below.</p>
     </header>
     
-    <!-- Middle -->
-    <div>
-        <!-- Unordered List -->
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-        </ul>
+    <div class="container">
+        <!-- Unordered List Section -->
+        <section>
+            <h2>Unordered List</h2>
+            <p>This section demonstrates an unordered list, which is used to display items without any specific order.</p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </section>
         
-        <!-- Ordered List -->
-        <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-        </ol>
+        <!-- Ordered List Section -->
+        <section>
+            <h2>Ordered List</h2>
+            <p>This section shows an ordered list, where the items are numbered to indicate a sequence.</p>
+            <ol>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </section>
         
+        <!-- Headings Section -->
+        <section>
+            <h2>Headings Example</h2>
+            <p>HTML provides six levels of headings, from <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code> (least important):</p>
+            <div id="rahul1">
+                <h1>Rahul 1</h1>
+            </div>
+            <h2>Rahul 2</h2>
+            <h3>Rahul 3</h3>
+            <h4>Rahul 4</h4>
+            <h5>Rahul 5</h5>
+            <h6>Rahul 6</h6>
+        </section>
         
-        <span id="rahul1">
-            <h1>Rahul 1</h1>
-        </span>
-        <h2>Rahul 2</h2>
-        <h3>Rahul 3</h3>
-        <h4>Rahul 4</h4>
-        <h5>Rahul 5</h5>
-        <h6>Rahul 6</h6>
-        <article>Day 2: 18/6/25 : Techmaghi</article>
-        <a href="./day1.html">Day 1: Techmaghi</a>
-
-        <input  >
-
+        <!-- Article Section -->
+        <section>
+            <h2>Article Example</h2>
+            <p>The <code>&lt;article&gt;</code> tag is used to represent a self-contained piece of content.</p>
+            <article>Day 2: 18/6/25 : Techmaghi</article>
+        </section>
+        
+        <!-- Navigation Section -->
+        <section>
+            <h2>Navigation</h2>
+            <p>Go back to the previous day's content:</p>
+            <a href="./day1.html">Day 1: Techmaghi</a>
+        </section>
+        
+        <!-- Input Section -->
+        <section>
+            <h2>Input Example</h2>
+            <p>This is a simple input field for user interaction:</p>
+            <input type="text" placeholder="Enter something...">
+        </section>
     </div>
     
     <!-- Footer/ Bottom Of Page -->
     <footer>
-        <h3>Tesing testing</h3>
+        <h3>Testing testing</h3>
+        <p>&copy; 2025 Techmaghi. All rights reserved.</p>
     </footer>
 
     <!-- Scripts Or JS -->
-    <script src="./day2.js"> </script>
+    <script src="./day2.js"></script>
 </body>
 </html>

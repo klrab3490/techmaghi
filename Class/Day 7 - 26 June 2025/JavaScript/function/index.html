@@ -1,24 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Functions</title>
-</head>
-<body>
-    <h1>Functions</h1>
-    <p>
-        Function in javascript :
-            - A function is a reuseable blockof code designed to preform a preticular Task. Its a done when its called or invoked.
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Functions</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex items-center justify-center">
+        <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl w-full">
+            <h1 class="text-3xl font-bold text-blue-700 mb-4">Functions</h1>
+            <div class="text-gray-700 space-y-4">
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">What is a Function in JavaScript?</h2>
+                    <ul class="list-disc list-inside ml-4">
+                        <li>
+                            A function is a reusable block of code designed to perform a particular task. It runs when it is called or invoked.
+                        </li>
+                        <li>
+                            <span class="font-semibold">Reusable Block:</span> Code is written once and can be used (or called) multiple times without rewriting.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">Why use Functions?</h2>
+                    <ul class="list-disc list-inside ml-4">
+                        <li><span class="font-semibold">Reusability:</span> Code once, use multiple times.</li>
+                        <li><span class="font-semibold">Modularity:</span> Break program into smaller blocks.</li>
+                        <li><span class="font-semibold">Readability:</span> Clean and understandable code.</li>
+                        <li><span class="font-semibold">Maintainability:</span> Easy to fix and update logic.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold mb-2">How to Create a Function</h2>
+                    <pre class="bg-gray-100 rounded p-4 text-sm overflow-x-auto"><code class="text-blue-800">function functionName(parameters) {
+    // code to be executed
+}</code></pre>
+                    <p class="mt-2">Example:</p>
+                    <pre class="bg-gray-100 rounded p-4 text-sm overflow-x-auto"><code class="text-green-800">function greet(name) {
+    console.log("Hello, " + name + "!");
+}
 
-        Reuseable Block
-            - Coded once and used(or called) multiple times without rewriting the same(again and again)
+greet("Rahul"); // Output: Hello, Rahul!</code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            function avg(number, player) {
+                let sum=0;
+                for (let index = 1; index <= number; index++) {                
+                    sum+= parseInt(prompt(`Enter ${player} Scores ${index}:`));
+                }
+                return sum/3;
+            }
             
-        Why use Function?
-            - Reuseability: Coded Once and used multiple time 
-            - Modularity: Break program in smaller blocks
-            - Readability: CLean and understandable Code
-            - Maintaninablity: Easy to fix and update logic
-    </p>
-</body>
+            let scoreDolphins = avg(3, "Dolphins");
+            let scoreKoalas =  avg(3, "Koalas");
+
+
+            if (scoreDolphins>scoreKoalas) {
+                console.log("Dolphins win the trophy");
+            } else if (scoreDolphins<scoreKoalas) {
+                console.log("Koalas win the trophy");
+            } else if (scoreDolphins==scoreKoalas) {
+                console.log("Both win the trophy");
+            } else {
+                console.log("None")
+            }
+        </script>
+    </body>
 </html>

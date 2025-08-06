@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 3: 19/6/25 : Techmaghi || JavaScript</title>
-</head>
-<body>
-    
-    <script>
-        // ParseInt
-        let x = parseInt(prompt("ParseInt Enter Number 1:"));
-        let y = parseInt(prompt("ParseInt Enter Number 2:"));
-        result = x+y;
-        console.log(result);
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day 3: 19/6/25 : Techmaghi</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+        <header class="bg-indigo-700 text-white py-6 shadow-lg">
+            <div class="max-w-2xl mx-auto px-4 flex items-center justify-between">
+                <a href="../../index.html" class="text-indigo-200 hover:text-white transition font-medium flex items-center gap-1">
+                    <svg class="w-5 h-5 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Back
+                </a>
+                <h1 class="text-3xl font-extrabold tracking-tight text-white text-center flex-1">Day 3: <span class="whitespace-nowrap">19/6/25</span></h1>
+                <span class="text-lg font-semibold text-indigo-100 ml-4">Techmaghi</span>
+            </div>
+        </header>
 
-        // ParseFloat
-        let x2 = parseFloat(prompt("ParseFloat Enter Number 1:"));
-        let y2 = parseFloat(prompt("ParseFloat Enter Number 2:"));
-        result2 = x2+y2;
-        console.log("Floating: ", result2);
-
-        // Date
-        const date = "2025-06-19";
-        const datetype = new Date(date);
-        console.log("Date: ", datetype);
-        const date2 = new Date(2025,1,19); // To get date in Feb month should be 1 as this date format uses 0 as starting index
-        console.log(date2);
-
-    </script>
-</body>
+        <main class="max-w-2xl mx-auto mt-10 px-4">
+            <div class="bg-white shadow-xl rounded-2xl p-8 border border-indigo-100">
+                <h2 class="text-2xl font-bold mb-6 text-indigo-700 flex items-center gap-2">
+                    <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Topics Covered
+                </h2>
+                <ul class="space-y-6">
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/form-validation.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Form Validation</a>
+                        <p class="text-gray-600 text-sm mt-1">Learn how to validate user input in HTML forms using built-in attributes and best practices.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/form.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Form Submission</a>
+                        <p class="text-gray-600 text-sm mt-1">Understand how form data is submitted and processed in HTML, including GET and POST methods.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/login.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Login</a>
+                        <p class="text-gray-600 text-sm mt-1">Create a simple login form and explore basic authentication concepts in HTML.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/media.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Media</a>
+                        <p class="text-gray-600 text-sm mt-1">Embed images, audio, and video in your web pages using HTML media elements.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/register.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Register</a>
+                        <p class="text-gray-600 text-sm mt-1">Build a registration form to collect user information with various input types.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/table.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Table</a>
+                        <p class="text-gray-600 text-sm mt-1">Design and style tables for displaying structured data in HTML.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="html/website.html" class="text-indigo-700 hover:underline font-semibold text-lg">Html: Website</a>
+                        <p class="text-gray-600 text-sm mt-1">Combine HTML elements to create a basic multi-page website layout.</p>
+                    </li>
+                    <li class="bg-indigo-50 rounded-lg p-4 hover:shadow transition">
+                        <a href="js/index.html" class="text-indigo-700 hover:underline font-semibold text-lg">JavaScript: parseInt(), parseFloat(), Date()</a>
+                        <p class="text-gray-600 text-sm mt-1">Introduction to JavaScript functions for parsing numbers and working with dates.</p>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </body>
 </html>

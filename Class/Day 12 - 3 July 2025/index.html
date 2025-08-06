@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Objects Guide</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Custom scrollbar for code blocks */
+            pre::-webkit-scrollbar {
+                height: 8px;
+                background: #e5e7eb;
+            }
+            pre::-webkit-scrollbar-thumb {
+                background: #a1a1aa;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body class="bg-gradient-to-br from-blue-50 via-white to-purple-100 text-gray-900 font-sans min-h-screen">
+        <header class="w-full bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg py-6 mb-8">
+            <div class="max-w-4xl mx-auto px-4 flex items-center mb-4">
+                <a href="../../index.html" class="flex items-center text-white hover:underline font-semibold text-lg transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-2 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Home
+                </a>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+                <h1 class="text-4xl font-extrabold text-white tracking-tight mb-2 md:mb-0">JavaScript Objects</h1>
+                <nav>
+                    <ul class="flex space-x-6">
+                        <li><a href="#creating" class="text-white hover:underline">Create</a></li>
+                        <li><a href="#accessing" class="text-white hover:underline">Access</a></li>
+                        <li><a href="#methods" class="text-white hover:underline">Methods</a></li>
+                        <li><a href="#examples" class="text-white hover:underline">Examples</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row gap-8">
+            <section class="flex-1 bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-4">Object Basics</h2>
+                <p class="mb-2 text-lg">Objects are used to store keyed collections of various data and more complex entities.</p>
+                <p class="mb-6 text-gray-700">In JavaScript, objects are a collection of properties, where each property is a key-value pair.</p>
+                <hr class="my-6">
+                <h3 id="creating" class="text-2xl font-semibold mt-8 mb-2">Creating an Object</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let person = {
+    name: 'John',
+    age: 30,
+    city: 'New York'
+};</code></pre>
+                <p class="mb-6">Objects can be created using the object literal syntax, which is a comma-separated list of key-value pairs enclosed in curly braces.</p>
+                <h3 id="accessing" class="text-2xl font-semibold mt-8 mb-2">Accessing Object Properties</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-2 overflow-x-auto text-sm"><code>console.log(person.name); // Output: John</code></pre>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>console.log(person['age']); // Output: 30</code></pre>
+                <p class="mb-6">Properties can be accessed using dot notation or bracket notation.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Adding and Modifying Properties</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-2 overflow-x-auto text-sm"><code>person.country = 'USA'; // Adds a new property
+console.log(person.country); // Output: USA</code></pre>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>person.age = 31; // Modifies an existing property
+console.log(person.age); // Output: 31</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Deleting Properties</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>delete person.city; // Deletes the 'city' property       
+console.log(person.city); // Output: undefined</code></pre>
+                <h3 id="methods" class="text-2xl font-semibold mt-8 mb-2">Object Methods</h3>
+                <p class="mb-2">Objects can also have methods, which are functions that are properties of the object.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let car = {
+    brand: 'Toyota',
+    model: 'Camry',
+    year: 2020,
+    start: function() {
+        console.log('Car started');
+    }
+};
+car.start(); // Output: Car started</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Iterating Over Object Properties</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>for (let key in person) {
+    console.log(key + ': ' + person[key]);
+}</code></pre>
+                <p class="mb-6">This loop iterates over all enumerable properties of the object.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object.keys(), Object.values(), and Object.entries()</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>console.log(Object.keys(person)); // Output: ['name', 'age', 'country']
+console.log(Object.values(person)); // Output: ['John', 31, 'USA']
+console.log(Object.entries(person)); // Output: [['name', 'John'], ['age', 31], ['country', 'USA']]</code></pre>
+                <p class="mb-6">These methods return arrays of the object's keys, values, or key-value pairs, respectively.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Destructuring</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-2 overflow-x-auto text-sm"><code>let { name, age } = person;
+console.log(name); // Output: John
+console.log(age); // Output: 31</code></pre>
+                <p class="mb-6">Object destructuring allows you to extract properties from an object into variables.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Nested Objects</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-2 overflow-x-auto text-sm"><code>let student = {
+    name: 'Alice',
+    age: 22,
+    address: {
+        street: '123 Main St',
+        city: 'Los Angeles'
+    }
+};
+console.log(student.address.city); // Output: Los Angeles</code></pre>
+                <p class="mb-6">Objects can contain other objects, allowing for complex data structures.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Prototypes</h3>
+                <p class="mb-2">Every object in JavaScript has a prototype, which is another object from which it inherits properties and methods. You can add properties or methods to an object's prototype using <code>Object.prototype</code>.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>Object.prototype.greet = function() {
+    console.log('Hello, ' + this.name);
+};
+person.greet(); // Output: Hello, John</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Spread Operator</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let newPerson = { ...person, occupation: 'Engineer' };
+console.log(newPerson); // Output: { name: 'John', age: 31, country: 'USA', occupation: 'Engineer' }</code></pre>
+                <p class="mb-6">The spread operator (<code>...</code>) allows you to create a new object by copying properties from an existing object and adding new properties.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Rest Operator</h3>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-2 overflow-x-auto text-sm"><code>let { name, ...rest } = person;
+console.log(name); // Output: John
+console.log(rest); // Output: { age: 31, country: 'USA' }</code></pre>
+                <p class="mb-6">The rest operator (<code>...</code>) allows you to extract specific properties from an object and collect the remaining properties into a new object.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Comparison</h3>
+                <p class="mb-2">Objects are compared by reference, not by value. Two objects are considered equal only if they reference the same object in memory.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let obj1 = { a: 1 };
+let obj2 = { a: 1 };
+console.log(obj1 === obj2); // Output: false (different references)
+let obj3 = obj1;
+console.log(obj1 === obj3); // Output: true (same reference)</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Freezing</h3>
+                <p class="mb-2">You can prevent an object from being modified by using <code>Object.freeze()</code>.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let frozenPerson = Object.freeze({ name: 'Bob', age: 25 });
+frozenPerson.age = 30; // This will not change the age property
+console.log(frozenPerson.age); // Output: 25</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Sealing</h3>
+                <p class="mb-2">You can prevent new properties from being added to an object and existing properties from being deleted by using <code>Object.seal()</code>.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let sealedPerson = Object.seal({ name: 'Charlie', age: 28 });
+sealedPerson.age = 30; // This will change the age property
+console.log(sealedPerson.age); // Output: 30
+sealedPerson.city = 'New York'; // This will not add a new property
+console.log(sealedPerson.city); // Output: undefined</code></pre>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Cloning</h3>
+                <p class="mb-2">You can create a shallow copy of an object using <code>Object.assign()</code> or the spread operator.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>let original = { a: 1, b: 2 };
+let clone = Object.assign({}, original);
+console.log(clone); // Output: { a: 1, b: 2 }
+let spreadClone = { ...original };
+console.log(spreadClone); // Output: { a: 1, b: 2 }</code></pre>
+                <p class="mb-6">Note that these methods create a shallow copy, meaning nested objects are still referenced.</p>
+                <h3 class="text-2xl font-semibold mt-8 mb-2">Object Iteration</h3>
+                <p class="mb-2">You can iterate over the properties of an object using a <code>for...in</code> loop.</p>
+                <pre class="bg-gray-900 text-green-200 rounded-lg p-4 mb-4 overflow-x-auto text-sm"><code>for (let key in person) {    
+console.log(key + ': ' + person[key]);
+}</code></pre>
+                <p class="mb-6">This loop will log each key-value pair in the object.</p>
+            </section>
+            <aside class="w-full md:w-80 bg-gradient-to-br from-purple-100 to-blue-50 rounded-xl shadow-lg p-6 mt-2 mb-8">
+                <h2 id="examples" class="text-2xl font-semibold mb-2 text-purple-700">Shopping Cart Example</h2>
+                <p class="mb-4 text-gray-700">This example demonstrates a simple shopping cart using an object to manage items and their prices.</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>
+                        <a href="cart.html" class="text-blue-700 font-medium hover:underline">Cart</a>
+                    </li>
+                    <li>
+                        <a href="cart2.html" class="text-blue-700 font-medium hover:underline">Cart 2</a>
+                    </li>
+                    <li>
+                        <a href="example.html" class="text-blue-700 font-medium hover:underline">Cart 3</a>
+                    </li>
+                </ul>
+            </aside>
+        </main>
+        <footer class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-4 mt-8 shadow-inner">
+            &copy; 2025 JavaScript Objects Guide
+        </footer>
+            let person = {
+                name: 'John',
+                age: 30,ty
+                city: 'New York'console.log(sealedPerson.city); // Output: undefined</code></pre>
+            };
+
+            // Accessing propertiessing
+            console.log(person.name); // Output: John<code>Object.assign()</code> or the spread operator.</p>
+            console.log(person['age']); // Output: 30
+        </script>ed p-3 mb-4 overflow-x-auto"><code>let original = { a: 1, b: 2 };
+    </body>
+</html>: 1, b: 2 }
+ody>
+</html>

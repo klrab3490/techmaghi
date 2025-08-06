@@ -4,40 +4,42 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Array</title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <h1>Array</h1>
-        <p>Arrays are used to store multiple values in a single variable.</p>
-        <p>In JavaScript, arrays are a special type of object that can hold multiple values.</p>
+    <body class="bg-gray-50 text-gray-800 font-sans">
+        <div class="max-w-2xl mx-auto p-6">
+            <h1 class="text-3xl font-bold mb-4 text-blue-700">Array</h1>
+            <p class="mb-2">Arrays are used to store multiple values in a single variable.</p>
+            <p class="mb-6">In JavaScript, arrays are a special type of object that can hold multiple values.</p>
 
-        <h2>Creating an Array</h2>
-        <pre><code>let fruits = ['apple', 'banana', 'cherry'];</code></pre>
-        <p>Arrays can be created using the array literal syntax, which is a comma-separated list of values enclosed in square brackets.</p>
+            <h2 class="text-2xl font-semibold mb-2 text-blue-600">Creating an Array</h2>
+            <pre class="bg-gray-200 rounded p-2 mb-2"><code>let fruits = ['apple', 'banana', 'cherry'];</code></pre>
+            <p class="mb-6">Arrays can be created using the array literal syntax, which is a comma-separated list of values enclosed in square brackets.</p>
 
-        <h2>Accessing Array Elements</h2>
-        <pre><code>console.log(fruits[0]); // Output: apple</code></pre>
-        <pre><code>console.log(fruits[1]); // Output: banana</code></pre>
-        <pre><code>console.log(fruits[2]); // Output: cherry</code></pre>
+            <h2 class="text-2xl font-semibold mb-2 text-blue-600">Accessing Array Elements</h2>
+            <pre class="bg-gray-200 rounded p-2 mb-1"><code>console.log(fruits[0]); // Output: apple</code></pre>
+            <pre class="bg-gray-200 rounded p-2 mb-1"><code>console.log(fruits[1]); // Output: banana</code></pre>
+            <pre class="bg-gray-200 rounded p-2 mb-6"><code>console.log(fruits[2]); // Output: cherry</code></pre>
 
-        <h2>Array Length</h2>
-        <pre><code>console.log(fruits.length); // Output: 3</code></pre>
+            <h2 class="text-2xl font-semibold mb-2 text-blue-600">Array Length</h2>
+            <pre class="bg-gray-200 rounded p-2 mb-6"><code>console.log(fruits.length); // Output: 3</code></pre>
 
-        <h2>Array Methods</h2>
-        <ul>
-            <li><strong>push()</strong>: Adds one or more elements to the end of an array.</li>
-            <li><strong>pop()</strong>: Removes the last element from an array.</li>
-            <li><strong>shift()</strong>: Removes the first element from an array.</li>
-            <li><strong>unshift()</strong>: Adds one or more elements to the beginning of an array.</li>
-            <li><strong>splice()</strong>: Adds or removes elements from an array at a specified index.</li>
-            <li><strong>slice()</strong>: Returns a shallow copy of a portion of an array into a new array object.</li>
-            <li><strong>forEach()</strong>: Executes a provided function once for each array element.</li>
-            <li><strong>map()</strong>: Creates a new array populated with the results of calling a provided function on every element in the calling array.</li>
-            <li><strong>filter()</strong>: Creates a new array with all elements that pass the test implemented by the provided function.</li>
-            <li><strong>reduce()</strong>: Executes a reducer function on each element of the array, resulting in a single output value.</li>
-            <li><strong>find()</strong>: Returns the value of the first element in the array that satisfies the provided testing function.</li>
-            <li><strong>indexof()</strong>:</li>
-        </ul>
-        
+            <h2 class="text-2xl font-semibold mb-2 text-blue-600">Array Methods</h2>
+            <ul class="list-disc pl-6 space-y-1 mb-6">
+                <li><strong>push()</strong>: Adds one or more elements to the end of an array.</li>
+                <li><strong>pop()</strong>: Removes the last element from an array.</li>
+                <li><strong>shift()</strong>: Removes the first element from an array.</li>
+                <li><strong>unshift()</strong>: Adds one or more elements to the beginning of an array.</li>
+                <li><strong>splice()</strong>: Adds or removes elements from an array at a specified index.</li>
+                <li><strong>slice()</strong>: Returns a shallow copy of a portion of an array into a new array object.</li>
+                <li><strong>forEach()</strong>: Executes a provided function once for each array element.</li>
+                <li><strong>map()</strong>: Creates a new array populated with the results of calling a provided function on every element in the calling array.</li>
+                <li><strong>filter()</strong>: Creates a new array with all elements that pass the test implemented by the provided function.</li>
+                <li><strong>reduce()</strong>: Executes a reducer function on each element of the array, resulting in a single output value.</li>
+                <li><strong>find()</strong>: Returns the value of the first element in the array that satisfies the provided testing function.</li>
+                <li><strong>indexOf()</strong>: Returns the first index at which a given element can be found in the array, or -1 if it is not present.</li>
+            </ul>
+        </div>
     </body>
     <script>
         let fruits = ['apple', 'banana', 'cherry'];
