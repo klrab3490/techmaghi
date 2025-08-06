@@ -1,13 +1,14 @@
 # Techmaghi Project
 
-I am currently pursuing a **MERN Stack** (MongoDB, Express.js, React.js, Node.js) course with a duration of 6 months. Below are the works and skills I am developing during this period.
+I am currently enrolled in a **MERN Stack** (MongoDB, Express.js, React.js, Node.js) course with a duration of 6 months. This repository documents the skills and projects I am developing throughout the program.
 
 ## Skills & Technologies
 
 - **Frontend:**  
     - HTML, CSS  
-    - JavaScript  
-    - [TailwindCSS](https://tailwindcss.com/)
+    - JavaScript (ES6+)  
+    - [TailwindCSS](https://tailwindcss.com/)  
+    - [React.js](https://react.dev/)
 
 - **Backend:**  
     - [Node.js](https://nodejs.org/en)  
@@ -16,20 +17,19 @@ I am currently pursuing a **MERN Stack** (MongoDB, Express.js, React.js, Node.js
 - **Database:**  
     - [MongoDB](https://www.mongodb.com/)
 
-- **Other:**  
-    - [React.js](https://react.dev/)  
-    - [Git](https://git-scm.com/) & [GitHub](https://github.com/)
+- **Tools & Other:**  
+    - [Git](https://git-scm.com/)  
+    - [GitHub](https://github.com/)
 
-## Works & Activities During the Course
+## Projects & Activities
 
-- Building responsive web applications using React.js and TailwindCSS
-- Developing RESTful APIs with Node.js and Express.js
-- Integrating MongoDB for database management
-- Applying modern JavaScript practices and ES6+ features
+- Building responsive web applications with React.js and TailwindCSS
+- Developing RESTful APIs using Node.js and Express.js
+- Integrating MongoDB for data storage and management
+- Applying modern JavaScript best practices
 - Collaborating on real-world projects and assignments
-- Version control with Git and GitHub
-- Learning Git and GitHub for source control and collaboration
+- Managing source code with Git and GitHub
 
 ## License
 
-This project is licensed by Techmaghi.
+This project is licensed under the Techmaghi license.
