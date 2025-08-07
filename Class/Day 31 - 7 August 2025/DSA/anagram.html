@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Anagram Checker</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Anagram Group Finder</h1>
+            <form id="anagramForm" class="space-y-4">
+                <label for="inputString" class="block text-gray-700 font-medium">Enter words separated by spaces:</label>
+                <input type="text" id="inputString" name="inputString" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Find Anagrams</button>
+            </form>
+            <div id="result" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Function to find anagrams
+            function findAnagrams(inputString) {
+                const words = inputString.trim().split(/\s+/);
+                console.log('Input words:', words);
+                const anagrams = {};
+
+                words.forEach(word => {
+                    const sortedWord = word.toLowerCase().split('').sort().join('');
+                    if (!anagrams[sortedWord]) {
+                        anagrams[sortedWord] = [];
+                    }
+                    anagrams[sortedWord].push(word);
+                });
+
+                return Object.values(anagrams).filter(group => group.length > 1);
+            }
+
+            // Handle form submission
+            document.getElementById('anagramForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const inputString = document.getElementById('inputString').value;
+                const result = findAnagrams(inputString);
+
+                const resultDiv = document.getElementById('result');
+                if (result.length > 0) {
+                    resultDiv.innerHTML = `
+                        <div class="font-semibold mb-2">Anagram Groups Found:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            ${result.map(group => `<li>${group.join(', ')}</li>`).join('')}
+                        </ul>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<div class="text-red-600">No anagrams found.</div>';
+                }
+            });
+        </script>
+    </body>
+</html>

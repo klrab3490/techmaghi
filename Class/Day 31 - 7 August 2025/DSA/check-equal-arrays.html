@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Equal Arrays</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+            <a href="index.html" class="inline-block mb-4 text-blue-600 hover:underline">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Check if Two Arrays Are Equal</h1>
+            <form id="arrayForm" class="space-y-5">
+                <div>
+                    <label for="array1" class="block mb-2 text-gray-700 font-medium">Array 1</label>
+                    <input type="text" id="array1" name="array1" placeholder="e.g. 1, 2, 3"
+                        class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+                </div>
+                <div>
+                    <label for="array2" class="block mb-2 text-gray-700 font-medium">Array 2</label>
+                    <input type="text" id="array2" name="array2" placeholder="e.g. 1, 2, 3"
+                        class="border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition">
+                </div>
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition">Check</button>
+            </form>
+            <div id="result" class="font-bold text-center mt-6 text-lg"></div>
+        </div>
+        <script>
+            // Function to check if two arrays are equal
+            function areArraysEqual(arr1, arr2) {
+                if (arr1.length !== arr2.length) return false;
+                for (let i = 0; i < arr1.length; i++) {
+                    if (arr1[i] !== arr2[i]) return false;
+                }
+                return true;
+            }
+
+            // Event listener for form submission
+            document.getElementById('arrayForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const array1 = document.getElementById('array1').value.split(',').map(s => s.trim()).map(Number);
+                const array2 = document.getElementById('array2').value.split(',').map(s => s.trim()).map(Number);
+
+                // Check for invalid input
+                if (array1.some(isNaN) || array2.some(isNaN)) {
+                    document.getElementById('result').textContent = 'Please enter valid numbers separated by commas.';
+                    document.getElementById('result').className = 'font-bold text-center mt-6 text-lg text-red-600';
+                    return;
+                }
+
+                const result = areArraysEqual(array1, array2);
+                document.getElementById('result').textContent = result ? 'The arrays are equal.' : 'The arrays are not equal.';
+                document.getElementById('result').className = 'font-bold text-center mt-6 text-lg ' + (result ? 'text-green-600' : 'text-red-600');
+            });
+        </script>
+    </body>
+</html>
