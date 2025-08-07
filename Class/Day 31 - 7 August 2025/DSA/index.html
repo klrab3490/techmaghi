@@ -34,14 +34,14 @@
                         </svg>
                     </a>
                 </li>
-                <!-- Array Manipulation -->
+                <!-- Array Manipulation: Hash Map -->
                 <li>
-                    <div class="flex items-center space-x-4 mb-2 cursor-pointer group" onclick="toggleSection('array-manipulation-section')">
+                    <div class="flex items-center space-x-4 mb-2 cursor-pointer group" onclick="toggleSection('array-manipulation-hashmap-section')">
                         <span class="inline-block px-2 py-1 bg-blue-100 text-blue-700 rounded text-sm font-semibold flex flex-col">
                             <span>7 August 2025</span>
                         </span>
                         <span class="font-bold text-xl text-blue-800">Array Manipulation: Hash Map</span>
-                        <svg class="w-5 h-5 text-blue-600 transition-transform duration-200 inline-block" id="array-manipulation-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 text-blue-600 transition-transform duration-200 inline-block" id="array-manipulation-hashmap-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                         </svg>
                     </div>
@@ -84,8 +84,8 @@
                 let arrow = null;
                 if (id === 'string-manipulation-section') {
                     arrow = document.getElementById('string-manipulation-arrow');
-                } else if (id === 'array-manipulation-section') {
-                    arrow = document.getElementById('array-manipulation-arrow');
+                } else if (id === 'array-manipulation-hashmap-section') {
+                    arrow = document.getElementById('array-manipulation-hashmap-arrow');
                 }
 
                 if (!section) return;
@@ -101,8 +101,8 @@
 
             // Set default active section
             document.addEventListener("DOMContentLoaded", () => {
-                const defaultSection = document.getElementById('array-manipulation-section');
-                const defaultArrow = document.getElementById('array-manipulation-arrow');
+                const defaultSection = document.getElementById('array-manipulation-hashmap-section');
+                const defaultArrow = document.getElementById('array-manipulation-hashmap-arrow');
                 if (defaultSection) defaultSection.style.display = 'block';
                 if (defaultArrow) defaultArrow.style.transform = 'rotate(90deg)';
             });
