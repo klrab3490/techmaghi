@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorting Time Complexity</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Sorting Time Complexity</h1>
+            <form id="sortingForm" class="space-y-4">
+                <label for="inputArray" class="block text-gray-700 font-medium">Enter array elements (comma separated):</label>
+                <input type="text" id="inputArray" name="inputArray" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Find Time Complexity</button>
+            </form>
+            <div id="result" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Function to find sort time complexity
+            function findSortingTimeComplexity(arr) {
+                if (!Array.isArray(arr) || arr.length === 0) return [];
+
+                // Parse input as numbers
+                const nums = arr.map(Number).filter(x => !isNaN(x));
+                if (nums.length === 0) return [];
+
+                // Helper sorting algorithms
+                function bubbleSort(a) {
+                    let arr = a.slice();
+                    for (let i = 0; i < arr.length - 1; i++) {
+                        for (let j = 0; j < arr.length - i - 1; j++) {
+                            if (arr[j] > arr[j + 1]) {
+                                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                            }
+                        }
+                    }
+                    return arr;
+                }
+                function quickSort(a) {
+                    let arr = a.slice();
+                    if (arr.length < 2) return arr;
+                    let pivot = arr[0];
+                    let left = arr.slice(1).filter(x => x <= pivot);
+                    let right = arr.slice(1).filter(x => x > pivot);
+                    return quickSort(left).concat(pivot, quickSort(right));
+                }
+                function mergeSort(a) {
+                    let arr = a.slice();
+                    if (arr.length < 2) return arr;
+                    let mid = Math.floor(arr.length / 2);
+                    let left = mergeSort(arr.slice(0, mid));
+                    let right = mergeSort(arr.slice(mid));
+                    let result = [];
+                    while (left.length && right.length) {
+                        result.push(left[0] <= right[0] ? left.shift() : right.shift());
+                    }
+                    return result.concat(left, right);
+                }
+                function insertionSort(a) {
+                    let arr = a.slice();
+                    for (let i = 1; i < arr.length; i++) {
+                        let key = arr[i], j = i - 1;
+                        while (j >= 0 && arr[j] > key) {
+                            arr[j + 1] = arr[j];
+                            j--;
+                        }
+                        arr[j + 1] = key;
+                    }
+                    return arr;
+                }
+                function selectionSort(a) {
+                    let arr = a.slice();
+                    for (let i = 0; i < arr.length - 1; i++) {
+                        let minIdx = i;
+                        for (let j = i + 1; j < arr.length; j++) {
+                            if (arr[j] < arr[minIdx]) minIdx = j;
+                        }
+                        if (minIdx !== i) [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+                    }
+                    return arr;
+                }
+
+                // Time complexities
+                const complexities = {
+                    bubbleSort: 'O(n^2)',
+                    quickSort: 'O(n log n)',
+                    mergeSort: 'O(n log n)',
+                    insertionSort: 'O(n^2)',
+                    selectionSort: 'O(n^2)'
+                };
+
+                // Get sorted arrays
+                const results = [
+                    { algorithm: 'bubbleSort', complexity: complexities.bubbleSort, sorted: bubbleSort(nums) },
+                    { algorithm: 'quickSort', complexity: complexities.quickSort, sorted: quickSort(nums) },
+                    { algorithm: 'mergeSort', complexity: complexities.mergeSort, sorted: mergeSort(nums) },
+                    { algorithm: 'insertionSort', complexity: complexities.insertionSort, sorted: insertionSort(nums) },
+                    { algorithm: 'selectionSort', complexity: complexities.selectionSort, sorted: selectionSort(nums) }
+                ];
+
+                // Return with sorted values as string
+                return results.map(item => ({
+                    algorithm: item.algorithm,
+                    complexity: item.complexity,
+                    sorted: item.sorted.join(', ')
+                }));
+            }
+
+            // Handle form submission
+            document.getElementById('sortingForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const inputArray = document.getElementById('inputArray').value.split(',').map(item => item.trim());
+                const result = findSortingTimeComplexity(inputArray);
+
+                const resultDiv = document.getElementById('result');
+                if (result.length > 0) {
+                    resultDiv.innerHTML = `
+                        <div class="font-semibold mb-2">Sorting Algorithms and Their Time Complexities:</div>
+                        <ul class="list-disc list-inside space-y-1">
+                            ${result.map(item => `
+                                <li class="ml-4">
+                                    <span class="font-medium capitalize">${item.algorithm.replace(/([A-Z])/g, ' $1')}</span>:
+                                    <span class="text-blue-700">${item.complexity}</span>
+                                    <br>
+                                    <span class="text-gray-500 text-sm">Sorted: [${item.sorted}]</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    `;
+                } else {
+                    resultDiv.innerHTML = '<div class="text-red-600">No sorting algorithms found.</div>';
+                }
+            });
+        </script>
+    </body>
+</html>
