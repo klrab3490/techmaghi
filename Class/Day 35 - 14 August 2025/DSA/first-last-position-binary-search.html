@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>First and Last Position Finder</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Find the First and Last Position of an Element in a Sorted Array using Binary Search</h1>
+            <form id="positionForm" class="space-y-4">
+                <label for="inputArray" class="block text-gray-700 font-medium">Enter numbers separated by spaces:</label>
+                <input type="text" id="inputArray" name="inputArray" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <label for="target" class="block text-gray-700 font-medium">Enter target number:</label>
+                <input type="number" id="target" name="target" required
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Find Positions</button>
+            </form>
+            <div id="result" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Function to find first and last positions
+            function findFirstAndLastPosition(arr, target) {
+                arr = arr.map(Number).sort((a, b) => a - b); // Ensure the array is sorted
+                let first = -1, last = -1;
+
+                // Find first position
+                let left = 0, right = arr.length - 1;
+                while (left <= right) {
+                    const mid = Math.floor((left + right) / 2);
+                    if (arr[mid] === target) {
+                        first = mid;
+                        right = mid - 1; // continue searching in the left half
+                    } else if (arr[mid] < target) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+
+                // Find last position
+                left = 0; right = arr.length - 1;
+                while (left <= right) {
+                    const mid = Math.floor((left + right) / 2);
+                    if (arr[mid] === target) {
+                        last = mid;
+                        left = mid + 1; // continue searching in the right half
+                    } else if (arr[mid] < target) {
+                        left = mid + 1;
+                    } else {
+                        right = mid - 1;
+                    }
+                }
+
+                return [first, last];
+            }
+
+            // Handle form submission
+            document.getElementById('positionForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const inputArray = document.getElementById('inputArray').value.split(/[\s,]+/).map(Number);
+                const target = document.getElementById('target').valueAsNumber;
+                const [first, last] = findFirstAndLastPosition(inputArray, target);
+
+                const resultDiv = document.getElementById('result');
+                if (first !== -1 && last !== -1) {
+                    resultDiv.innerHTML = `First position: ${first}, Last position: ${last}`;
+                } else {
+                    resultDiv.innerHTML = 'Element not found.';
+                }
+            });
+        </script>
+    </body>
+</html>

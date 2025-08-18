@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Merge or Quick Sort</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Merge or Quick Sort</h1>
+            <form id="sortForm" class="space-y-4">
+                <label for="inputString" class="block text-gray-700 font-medium">Enter numbers separated by spaces:</label>
+                <input type="text" id="inputString" name="inputString" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <div class="flex space-x-2">
+                    <button type="submit" id="quickSortBtn" class="flex-1 bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Quick Sort</button>
+                    <button type="button" id="mergeSortBtn" class="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Merge Sort</button>
+                </div>
+            </form>
+            <div id="result" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Function to find merge sort
+            function mergeSort(arr) {
+                if (arr.length <= 1) return arr;
+
+                const mid = Math.floor(arr.length / 2);
+                const left = mergeSort(arr.slice(0, mid));
+                const right = mergeSort(arr.slice(mid));
+
+                return merge(left, right);
+            }
+
+            function merge(left, right) {
+                const merged = [];
+                let i = 0;
+                let j = 0;
+
+                while (i < left.length && j < right.length) {
+                    if (left[i] < right[j]) {
+                        merged.push(left[i]);
+                        i++;
+                    } else {
+                        merged.push(right[j]);
+                        j++;
+                    }
+                }
+
+                return [...merged, ...left.slice(i), ...right.slice(j)];
+            }
+
+            // Function to find quick sort
+            function quickSort(arr) {
+                if (arr.length <= 1) return arr;
+
+                const pivot = arr[arr.length - 1];
+                const left = [];
+                const right = [];
+
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] < pivot) {
+                        left.push(arr[i]);
+                    } else {
+                        right.push(arr[i]);
+                    }
+                }
+
+                return [...quickSort(left), pivot, ...quickSort(right)];
+            }
+
+            // Quick Sort button handler
+            document.getElementById('sortForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const inputString = document.getElementById('inputString').value;
+                const numbers = inputString.trim().split(/\s+/).map(Number).filter(n => !isNaN(n));
+                const resultDiv = document.getElementById('result');
+                if (numbers.length === 0 || inputString.trim() === "") {
+                    resultDiv.innerHTML = '<div class="text-red-600">Please enter valid numbers.</div>';
+                    return;
+                }
+                const sortedNumbers = quickSort(numbers);
+                resultDiv.innerHTML = `
+                    <div class="font-semibold mb-2">Sorted Numbers (Quick Sort):</div>
+                    <div>${sortedNumbers.join(', ')}</div>
+                `;
+            });
+
+            // Merge Sort button handler
+            document.getElementById('mergeSortBtn').addEventListener('click', function() {
+                const inputString = document.getElementById('inputString').value;
+                const numbers = inputString.trim().split(/\s+/).map(Number).filter(n => !isNaN(n));
+                const resultDiv = document.getElementById('result');
+                if (numbers.length === 0 || inputString.trim() === "") {
+                    resultDiv.innerHTML = '<div class="text-red-600">Please enter valid numbers.</div>';
+                    return;
+                }
+                const sortedNumbers = mergeSort(numbers);
+                resultDiv.innerHTML = `
+                    <div class="font-semibold mb-2">Sorted Numbers (Merge Sort):</div>
+                    <div>${sortedNumbers.join(', ')}</div>
+                `;
+            });
+        </script>
+    </body>
+</html>

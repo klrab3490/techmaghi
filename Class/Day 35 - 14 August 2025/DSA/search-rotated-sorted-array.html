@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Element in Rotated Sorted Array</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Find Element in Rotated Sorted Array</h1>
+            <form id="searchForm" class="space-y-4">
+                <label for="arrayInput" class="block text-gray-700 font-medium">Enter array (comma separated):</label>
+                <input type="text" id="arrayInput" name="arrayInput" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="e.g. 4,5,6,7,0,1,2">
+                
+                <label for="targetInput" class="block text-gray-700 font-medium">Enter value to search:</label>
+                <input type="number" id="targetInput" name="targetInput" required class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="e.g. 0">
+                
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Search</button>
+            </form>
+            <div id="result" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Function to find element in rotated sorted array 
+            function rotatedSortedArray(arr, target) {
+                arr.sort((a, b) => a - b); // Sort the array
+                const randomIndex = Math.floor(Math.random() * arr.length);
+                console.log('Random element:', arr[randomIndex]);
+
+                // Rotate array based on the random index
+                const rotatedArray = [...arr.slice(randomIndex), ...arr.slice(0, randomIndex)];
+                console.log('Rotated array:', rotatedArray);
+
+                // Search for the element 
+                for(let i = 0; i < arr.length; i++) {
+                    if(arr[i]==target) {
+                        console.log('Element found at index:', i);
+                        return [arr, i];
+                    }
+                }
+                console.log('Element not found');
+                return [arr,-1];
+            }
+
+            // Handle form submission
+            document.getElementById('searchForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const arrayInput = document.getElementById('arrayInput').value;
+                const targetInput = parseInt(document.getElementById('targetInput').value);
+                
+                const arr = arrayInput.split(',').map(Number);
+                const resultIndex = rotatedSortedArray(arr, targetInput);
+
+                const resultDiv = document.getElementById('result');
+                const [rotatedArr, foundIndex] = resultIndex;
+                resultDiv.innerHTML = `
+                    <div class="mb-2">Rotated Array: [${rotatedArr.join(', ')}]</div>
+                    ${
+                        foundIndex !== -1
+                        ? `<div class="text-green-600">Element found at index: ${foundIndex}</div>`
+                        : `<div class="text-red-600">Element not found.</div>`
+                    }
+                `;
+            });
+        </script>
+    </body>
+</html>
