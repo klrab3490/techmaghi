@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Node and npm init</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-2xl mx-auto p-6">
+        <h1 class="text-3xl font-bold mb-4 text-blue-700">About Node.js</h1>
+        <p class="mb-8 text-lg">
+            Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript code outside of a browser, enabling server-side scripting and building scalable network applications.
+        </p>
+
+        <h2 class="text-2xl font-semibold mb-2 text-green-700">About <code class="bg-gray-200 px-2 py-1 rounded">npm init</code></h2>
+        <p class="text-lg">
+            <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> is a command used to create a new <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file for a Node.js project. The <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file contains metadata about the project, such as its name, version, dependencies, and scripts. Running <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> helps set up and manage your Node.js project's configuration.
+            <br>
+            <code class="bg-gray-200 px-2 py-1 rounded">npm init -y</code> is a command used to quickly create a new <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file for a Node.js project with default values. This saves time by skipping the interactive prompts. The <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file contains metadata about the project, such as its name, version, dependencies, and scripts.
+        </p>
+
+        package used
+        - express: npm install express
+           default stater code:
+        <pre class="bg-gray-100 p-4 rounded mt-4">
+            const express = require('express');
+            const app = express();
+            const PORT = process.env.PORT || 3000;
+
+            app.get('/', (req, res) => {
+                res.send('Hello, World!');
+            });
+
+            app.listen(PORT, () => {
+                console.log(`Server is running on http://localhost:${PORT}`);
+            });
+        </pre>
+
+        - mongoose: npm install mongoose
+    </div>
+</body>
+</html>
