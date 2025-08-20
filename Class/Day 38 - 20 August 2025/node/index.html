@@ -6,38 +6,86 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <div class="max-w-2xl mx-auto p-6">
-        <h1 class="text-3xl font-bold mb-4 text-blue-700">About Node.js</h1>
-        <p class="mb-8 text-lg">
-            Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript code outside of a browser, enabling server-side scripting and building scalable network applications.
+<body class="bg-gradient-to-br from-blue-50 to-green-50 min-h-screen text-gray-800">
+    <nav class="bg-white shadow mb-8">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold text-blue-700">Node.js Guide</span>
+            <a href="#" class="text-blue-600 hover:underline">Home</a>
+        </div>
+    </nav>
+    <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
+        <h1 class="text-4xl font-extrabold mb-6 text-blue-700">About Node.js</h1>
+        <p class="mb-6 text-lg">
+            <span class="font-semibold text-green-700">Node.js</span> is a powerful JavaScript runtime built on Chrome's V8 engine. It enables developers to run JavaScript outside the browser, making it ideal for building fast, scalable server-side and networking applications.
         </p>
+        <ul class="mb-8 list-disc pl-6 text-lg">
+            <li>Non-blocking, event-driven architecture</li>
+            <li>Great for real-time applications (e.g., chat, APIs)</li>
+            <li>Large ecosystem via npm</li>
+        </ul>
 
-        <h2 class="text-2xl font-semibold mb-2 text-green-700">About <code class="bg-gray-200 px-2 py-1 rounded">npm init</code></h2>
-        <p class="text-lg">
-            <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> is a command used to create a new <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file for a Node.js project. The <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file contains metadata about the project, such as its name, version, dependencies, and scripts. Running <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> helps set up and manage your Node.js project's configuration.
-            <br>
-            <code class="bg-gray-200 px-2 py-1 rounded">npm init -y</code> is a command used to quickly create a new <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file for a Node.js project with default values. This saves time by skipping the interactive prompts. The <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file contains metadata about the project, such as its name, version, dependencies, and scripts.
+        <h2 class="text-2xl font-semibold mb-3 text-green-700">About <code class="bg-gray-200 px-2 py-1 rounded">npm init</code></h2>
+        <p class="mb-4 text-lg">
+            <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> creates a <code class="bg-gray-200 px-2 py-1 rounded">package.json</code> file, which stores project metadata, dependencies, and scripts.
         </p>
+        <div class="mb-6">
+            <span class="font-semibold">Quick Start:</span>
+            <ul class="list-disc pl-6">
+                <li>
+                    <code class="bg-gray-200 px-2 py-1 rounded">npm init</code> - Interactive setup
+                </li>
+                <li>
+                    <code class="bg-gray-200 px-2 py-1 rounded">npm init -y</code> - Default setup (skips prompts)
+                </li>
+            </ul>
+        </div>
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-blue-600 mb-2">Popular Packages</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-4 rounded shadow">
+                    <span class="font-bold text-blue-700">Express</span>
+                    <p class="mb-2">Minimal and flexible Node.js web application framework.</p>
+                    <code class="bg-gray-200 px-2 py-1 rounded block mb-2">npm install express</code>
+                    <span class="text-sm text-gray-600">Starter code:</span>
+                    <pre class="bg-gray-100 p-3 rounded text-sm mt-1 overflow-x-auto">
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-        package used
-        - express: npm install express
-           default stater code:
-        <pre class="bg-gray-100 p-4 rounded mt-4">
-            const express = require('express');
-            const app = express();
-            const PORT = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
 
-            app.get('/', (req, res) => {
-                res.send('Hello, World!');
-            });
-
-            app.listen(PORT, () => {
-                console.log(`Server is running on http://localhost:${PORT}`);
-            });
-        </pre>
-
-        - mongoose: npm install mongoose
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+                    </pre>
+                </div>
+                <div class="bg-green-50 p-4 rounded shadow">
+                    <span class="font-bold text-green-700">Mongoose</span>
+                    <p class="mb-2">Elegant MongoDB object modeling for Node.js.</p>
+                    <code class="bg-gray-200 px-2 py-1 rounded block mb-2">npm install mongoose</code>
+                    <span class="text-sm text-gray-600">Sample usage:</span>
+                    <pre class="bg-gray-100 p-3 rounded text-sm mt-1 overflow-x-auto">
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/mydb')
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error(err));
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-blue-600 mb-2">How to Start the Server?</h3>
+            <ol class="list-decimal pl-6 text-lg">
+                <li>Open terminal in your project folder.</li>
+                <li>Run <code class="bg-gray-200 px-2 py-1 rounded">node index.js</code> (or your main file).</li>
+                <li>Visit <a href="http://localhost:3000" class="text-blue-600 underline">http://localhost:3000</a> in your browser.</li>
+            </ol>
+        </div>
+        <footer class="text-center text-gray-500 mt-10">
+            &copy; 2025 Node.js Guide. All rights reserved.
+        </footer>
     </div>
 </body>
 </html>
