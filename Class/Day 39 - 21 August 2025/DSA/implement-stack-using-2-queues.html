@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implement Stack using 2 Queues</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+        <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+        <h1 class="text-2xl font-bold mb-6 text-center">Implement Stack using 2 Queues</h1>
+        <form id="stackForm" class="space-y-4">
+            <label for="stackInput" class="block text-gray-700 font-medium">Enter value to push:</label>
+            <input type="number" id="stackInput" name="stackInput"
+                class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <div class="flex space-x-2">
+                <button type="button" id="pushBtn"
+                    class="flex-1 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Push</button>
+                <button type="button" id="popBtn"
+                    class="flex-1 bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">Pop</button>
+                <button type="button" id="topBtn"
+                    class="flex-1 bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Top</button>
+            </div>
+        </form>
+        <div id="stackResult" class="mt-6 text-gray-800"></div>
+        <div id="stackDisplay" class="mt-4 text-gray-600"></div>
+    </div>
+    <script>
+        // Stack implementation using 2 queues
+        class StackUsingQueues {
+            constructor() {
+                this.q1 = [];
+                this.q2 = [];
+            }
+
+            push(x) {
+                this.q2.push(x);
+                while (this.q1.length) {
+                    this.q2.push(this.q1.shift());
+                }
+                // Swap q1 and q2
+                [this.q1, this.q2] = [this.q2, this.q1];
+            }
+
+            pop() {
+                if (this.q1.length === 0) return null;
+                return this.q1.shift();
+            }
+
+            top() {
+                if (this.q1.length === 0) return null;
+                return this.q1[0];
+            }
+
+            getStack() {
+                return [...this.q1];
+            }
+        }
+
+        const stack = new StackUsingQueues();
+        const resultDiv = document.getElementById('stackResult');
+        const displayDiv = document.getElementById('stackDisplay');
+
+        function updateDisplay() {
+            const stackArr = stack.getStack();
+            displayDiv.innerHTML = "Stack (top first): " + (stackArr.length ? stackArr.join(', ') : 'Empty');
+        }
+
+        document.getElementById('pushBtn').onclick = function () {
+            const val = document.getElementById('stackInput').value;
+            if (val === "") {
+                resultDiv.innerHTML = "Enter a value to push.";
+                return;
+            }
+            stack.push(Number(val));
+            resultDiv.innerHTML = `Pushed ${val} to stack.`;
+            updateDisplay();
+            document.getElementById('stackInput').value = "";
+        };
+
+        document.getElementById('popBtn').onclick = function () {
+            const popped = stack.pop();
+            if (popped === null) {
+                resultDiv.innerHTML = "Stack is empty.";
+            } else {
+                resultDiv.innerHTML = `Popped ${popped} from stack.`;
+            }
+            updateDisplay();
+        };
+
+        document.getElementById('topBtn').onclick = function () {
+            const top = stack.top();
+            if (top === null) {
+                resultDiv.innerHTML = "Stack is empty.";
+            } else {
+                resultDiv.innerHTML = `Top of stack: ${top}`;
+            }
+            updateDisplay();
+        };
+
+        updateDisplay();
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Queue Using 2 Stacks</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Implement Queue Using 2 Stacks</h1>
+            <form id="queueForm" class="space-y-4">
+                <label for="enqueueInput" class="block text-gray-700 font-medium">Enqueue (number):</label>
+                <input type="number" id="enqueueInput" name="enqueueInput"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button type="button" id="enqueueBtn"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Enqueue</button>
+                <button type="button" id="dequeueBtn"
+                    class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Dequeue</button>
+            </form>
+            <div id="queueResult" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            class QueueUsingStacks {
+                constructor() {
+                    this.stack1 = [];
+                    this.stack2 = [];
+                }
+                enqueue(x) {
+                    this.stack1.push(x);
+                }
+                dequeue() {
+                    if (this.stack2.length === 0) {
+                        while (this.stack1.length > 0) {
+                            this.stack2.push(this.stack1.pop());
+                        }
+                    }
+                    return this.stack2.length > 0 ? this.stack2.pop() : null;
+                }
+                getQueue() {
+                    return [...this.stack2.slice().reverse(), ...this.stack1];
+                }
+            }
+
+            const queue = new QueueUsingStacks();
+            const resultDiv = document.getElementById('queueResult');
+
+            function updateQueueDisplay() {
+                const queueArr = queue.getQueue();
+                resultDiv.innerHTML = `Queue: [${queueArr.join(', ')}]`;
+            }
+
+            document.getElementById('enqueueBtn').addEventListener('click', function () {
+                const val = document.getElementById('enqueueInput').value;
+                if (val !== '') {
+                    queue.enqueue(Number(val));
+                    updateQueueDisplay();
+                    document.getElementById('enqueueInput').value = '';
+                }
+            });
+
+            document.getElementById('dequeueBtn').addEventListener('click', function () {
+                const removed = queue.dequeue();
+                if (removed !== null) {
+                    resultDiv.innerHTML = `Dequeued: ${removed}<br>Queue: [${queue.getQueue().join(', ')}]`;
+                } else {
+                    resultDiv.innerHTML = 'Queue is empty.';
+                }
+            });
+
+            updateQueueDisplay();
+        </script>
+    </body>
+</html>
