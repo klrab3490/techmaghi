@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hospital Waiting Room Queue</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Hospital Waiting Room Queue</h1>
+            <form id="queueForm" class="space-y-4">
+                <label for="enqueueInput" class="block text-gray-700 font-medium">Patient Name:</label>
+                <input type="text" id="enqueueInput" name="enqueueInput"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <button type="button" id="enqueueBtn"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Add Patient</button>
+                <button type="button" id="dequeueBtn"
+                    class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">Call Next Patient</button>
+            </form>
+            <div id="queueResult" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            // Queue implementation
+            const queue = [];
+
+            // Prevent form submission on Enter
+            document.getElementById('queueForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+            });
+
+            const enqueueBtn = document.getElementById('enqueueBtn');
+            const dequeueBtn = document.getElementById('dequeueBtn');
+            const enqueueInput = document.getElementById('enqueueInput');
+            const queueResult = document.getElementById('queueResult');
+
+            function renderQueue() {
+                if (queue.length === 0) {
+                    queueResult.innerHTML = "<p>No patients in the queue.</p>";
+                } else {
+                    queueResult.innerHTML = `
+                        <h2 class="font-semibold mb-2">Current Queue:</h2>
+                        <ul class="list-disc pl-5">
+                            ${queue.map(patient => `<li>${patient}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+            }
+
+            enqueueBtn.onclick = function() {
+                const name = enqueueInput.value.trim();
+                if (name) {
+                    queue.push(name);
+                    enqueueInput.value = '';
+                    renderQueue();
+                }
+            };
+
+            dequeueBtn.onclick = function() {
+                if (queue.length === 0) {
+                    queueResult.innerHTML = "<p>No patients to call.</p>";
+                } else {
+                    const nextPatient = queue.shift();
+                    queueResult.innerHTML = `<p class="font-bold text-green-700">Calling: ${nextPatient}</p>`;
+                    setTimeout(renderQueue, 1500);
+                }
+            };
+
+            renderQueue();
+        </script>
+
+    </body>
+</html>

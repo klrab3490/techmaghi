@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Count Words in Feedback</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 mt-8">
+            <a href="index.html" class="text-blue-600 hover:underline mb-4 inline-block">&larr; Back</a>
+            <h1 class="text-2xl font-bold mb-6 text-center">Count Words in Customer Feedback</h1>
+            <form id="feedbackForm" class="space-y-4">
+                <label for="feedbackInput" class="block text-gray-700 font-medium">Customer Feedback:</label>
+                <input type="text" id="feedbackInput" name="feedbackInput"
+                    class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Enter feedback here">
+                <button type="button" id="countBtn"
+                    class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Count Words</button>
+            </form>
+            <div class="mt-4 text-gray-600 text-sm">
+                Input: "The product quality is very good"<br>
+                Output: 6 words
+            </div>
+            <div id="wordCountResult" class="mt-6 text-gray-800"></div>
+        </div>
+        <script>
+            document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+            });
+
+            document.getElementById('countBtn').onclick = function() {
+                const feedback = document.getElementById('feedbackInput').value.trim();
+                let count = 0;
+                if (feedback) {
+                    count = feedback.split(/\s+/).length;
+                }
+                document.getElementById('wordCountResult').innerHTML =
+                    `<p class="font-bold">Word Count: ${count} ${count === 1 ? 'word' : 'words'}</p>`;
+            };
+        </script>
+    </body>
+</html>
