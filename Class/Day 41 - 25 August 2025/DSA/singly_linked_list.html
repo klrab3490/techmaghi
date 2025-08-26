@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Singly Linked List Example</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-8">
+        <div class="bg-white shadow-lg rounded-lg p-8 w-full">
+            <div class="sticky top-0 bg-white z-10 pb-2">
+                <a href="index.html" class="inline-block text-blue-600 hover:underline mb-2 text-sm">&larr; Back to Main</a>
+                <h1 class="text-2xl font-bold text-blue-700 mb-4 text-center">Singly Linked List</h1>
+            </div>
+            <p class="mb-6 text-gray-700 text-center">
+                A singly linked list is a linear data structure where each element (node) contains a value and a pointer to the next node in the sequence.
+            </p>
+            
+            <div class="flex items-center justify-center space-x-6 mb-6">
+                <!-- Example nodes -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-blue-100 border border-blue-400 rounded px-4 py-2 font-mono">10</div>
+                    <span class="text-xs text-gray-500 mt-1">head</span>
+                </div>
+                <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                    <path d="M0 12h32m0 0l-6-6m6 6l-6 6" stroke="#3B82F6" stroke-width="2"/>
+                </svg>
+                <div class="flex flex-col items-center">
+                    <div class="bg-blue-100 border border-blue-400 rounded px-4 py-2 font-mono">20</div>
+                </div>
+                <svg width="40" height="24" viewBox="0 0 40 24" fill="none">
+                    <path d="M0 12h32m0 0l-6-6m6 6l-6 6" stroke="#3B82F6" stroke-width="2"/>
+                </svg>
+                <div class="flex flex-col items-center">
+                    <div class="bg-blue-100 border border-blue-400 rounded px-4 py-2 font-mono">30</div>
+                    <span class="text-xs text-gray-500 mt-1">tail</span>
+                </div>
+            </div>
+            <div class="bg-gradient-to-br from-blue-50 via-white to-green-50 shadow-xl rounded-xl p-6 w-full max-w-md mx-auto mt-10 mb-10 border border-gray-200">
+                <h2 class="font-bold text-blue-700 text-lg mb-4 text-center flex items-center justify-center gap-2">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+                Manage Linked List
+                </h2>
+                <form id="addNodeForm" class="flex items-center space-x-2 mb-3">
+                    <input type="number" id="nodeValue" name="nodeValue" placeholder="Node value" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                    <input type="number" id="nodePosition" name="nodePosition" placeholder="Position (1-based)" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Add</button>
+                </form>
+                <form id="deleteNodeForm" class="flex items-center space-x-2 mb-3">
+                    <input type="number" id="deleteValue" name="deleteValue" placeholder="Value to delete" class="border border-red-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 transition" required>
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg shadow hover:bg-red-700 transition">Delete</button>
+                </form>
+                <div class="mt-4 flex flex-col items-center">
+                    <button id="displayListBtn" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition w-full mb-2">Display List</button>
+                    <div id="listDisplay" class="mt-2 text-gray-800 font-mono text-center min-h-[1.5em] bg-gray-100 rounded p-2 w-full border border-gray-200"></div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                <div class="bg-gray-100 rounded p-4 w-full md:w-1/2">
+                    <h2 class="font-semibold text-gray-700 mb-2">Node Structure (JavaScript):</h2>
+                    <pre class="bg-gray-200 rounded p-2 text-sm overflow-x-auto"><code>
+    class Node {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+                    </code></pre>
+                </div>
+                <div class="bg-gray-100 rounded p-4 w-full md:w-1/2">
+                    <h2 class="font-semibold text-gray-700 mb-2">Linked List Example (JavaScript):</h2>
+                    <pre class="bg-gray-200 rounded p-2 text-sm overflow-x-auto"><code>
+    let head = new Node(10);
+    head.next = new Node(20);
+    head.next.next = new Node(30);
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            class Node {
+                constructor(data) {
+                    this.data = data;
+                    this.next = null;
+                }
+            }
+            
+            class SinglyLinkedList {
+                constructor() {
+                    this.head = null;
+                }
+
+                // Adding
+                // addNode(data, options)
+                // options = { position: 'front' | 'between' | 'end', target: value }
+                addNode(data, options = { position: "end" }) {
+                    const newNode = new Node(data);
+
+                    // Insert Front
+                    if (options.position === "front") {
+                        newNode.next = this.head;
+                        this.head = newNode;
+                        return;
+                    }
+
+                    // Insert Between
+                    if (options.position === "between") {
+                        let current = this.head;
+                        while (current && current.data !== options.target) {
+                            current = current.next;
+                        }
+                        if (current) {
+                            newNode.next = current.next;
+                            current.next = newNode;
+                        } else {
+                            console.log(`Value ${options.target} not found, inserting at end`);
+                            this.addNode(data, { position: "end" });
+                        }
+                        return;
+                    }
+
+                    // Insert End
+                    if (!this.head) {
+                        this.head = newNode;
+                    } else {
+                        let current = this.head;
+                        while (current.next) {
+                            current = current.next;
+                        }
+                        current.next = newNode;
+                    }
+                }
+
+                deleteNode(data) {
+                    if (!this.head) return;
+
+                    if (this.head.data === data) {
+                        this.head = this.head.next;
+                        return;
+                    }
+
+                    let current = this.head;
+                    while (current.next) {
+                        if (current.next.data === data) {
+                            current.next = current.next.next;
+                            return;
+                        }
+                        current = current.next;
+                    }
+                }
+
+                printList() {
+                    let current = this.head;
+                    const values = [];
+                    while (current) {
+                        values.push(current.data);
+                        current = current.next;
+                    }
+                    console.log("Singly Linked List:", values.join(" -> "));
+                }
+            }
+
+            // Create a single instance of SinglyLinkedList
+            const list = new SinglyLinkedList();
+
+            function updateListDisplay() {
+                let current = list.head;
+                const values = [];
+                while (current) {
+                    values.push(current.data);
+                    current = current.next;
+                }
+                const displayText = values.length ? values.join(' -> ') + ' -> null' : 'List is empty';
+                document.getElementById('listDisplay').textContent = displayText;
+            }
+
+            // Update display whenever list changes
+            document.getElementById('addNodeForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const nodeValue = parseInt(document.getElementById('nodeValue').value, 10);
+                const position = parseInt(document.getElementById('nodePosition').value, 10);
+                if (!isNaN(nodeValue)) {
+                    list.addNode(nodeValue, { position });
+                    document.getElementById('nodeValue').value = '';
+                    document.getElementById('nodePosition').value = '';
+                    updateListDisplay();
+                }
+            });
+
+            document.getElementById('deleteNodeForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const deleteValue = parseInt(document.getElementById('deleteValue').value, 10);
+                if (!isNaN(deleteValue)) {
+                    list.deleteNode(deleteValue);
+                    document.getElementById('deleteValue').value = '';
+                    updateListDisplay();
+                }
+            });
+
+            document.getElementById('displayListBtn').addEventListener('click', updateListDisplay);
+
+            // Initial display
+            updateListDisplay();
+        </script>
+    </body>
+</html>
