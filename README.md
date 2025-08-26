@@ -2,6 +2,34 @@
 
 I am currently enrolled in a **MERN Stack** (MongoDB, Express.js, React.js, Node.js) course with a duration of 6 months. This repository documents the skills and projects I am developing throughout the program.
 
+## Github
+
+### Working with Git Submodules
+
+**Clone including submodules:**
+```sh
+git clone --recurse-submodules <repo-url>
+```
+
+**If already cloned (initialize & update submodules):**
+```sh
+git submodule update --init --recursive
+```
+
+**Add a new submodule:**
+```sh
+git submodule add <submodule-repo-url> <path>
+git submodule update --init --recursive
+```
+
+**Pull all changes including submodules:**
+```sh
+git pull --recurse-submodules
+```
+```sh
+git submodule update --init --recursive
+```
+
 ## Skills & Technologies
 
 - **Frontend:**  
