@@ -6,3 +6,7 @@
 	path = Class/Day 23 - 28 July 2025/To Do List
 	url = https://github.com/klrab3490/to-do-list.git
 
+[submodule "Class/Day 42 - 26 August 2025/node/blog"]
+	path = Class/Day 42 - 26 August 2025/node/blog
+	url = https://github.com/klrab3490/techmaghi-blog.git
+
