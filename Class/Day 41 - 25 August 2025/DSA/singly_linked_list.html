@@ -45,7 +45,12 @@
                 </h2>
                 <form id="addNodeForm" class="flex items-center space-x-2 mb-3">
                     <input type="number" id="nodeValue" name="nodeValue" placeholder="Node value" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
-                    <input type="number" id="nodePosition" name="nodePosition" placeholder="Position (1-based)" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                    <select id="addPosition" name="addPosition" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition" required>
+                        <option value="end" selected>Add at End</option>
+                        <option value="front">Add at Front</option>
+                        <option value="between">Add After Value</option>
+                    </select>
+                    <input type="number" id="targetValue" name="targetValue" placeholder="After Value (for 'Add After Value')" class="border border-blue-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition hidden">
                     <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">Add</button>
                 </form>
                 <form id="deleteNodeForm" class="flex items-center space-x-2 mb-3">
@@ -178,14 +183,36 @@
             }
 
             // Update display whenever list changes
+            // Show/hide targetValue input based on position selection
+            document.getElementById('addPosition').addEventListener('change', function() {
+                const targetInput = document.getElementById('targetValue');
+                if (this.value === 'between') {
+                    targetInput.classList.remove('hidden');
+                } else {
+                    targetInput.classList.add('hidden');
+                }
+            });
+
             document.getElementById('addNodeForm').addEventListener('submit', function(event) {
                 event.preventDefault();
                 const nodeValue = parseInt(document.getElementById('nodeValue').value, 10);
-                const position = parseInt(document.getElementById('nodePosition').value, 10);
+                const positionType = document.getElementById('addPosition').value;
+                let options = { position: positionType };
+                if (positionType === 'between') {
+                    const targetValue = parseInt(document.getElementById('targetValue').value, 10);
+                    if (!isNaN(targetValue)) {
+                        options.target = targetValue;
+                    } else {
+                        alert('Please enter a value to insert after.');
+                        return;
+                    }
+                }
                 if (!isNaN(nodeValue)) {
-                    list.addNode(nodeValue, { position });
+                    list.addNode(nodeValue, options);
                     document.getElementById('nodeValue').value = '';
-                    document.getElementById('nodePosition').value = '';
+                    document.getElementById('targetValue').value = '';
+                    document.getElementById('addPosition').value = 'end';
+                    document.getElementById('targetValue').classList.add('hidden');
                     updateListDisplay();
                 }
             });
