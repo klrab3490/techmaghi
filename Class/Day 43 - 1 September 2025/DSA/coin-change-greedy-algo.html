@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coin Change Problem - Greedy Approach</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body
+        class="bg-gray-50 min-h-screen flex flex-col items-center justify-center p-8">
+        <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
+            <div class="sticky top-0 bg-white z-10 pb-2">
+                <a href="index.html"
+                    class="inline-block text-blue-600 hover:underline mb-2 text-sm">&larr;
+                    Back to Main</a>
+                <h1
+                    class="text-2xl font-bold text-blue-700 mb-4 text-center">Coin
+                    Change Problem (Greedy)</h1>
+            </div>
+
+            <p class="mb-6 text-gray-700 text-center">
+                The <strong>Greedy Coin Change Algorithm</strong> selects the
+                largest denomination smaller than the remaining amount until the
+                target is reached.
+                <br> (Works correctly for canonical coin systems like Indian
+                Rupees or US Cents).
+            </p>
+
+            <!-- Input Section -->
+            <div
+                class="bg-gradient-to-br from-blue-50 via-white to-green-50 shadow-xl rounded-xl p-6 w-full border border-gray-200 mb-6">
+                <h2
+                    class="font-bold text-blue-700 text-lg mb-4 text-center flex items-center justify-center gap-2">
+                    <svg class="w-6 h-6 text-blue-500" fill="none"
+                        stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 4v16m8-8H4" />
+                    </svg>
+                    Solve Coin Change
+                </h2>
+                <form id="coinChangeForm"
+                    class="flex flex-col md:flex-row items-center md:space-x-2 space-y-2 md:space-y-0">
+                    <input type="text" id="coinsInput" name="coinsInput"
+                        placeholder="Enter coins (e.g. 1,2,5,10)"
+                        class="border border-blue-300 rounded-lg px-3 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                        required>
+                    <input type="number" id="amountInput" name="amountInput"
+                        placeholder="Enter amount"
+                        class="border border-green-300 rounded-lg px-3 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                        required>
+                    <button type="submit"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition w-full md:w-auto">
+                        Solve
+                    </button>
+                </form>
+            </div>
+
+            <!-- Output Section -->
+            <div class="mt-6">
+                <h2
+                    class="font-semibold text-gray-700 mb-2 text-center">Steps:</h2>
+                <div id="stepsDisplay"
+                    class="bg-gray-100 rounded p-4 text-sm font-mono text-gray-800 min-h-[3em] border border-gray-200"></div>
+            </div>
+
+            <div class="mt-6">
+                <h2 class="font-semibold text-gray-700 mb-2 text-center">Final
+                    Result:</h2>
+                <div id="resultDisplay"
+                    class="bg-green-50 rounded p-4 text-lg font-bold text-green-700 text-center border border-green-200"></div>
+            </div>
+        </div>
+
+        <script>
+            function greedyCoinChange(coins, amount) {
+                coins.sort((a, b) => b - a); // sort descending
+                let result = [];
+                let steps = [];
+                let remaining = amount;
+
+                for (let coin of coins) {
+                    while (remaining >= coin) {
+                    remaining -= coin;
+                    result.push(coin);
+                    steps.push(`Take coin ${coin}, Remaining = ${remaining}`);
+                    }
+                }
+
+                if (remaining > 0) {
+                    steps.push("Amount cannot be formed with given coins.");
+                    return { result: [], steps };
+                }
+
+                return { result, steps };
+            }
+
+            document.getElementById("coinChangeForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const coinsInput = document.getElementById("coinsInput").value.trim();
+                const amount = parseInt(document.getElementById("amountInput").value, 10);
+                const coins = coinsInput.split(",").map(c => parseInt(c.trim(), 10)).filter(c => !isNaN(c));
+
+                if (coins.length === 0 || isNaN(amount) || amount <= 0) {
+                    alert("Please enter valid coins and amount.");
+                    return;
+                }
+
+                const { result, steps } = greedyCoinChange(coins, amount);
+
+                document.getElementById("stepsDisplay").innerHTML = steps.length
+                    ? steps.map(s => `<div>• ${s}</div>`).join("")
+                    : "No steps taken.";
+
+                document.getElementById("resultDisplay").textContent = result.length
+                    ? `Coins Used: ${result.join(" + ")} = ${amount}`
+                    : "No valid solution found.";
+            });
+        </script>
+    </body>
+</html>
