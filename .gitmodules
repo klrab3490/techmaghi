@@ -1,15 +1,15 @@
-[submodule "Clone/mi-clone"]
+[submodule "MI Clone"]
     path = Clone/mi-clone
     url = https://github.com/klrab3490/mi-clone.git
 
-[submodule "Class/Day 23 - 28 July 2025/To Do List"]
+[submodule "To Do List"]
 	path = Class/Day 23 - 28 July 2025/To Do List
 	url = https://github.com/klrab3490/to-do-list.git
 
-[submodule "Class/Day 42 - 26 August 2025/node/blog"]
+[submodule "Blog Project Initial"]
 	path = Class/Day 42 - 26 August 2025/node/blog
 	url = https://github.com/klrab3490/techmaghi-blog.git
 
-[submodule "Class/Day 46,47,48 - 10,11,12 September 2025/node/blog"]
-	path = Class/Day 46,47,48 - 10,11,12 September 2025/node/blog
+[submodule "Blog post project"]
+	path = Class/Day 46,47,48,49 - 10,11,12,15 September 2025/node/blog
 	url = https://github.com/klrab3490/techmaghi-blog.git
