@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Techmaghi Works Viewer</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <style>
             /* Custom scrollbar for grid */
             ::-webkit-scrollbar {
@@ -18,27 +19,39 @@
             }
         </style>
     </head>
-    <body class="bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-800 font-sans min-h-screen">
+    <body
+        class="bg-gradient-to-br from-blue-50 via-white to-blue-100 text-gray-800 font-sans min-h-screen">
 
         <!-- Header -->
-        <header class="bg-white/80 backdrop-blur shadow-lg py-6 px-4 fixed top-0 left-0 w-full z-50 border-b border-blue-100">
+        <header
+            class="bg-white/80 backdrop-blur shadow-lg py-6 px-4 fixed top-0 left-0 w-full z-50 border-b border-blue-100">
             <div class="flex items-center justify-center gap-3">
                 <i class="fas fa-laptop-code text-blue-700 text-3xl"></i>
-                <h1 class="text-3xl font-extrabold text-blue-700 tracking-tight">Techmaghi Works Viewer</h1>
+                <h1
+                    class="text-3xl font-extrabold text-blue-700 tracking-tight">Techmaghi
+                    Works Viewer</h1>
             </div>
         </header>
 
         <!-- Content Grid -->
-        <main class="mx-auto flex flex-col md:flex-row gap-8 mt-28 p-6 max-w-7xl">
+        <main
+            class="mx-auto flex flex-col md:flex-row gap-8 mt-28 p-6 max-w-7xl">
 
             <!-- Class Section -->
-            <section class="bg-white/90 rounded-3xl shadow-xl p-8 flex-1 border border-blue-100">
+            <section class="bg-white/90 rounded-3xl shadow-xl p-8 max-h-[93vh] flex-1 border border-blue-100">
                 <h2 class="text-2xl font-extrabold text-center mb-6 border-b pb-3 text-blue-700 flex items-center justify-center gap-2">
                     <i class="fas fa-chalkboard-teacher"></i> Class
                 </h2>
-                <ul class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-h-[70vh] overflow-y-auto pr-2">
+                <!-- Search Bar -->
+                <div class="mb-6 flex items-center gap-2">
+                    <input id="class-search" type="text" placeholder="Search by topic or day..." class="w-full px-4 py-2 rounded-xl border border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition" />
+                    <button onclick="document.getElementById('class-search').value='';filterClassList();" class="px-3 py-2 rounded-xl bg-blue-100 hover:bg-blue-200 text-blue-700 transition" title="Clear">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul id="class-list" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-h-[75vh] overflow-y-auto pr-2">
                     <!-- Day 1 -->
-                    <li>
+                    <li data-day="1" data-topics="Introduction to HTML">
                         <a href="#" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 1</span>
@@ -52,7 +65,7 @@
                         </a>
                     </li>
                     <!-- Day 2 -->
-                    <li>
+                    <li data-day="2" data-topics="Html List Heading Article Navigation Input">
                         <a href="./Class/Day 2 - 18 June 2025/day2.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 2</span>
@@ -68,7 +81,7 @@
                         </a>
                     </li>
                     <!-- Day 3 -->
-                    <li>
+                    <li data-day="3" data-topics="Application of List, Heading, Article, Navigation and Input; ParseInt, ParseFloat & Date">
                         <a href="./Class/Day 3 - 19 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 3</span>
@@ -88,7 +101,7 @@
                         </a>
                     </li>
                     <!-- Day 4 -->
-                    <li>
+                    <li data-day="4" data-topics="Introduction to CSS">
                         <a href="./Class/Day 4 - 23 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 4</span>
@@ -104,7 +117,7 @@
                         </a>
                     </li>
                     <!-- Day 5 -->
-                    <li>
+                    <li data-day="5" data-topics="CSS Selectors & Properties; Conditional Statements">
                         <a href="./Class/Day 5 - 24 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 5</span>
@@ -125,7 +138,7 @@
                         </a>
                     </li>
                     <!-- Day 6 -->
-                    <li>
+                    <li data-day="6" data-topics="CSS Box Model; JavaScript Functions">
                         <a href="./Class/Day 6 - 25 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 6</span>
@@ -151,7 +164,7 @@
                         </a>
                     </li>
                     <!-- Day 7 -->
-                    <li>
+                    <li data-day="7" data-topics="JavaScript Functions; Debugging Techniques">
                         <a href="./Class/Day 7 - 26 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 7</span>
@@ -177,7 +190,7 @@
                         </a>
                     </li>
                     <!-- Day 8 -->
-                    <li>
+                    <li data-day="8" data-topics="JavaScript: Function Parameters, Arguments, Types Of Scope & Closure Functions; Clone: Nike Clone">
                         <a href="./Class/Day 8 - 27 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 8</span>
@@ -198,7 +211,7 @@
                         </a>
                     </li>
                     <!-- Day 9 -->
-                    <li>
+                    <li data-day="9" data-topics="JavaScript: Arrays, Array Methods, and Array Iteration">
                         <a href="./Class/Day 9 - 30 June 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 9</span>
@@ -215,7 +228,7 @@
                         </a>
                     </li>
                     <!-- Day 10 -->
-                    <li>
+                    <li data-day="10" data-topics="JavaScript: Objects, Object Methods, and Object Iteration">
                         <a href="./Class/Day 10 - 1 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 10</span>
@@ -232,7 +245,7 @@
                         </a>
                     </li>
                     <!-- Day 11 -->
-                    <li>
+                    <li data-day="11" data-topics="JavaScript: Objects, Object Methods, and Object Iteration">
                         <a href="./Class/Day 11 - 2 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 11</span>
@@ -246,7 +259,7 @@
                         </a>
                     </li>
                     <!-- Day 12 -->
-                    <li>
+                    <li data-day="12" data-topics="JavaScript: Objects, Object Methods, and Object Iteration">
                         <a href="./Class/Day 12 - 3 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 12</span>
@@ -262,7 +275,7 @@
                         </a>
                     </li>
                     <!-- Day 13 -->
-                    <li>
+                    <li data-day="13" data-topics="JavaScript: Objects, Object Methods, and Object Iteration">
                         <a href="./Class/Day 13 - 4 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 13</span>
@@ -279,7 +292,7 @@
                         </a>
                     </li>
                     <!-- Day 14 -->
-                    <li>
+                    <li data-day="14" data-topics="JavaScript: Objects, Object Methods, and Object Iteration">
                         <a href="./Class/Day 14 - 8 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 14</span>
@@ -293,7 +306,7 @@
                         </a>
                     </li>
                     <!-- Day 15 -->
-                    <li>
+                    <li data-day="15" data-topics="JavaScript: DOM Manipulation, Events, and Event Handling">
                         <a href="./Class/Day 15 - 10 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 15</span>
@@ -314,7 +327,7 @@
                         </a>
                     </li>
                     <!-- Day 16, 17 & 18 -->
-                    <li>
+                    <li data-day="16, 17 & 18" data-topics="Clone: Mi Website Clone Project">
                         <a href="./Clone/mi-clone/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 16, 17 & 18</span>
@@ -334,7 +347,7 @@
                         </a>
                     </li>
                     <!-- Day 19 -->
-                    <li>
+                    <li data-day="19" data-topics="JavaScript: Event Handling">
                         <a href="./Class/Day 19 - 16 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 19</span>
@@ -350,7 +363,7 @@
                         </a>
                     </li>
                     <!-- Day 20 -->
-                    <li>
+                    <li data-day="20" data-topics="JavaScript: DOM Manipulation">
                         <a href="./Class/Day 20 - 17 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 20</span>
@@ -366,7 +379,7 @@
                         </a>
                     </li>
                     <!-- Day 21 -->
-                    <li>
+                    <li data-day="21" data-topics="JavaScript: DOM Manipulation, Events, and Event Handling">
                         <a href="./Class/Day 21 - 18 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 21</span>
@@ -382,7 +395,7 @@
                         </a>
                     </li>
                     <!-- Day 22 -->
-                    <li>
+                    <li data-day="22" data-topics="JavaScript: DOM Manipulation, Events, and Event Handling">
                         <a href="./Class/Day 22 - 21 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 22</span>
@@ -398,7 +411,7 @@
                         </a>
                     </li>
                     <!-- Day 23 -->
-                    <li>
+                    <li data-day="23" data-topics="JavaScript: DOM Manipulation, Events, and Event Handling">
                         <a href="./Class/Day 23 - 28 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 23</span>
@@ -414,7 +427,7 @@
                         </a>
                     </li>
                     <!-- Day 24 -->
-                    <li>
+                    <li data-day="24" data-topics="JavaScript: DOM Manipulation, Events, and Event Handling">
                         <a href="./Class/Day 24 - 29 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 24</span>
@@ -431,7 +444,7 @@
                         </a>
                     </li>
                     <!-- Day 25 -->
-                    <li>
+                    <li data-day="25" data-topics="JavaScript: Error Handling, Search">
                         <a href="./Class/Day 25 - 30 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 25</span>
@@ -448,7 +461,7 @@
                         </a>
                     </li>
                     <!-- Day 26 -->
-                    <li>
+                    <li data-day="26" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 26 - 31 July 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 26</span>
@@ -469,7 +482,7 @@
                         </a>
                     </li>
                     <!-- Day 27 -->
-                    <li>
+                    <li data-day="27" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 27 - 1 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 27</span>
@@ -485,7 +498,7 @@
                         </a>
                     </li>
                     <!-- Day 28, 29 & 30 -->
-                    <li>
+                    <li data-day="28, 29 & 30" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 28,29,30 - 4,5,6 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 28, 29 & 30</span>
@@ -501,7 +514,7 @@
                         </a>
                     </li>
                     <!-- Day 31 & 32 -->
-                    <li>
+                    <li data-day="31 & 32" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 31,32 - 7,8 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 31 & 32</span>
@@ -518,7 +531,7 @@
                         </a>
                     </li>
                     <!-- Day 33 -->
-                    <li>
+                    <li data-day="33" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 33 - 12 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 33</span>
@@ -535,7 +548,7 @@
                         </a>
                     </li>
                     <!-- Day 34 -->
-                    <li>
+                    <li data-day="34" data-topics="JavaScript: Asynchronous Programming, Promises, and Async/Await">
                         <a href="./Class/Day 34 - 13 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 34</span>
@@ -544,15 +557,15 @@
                                 <i class="fas fa-cogs text-blue-400 group-hover:text-blue-600"></i>
                             </div>
                             <ul class="list-disc list-inside text-sm text-gray-700 group-hover:text-blue-700 transition">
-                                <li>
-                                    <i class="fas fa-cogs mr-1"></i>
+                                <l
+                                    <i class="fa fa-cogs mr-1"></i>
                                     <span class="font-bold">DSA:</span> Array Manipulation - Advanced Techniques
                                 </li>
                             </ul>
                         </a>
                     </li>
                     <!-- Day 35 -->
-                    <li>
+                    <li data-day="35" data-topics="DSA: Array Manipulation - Final Thoughts">
                         <a href="./Class/Day 35 - 14 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 35</span>
@@ -569,7 +582,7 @@
                         </a>
                     </li>
                     <!-- Day 36 & 37 -->
-                    <li>
+                    <li data-day="36, 37" data-topics="Node.js: Basics">
                         <a href="./Class/Day 36,37 - 18,19 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 36 & 37</span>
@@ -585,7 +598,7 @@
                         </a>
                     </li>
                     <!-- Day 38 -->
-                    <li>
+                    <li data-day="38" data-topics="Node.js: Basics & DSA: Array Manipulation - Sorting Algorithms">
                         <a href="./Class/Day 38 - 20 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 38</span>
@@ -606,7 +619,7 @@
                         </a>
                     </li>
                     <!-- Day 39 -->
-                    <li>
+                    <li data-day="39" data-topics="DSA: Array Manipulation - Works">
                         <a href="./Class/Day 39 - 21 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 39</span>
@@ -622,7 +635,7 @@
                         </a>
                     </li>
                     <!-- Day 40 -->
-                    <li>
+                    <li data-day="40" data-topics="DSA: Array Manipulation - Works">
                         <a href="./Class/Day 40 - 22 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 40</span>
@@ -638,7 +651,7 @@
                         </a>
                     </li>
                     <!-- Day 41 -->
-                    <li>
+                    <li data-day="41" data-topics="DSA: Array Manipulation - Linked List & Node.js: Basics">
                         <a href="./Class/Day 41 - 25 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 41</span>
@@ -659,7 +672,7 @@
                         </a>
                     </li>
                     <!-- Day 42 -->
-                    <li>
+                    <li data-day="42" data-topics="Node.js: Basics">
                         <a href="./Class/Day 42 - 26 August 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 42</span>
@@ -676,7 +689,7 @@
                         </a>
                     </li>
                     <!-- Day 43 -->
-                    <li>
+                    <li data-day="43" data-topics="DSA: Array Manipulation - Working">
                         <a href="./Class/Day 43 - 1 September 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 43</span>
@@ -692,7 +705,7 @@
                         </a>
                     </li>
                     <!-- Day 44 -->
-                    <li>
+                    <li data-day="44" data-topics="DSA: Array Manipulation - Working">
                         <a href="./Class/Day 44 - 3 September 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
                             <div class="flex items-center gap-3 mb-2">
                                 <span class="text-blue-700 font-bold text-lg">Day 44</span>
@@ -707,31 +720,77 @@
                             </ul>
                         </a>
                     </li>
+                    <!-- Day 45 -->
+                    <li data-day="45" data-topics="DSA: Array Manipulation - Working">
+                        <a href="./Class/Day 45 - 9 September 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-blue-700 font-bold text-lg">Day 45</span>
+                                <i class="fas fa-info-circle text-blue-400 group-hover:text-blue-700"></i>
+                                <i class="fas fa-th-list text-green-400 group-hover:text-blue-600"></i>
+                            </div>
+                            <ul class="list-disc list-inside text-sm text-gray-700 group-hover:text-blue-700 transition">
+                                <li>
+                                    <i class="fas fa-th-list mr-1"></i>
+                                    <span class="font-bold">DSA:</span> Array Manipulation - Working
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <!-- Day 46 to 50 -->
+                    <li data-day="46 to 50" data-topics="MySQL: Basics & Integration, Node.js: MySQL Connectivity">
+                        <a href="./Class/Day 46 to 50 - 10 to 16 September 2025/index.html" class="block bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-xl p-5 shadow-lg group transition h-full border border-blue-100">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="text-blue-700 font-bold text-lg">Day 46 to 50</span>
+                                <i class="fas fa-info-circle text-blue-400 group-hover:text-blue-700"></i>
+                                <i class="fab fa-node-js text-green-400 group-hover:text-blue-600"></i>
+                                <i class="fas fa-database text-blue-500 group-hover:text-blue-600"></i>
+                            </div>
+                            <ul class="list-disc list-inside text-sm text-gray-700 group-hover:text-blue-700 transition">
+                                <li>
+                                    <i class="fas fa-database mr-1 text-blue-500"></i>
+                                    <span class="font-bold">MySQL:</span> Basics & Integration
+                                </li>
+                                <li>
+                                    <i class="fab fa-node-js mr-1 text-green-500"></i>
+                                    <span class="font-bold">Node.js:</span> MySQL Connectivity
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
                 </ul>
             </section>
 
             <!-- Homework & Clone Section -->
             <div class="flex flex-col gap-8 w-full md:w-1/3">
                 <!-- Homeworks Card -->
-                <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl shadow-2xl p-8 border border-blue-200 transition hover:shadow-blue-200">
-                    <h2 class="text-2xl font-extrabold text-center mb-6 border-b pb-3 text-blue-700 flex items-center justify-center gap-2">
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
+                <section
+                    class="bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl shadow-2xl p-8 border border-blue-200 transition hover:shadow-blue-200">
+                    <h2
+                        class="text-2xl font-extrabold text-center mb-6 border-b pb-3 text-blue-700 flex items-center justify-center gap-2">
+                        <span
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
                             <i class="fas fa-book text-blue-700"></i>
                         </span>
                         Homeworks
                     </h2>
                     <ul class="space-y-4 text-base">
                         <li>
-                            <a href="./Homework/Day 2 - Newspaper/index.html" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
-                                    <i class="fas fa-newspaper text-blue-600"></i>
+                            <a href="./Homework/Day 2 - Newspaper/index.html"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
+                                    <i
+                                        class="fas fa-newspaper text-blue-600"></i>
                                 </span>
                                 Newspaper
                             </a>
                         </li>
                         <li>
-                            <a href="./Homework/Day 4 - Page With CSS/index.html" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
+                            <a
+                                href="./Homework/Day 4 - Page With CSS/index.html"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
                                     <i class="fas fa-blog text-pink-500"></i>
                                 </span>
                                 Blog
@@ -741,42 +800,55 @@
                 </section>
 
                 <!-- Clone Projects Card -->
-                <section class="bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl shadow-2xl p-8 border border-blue-200 transition hover:shadow-blue-200">
-                    <h2 class="text-2xl font-extrabold text-center mb-6 border-b pb-3 text-blue-700 flex items-center justify-center gap-2">
-                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
+                <section
+                    class="bg-gradient-to-br from-blue-50 via-white to-blue-100 rounded-3xl shadow-2xl p-8 border border-blue-200 transition hover:shadow-blue-200">
+                    <h2
+                        class="text-2xl font-extrabold text-center mb-6 border-b pb-3 text-blue-700 flex items-center justify-center gap-2">
+                        <span
+                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
                             <i class="fas fa-clone text-blue-700"></i>
                         </span>
                         Clone Projects
                     </h2>
                     <ul class="space-y-4 text-base">
                         <li>
-                            <a href="./Clone/Instagram/index.html" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-pink-50">
-                                    <i class="fab fa-instagram text-pink-500"></i>
+                            <a href="./Clone/Instagram/index.html"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-pink-50">
+                                    <i
+                                        class="fab fa-instagram text-pink-500"></i>
                                 </span>
                                 Instagram Login
                             </a>
                         </li>
                         <li>
-                            <a href="./Clone/Nike/index.html" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100">
+                            <a href="./Clone/Nike/index.html"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100">
                                     <i class="fab fa-nike text-black"></i>
                                 </span>
                                 Nike Website
                             </a>
                         </li>
                         <li>
-                            <a href="./Clone/mercedes-benz/index.html" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100">
+                            <a href="./Clone/mercedes-benz/index.html"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-100">
                                     <i class="fas fa-car text-gray-700"></i>
                                 </span>
                                 Mercedes-Benz Website
                             </a>
                         </li>
                         <li>
-                            <a href="https://klrab3490.github.io/mi-clone/" class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
-                                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
-                                    <i class="fab fa-microsoft text-blue-700"></i>
+                            <a href="https://klrab3490.github.io/mi-clone/"
+                                class="flex items-center gap-3 bg-white/80 rounded-xl px-4 py-3 shadow hover:bg-blue-50 hover:text-blue-900 transition font-medium border border-blue-100">
+                                <span
+                                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50">
+                                    <i
+                                        class="fab fa-microsoft text-blue-700"></i>
                                 </span>
                                 Mi Website
                             </a>
@@ -784,17 +856,45 @@
                     </ul>
                 </section>
             </div>
-            
+
         </main>
 
         <!-- Footer -->
-        <footer class="text-center text-sm text-gray-600 py-8 mt-10 bg-white/80 border-t border-blue-100">
+        <footer
+            class="text-center text-sm text-gray-600 py-8 mt-10 bg-white/80 border-t border-blue-100">
             <span class="flex items-center justify-center gap-2">
                 <i class="fas fa-copyright"></i>
                 2025 Techmaghi Works by
-                <a href="https://rahulab.vercel.app/" class="text-blue-700 hover:underline font-semibold">Rahul A B</a>
+                <a href="https://rahulab.vercel.app/"
+                    class="text-blue-700 hover:underline font-semibold">Rahul A
+                    B</a>
             </span>
         </footer>
+        <script>
+            function filterClassList() {
+                const input = document.getElementById('class-search').value.trim().toLowerCase();
+                const items = document.querySelectorAll('#class-list > li');
+                let found = false;
+                items.forEach(li => {
+                    const day = li.getAttribute('data-day') || '';
+                    const topics = li.getAttribute('data-topics') || '';
+                    const text = li.textContent.toLowerCase();
+                    if (
+                        input === '' ||
+                        day.includes(input) ||
+                        topics.includes(input) ||
+                        text.includes(input)
+                    ) {
+                        li.style.display = '';
+                        found = true;
+                    } else {
+                        li.style.display = 'none';
+                    }
+                });
+                document.getElementById('no-results').classList.toggle('hidden', found);
+            }
+            document.getElementById('class-search').addEventListener('input', filterClassList);
+            </script>
 
     </body>
 </html>
