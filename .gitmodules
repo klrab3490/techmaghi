@@ -11,9 +11,9 @@
 	url = https://github.com/klrab3490/techmaghi-blog.git
 
 [submodule "Task Manager API"]
-	path = Class/Day 46,47,48,49 - 10,11,12,15 September 2025/node/task
+	path = Class/Day 46 to 50 - 10 to 16 September 2025/node/task
 	url = https://github.com/klrab3490/task-manager-api.git
 	
-[submodule "Class/Day 46,47,48,49 - 10,11,12,15 September 2025/node/blog"]
-	path = Class/Day 46,47,48,49 - 10,11,12,15 September 2025/node/blog
+[submodule "Blog Project Final"]
+	path = Class/Day 46 to 50 - 10 to 16 September 2025/node/blog
 	url = https://github.com/klrab3490/techmaghi-blog.git
