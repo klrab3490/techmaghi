@@ -78,3 +78,71 @@ select d.dept_name, ifnull(round(avg(e.salary), 2), 0) as avg_salary from depart
 
 -- Question 3
 -- Craete Tables: Students and Marks
+create table students(
+    student_id int primary key,
+    student_name varchar(100) not null
+);
+
+create table marks(
+    mark_id int primary key,
+    student_id int,
+    subject varchar(100) not null,
+    score int not null,
+    foreign key (student_id) references students(student_id)
+);
+
+-- Insert Data
+insert into students (student_id, student_name) values
+    (1, 'Rahul'),
+    (2, 'Priya'),
+    (3, 'Amit');
+
+insert into marks (mark_id, student_id, subject, score) values
+    (201, 1, 'Math', 85),
+    (202, 1, 'Science', 90),
+    (203, 2, 'Math', 70);
+
+-- Task 1: Display each student's highest marks accross all subjects
+select s.student_name, ifnull(max(m.score), 0) as highest_score from students s left join marks m on s.student_id = m.student_id group by s.student_name;
+
+-- Task 2: Show all students even if they dont have any marks left join
+select s.student_name, ifnull(max(m.score), 0) as highest_score from students s left join marks m on s.student_id = m.student_id group by s.student_name;
+
+-- Task 3: Sort highest marks in descending order
+select s.student_name, ifnull(max(m.score), 0) as highest_score from students s left join marks m on s.student_id = m.student_id group by s.student_name order by highest_score desc;
+
+
+-- Question 4
+-- Create Tables: Teachers and Courses
+create table teachers(
+    teacher_id int primary key,
+    teacher_name varchar(100) not null
+);
+
+create table courses(
+    course_id int primary key,
+    course_name varchar(100) not null,
+    teacher_id int not null,
+    enrolled_students int not null,
+    foreign key (teacher_id) references teachers(teacher_id)
+);
+
+-- Insert Data
+insert into teachers (teacher_id, teacher_name) values
+    (1, 'Mr. Smith'),
+    (2, 'Ms. Johnson'),
+    (3, 'Dr. Lee');
+
+insert into courses (course_id, course_name, teacher_id, enrolled_students) values
+    (301, 'Math', 1, 40),
+    (302, 'Physics', 1, 35),
+    (303, 'Chemistry', 2, 30);
+
+-- Task 1: For each teacher, display total number of students enrolled in their courses
+select t.teacher_name, ifnull(sum(c.enrolled_students), 0) as total_students from teachers t left join courses c on t.teacher_id = c.teacher_id group by t.teacher_name;
+
+-- Task 2: Inner join to show only teachers with atleast 1 courses
+select t.teacher_name, sum(c.enrolled_students) as total_students from teachers t inner join courses c on t.teacher_id = c.teacher_id group by t.teacher_name;
+
+-- Task 3: use aggregate function sum for enrolled students
+select t.teacher_name, ifnull(sum(c.enrolled_students), 0) as total_students from teachers t left join courses c on t.teacher_id = c.teacher_id group by t.teacher_name;
