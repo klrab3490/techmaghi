@@ -1,5 +1,3 @@
-import React from "react"
-
 interface ProductCardProps {
   name: string
   price: number
@@ -14,7 +12,7 @@ export default function ProductCard({
   image,
 }: ProductCardProps) {
   return (
-    <div className="rounded-2xl shadow-md border p-4 w-64 bg-card text-card-foreground hover:shadow-lg transition-all duration-300">
+    <div className="rounded-2xl shadow-md border p-4 w-64 bg-card text-card-foreground dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-700 hover:shadow-lg transition-all duration-300">
       {image && (
         <img
           src={image}
@@ -23,10 +21,12 @@ export default function ProductCard({
         />
       )}
       <h2 className="text-lg font-semibold mb-1">{name}</h2>
-      <p className="text-sm text-muted-foreground mb-2">{description}</p>
+      <p className="text-sm text-muted-foreground dark:text-muted-foreground/80 mb-2">
+        {description}
+      </p>
       <div className="flex justify-between items-center">
-        <span className="font-bold text-primary">₹{price}</span>
-        <button className="px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md hover:opacity-90">
+        <span className="font-bold text-primary dark:text-primary-300">₹{price}</span>
+        <button className="px-3 py-1 text-sm bg-black text-white dark:bg-white dark:text-black rounded-md hover:opacity-90">
           Add to Cart
         </button>
       </div>
