@@ -1,26 +1,39 @@
-import React, { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
+import React, { useState } from "react";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useUser } from "@/context/UserContext.tsx";
+import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Login() {
-  const [isLogin, setIsLogin] = useState(true)
+  const { login, register } = useUser();
+  const [isLogin, setIsLogin] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (isLogin) {
-      console.log("Login submitted")
-    } else {
-      console.log("Registration submitted")
+    setLoading(true)
+    try {
+      if (isLogin) {
+        await login(
+          (e.target as any).email.value,
+          (e.target as any).password.value
+        );
+        console.log("Login submitted");
+      } else {
+        await register(
+          (e.target as any).name.value,
+          (e.target as any).email.value,
+          (e.target as any).password.value
+        );
+        console.log("Registration submitted")
+      }
+    } catch (error) {
+      console.error("Error occurred:", error)
+    } finally {
+      (e.target as any).reset()
+      setLoading(false)
     }
   }
 
@@ -57,8 +70,8 @@ export default function Login() {
               <Input id="password" type="password" placeholder="••••••••" required />
             </div>
 
-            <Button type="submit" className="w-full">
-              {isLogin ? "Login" : "Register"}
+            <Button type="submit" className="w-full" disabled={loading}>
+              {isLogin ? (loading ? "Processing..." : "Login") : (loading ? "Processing..." : "Register")}
             </Button>
           </form>
         </CardContent>
@@ -73,6 +86,7 @@ export default function Login() {
                 variant="ghost"
                 onClick={() => setIsLogin(false)}
                 className="text-blue-600 hover:underline"
+                disabled={loading}
               >
                 Create one
               </Button>
@@ -84,8 +98,9 @@ export default function Login() {
                 variant="ghost"
                 onClick={() => setIsLogin(true)}
                 className="text-blue-600 hover:underline"
+                disabled={loading}
               >
-                Login instead
+                Login
               </Button>
             </>
           )}
