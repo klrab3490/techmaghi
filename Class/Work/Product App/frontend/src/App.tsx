@@ -1,9 +1,11 @@
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Navbar from '@/components/custom/Navbar'
-import { Routes, Route } from 'react-router-dom'
-import { UserProvider } from '@/context/UserContext.tsx'
-import { ThemeProvider } from '@/components/dark/theme-provider.tsx'
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Navbar from '@/components/custom/Navbar';
+import { Routes, Route } from 'react-router-dom';
+import { UserProvider } from '@/context/UserContext';
+import ProtectedRoute from '@/context/ProtectedRoute';
+import { ThemeProvider } from '@/components/dark/theme-provider';
 
 
 function App() {
@@ -15,6 +17,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+
         </Routes>
       </ThemeProvider>
     </UserProvider>
