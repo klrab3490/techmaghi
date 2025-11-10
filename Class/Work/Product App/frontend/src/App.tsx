@@ -1,31 +1,47 @@
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Navbar from '@/components/custom/Navbar';
-import { Routes, Route } from 'react-router-dom';
-import { UserProvider } from '@/context/UserContext';
-import ProtectedRoute from '@/context/ProtectedRoute';
-import { ThemeProvider } from '@/components/dark/theme-provider';
+import { Routes, Route } from "react-router-dom";
+import { UserProvider } from "@/context/UserContext";
+import ProtectedRoute from "@/context/ProtectedRoute";
+import { ThemeProvider } from "@/components/dark/theme-provider";
 
+import Home from "@/pages/Home";
+import Login from "@/pages/Login";
+import Products from "@/pages/Products";
+import Dashboard from "@/pages/Dashboard";
+import Unauthorized from "@/pages/Unauthorized";
+import Navbar from "@/components/custom/Navbar";
 
-function App() {
+export default function App() {
   return (
-    <UserProvider>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+    <ThemeProvider>
+      <UserProvider>
         <Navbar />
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/unauthorized" element={<Unauthorized />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
+          {/* Protected Routes */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
 
+          <Route
+            path="/dashboard/products"
+            element={
+              <ProtectedRoute roles={["admin"]}>
+                <Products />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </ThemeProvider>
-    </UserProvider>
-  )
+      </UserProvider>
+    </ThemeProvider>
+  );
 }
-
-export default App

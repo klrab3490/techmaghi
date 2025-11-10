@@ -1,41 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useUser } from "@/context/UserContext.tsx";
+import { useUser } from "@/context/UserContext";
 import { Separator } from "@/components/ui/separator";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Login() {
-  const { login, register } = useUser();
+  const { user, login, register } = useUser();
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+  // ✅ Automatically redirect logged-in users
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    const form = e.target as HTMLFormElement;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement)
+      .value;
+
     try {
       if (isLogin) {
-        await login(
-          (e.target as any).email.value,
-          (e.target as any).password.value
-        );
-        console.log("Login submitted");
+        await login(email, password);
+        console.log("✅ Login successful");
+        navigate("/dashboard", { replace: true });
       } else {
-        await register(
-          (e.target as any).name.value,
-          (e.target as any).email.value,
-          (e.target as any).password.value
-        );
-        console.log("Registration submitted")
+        const name = (form.elements.namedItem("name") as HTMLInputElement).value;
+        await register(name, email, password);
+        console.log("✅ Registration successful");
+        setIsLogin(true); // Switch to login after successful registration
       }
-    } catch (error) {
-      console.error("Error occurred:", error)
+    } catch (err: any) {
+      console.error("❌ Error occurred:", err);
+      setError(err.message || "Something went wrong.");
     } finally {
-      (e.target as any).reset()
-      setLoading(false)
+      form.reset();
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-950">
@@ -62,16 +83,32 @@ export default function Login() {
 
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="you@example.com" required />
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="••••••••" required />
+              <Input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                required
+              />
             </div>
 
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+
             <Button type="submit" className="w-full" disabled={loading}>
-              {isLogin ? (loading ? "Processing..." : "Login") : (loading ? "Processing..." : "Register")}
+              {loading
+                ? "Processing..."
+                : isLogin
+                  ? "Login"
+                  : "Register"}
             </Button>
           </form>
         </CardContent>
@@ -107,5 +144,5 @@ export default function Login() {
         </CardFooter>
       </Card>
     </div>
-  )
+  );
 }

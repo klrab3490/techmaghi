@@ -111,7 +111,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(`${backend}/api/products`, {
+      const response = await fetch(`${backend}/api/products/`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
